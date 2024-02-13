@@ -1,4 +1,5 @@
 import NavBar from '../components/home_screen/nav_bar/NavBar'
+import Presentation from '../components/home_screen/presentation/Presentation'
 
 import { useThemeContext } from '../ThemeContext';
 
@@ -9,6 +10,7 @@ export default function HomeScreen(){
   return (
     <div className={'h-screen w-full ' + theme.mainBgColor}>
       <NavBar></NavBar>
+      <Presentation></Presentation>
     </div>
   )
 }

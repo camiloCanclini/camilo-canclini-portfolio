@@ -1,0 +1,18 @@
+.fading-5 {
+  background: 
+     linear-gradient(-45deg, transparent calc(100%/2.5), rgba(252, 252, 252, 0.2), transparent calc(200%/3)) 
+     bottom right/350% 100% no-repeat;
+  transition: 0.5s linear, background-size 0s 0.5s;
+}
+.fading-5:hover {
+  background-position: bottom left;
+  background-size: 0 0;
+}
+.hide-nav{
+  transition: 1.6s all ease-in-out;
+  top: 0
+}
+.show-nav{
+  top: -100%;
+  transition: 1.6s all ease-in-out;
+}

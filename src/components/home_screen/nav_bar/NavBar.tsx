@@ -1,7 +1,8 @@
 //import './NavBar.css'
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useThemeContext } from "../../../ThemeContext"
 import MenuBtn from './menu_btn/MenuBtn';
+import './NavBar.css';
 
 interface NavOptionProps {
   label: string;
@@ -10,7 +11,7 @@ interface NavOptionProps {
 
 function NavOption({ label, link }: NavOptionProps): JSX.Element {
   return (
-    <a href={link} className="nav_option text-lg px-6 h-full flex items-center justify-center basis-32 grow hover:bg-slate-100/5">
+    <a href={link} className="fading-5 nav_option text-lg px-6 h-full flex items-center justify-center basis-32 grow">
       {label}
     </a>
   );
@@ -19,21 +20,28 @@ function NavOption({ label, link }: NavOptionProps): JSX.Element {
 function NavBar() {
   const { theme } = useThemeContext()
   const [width, setWidth] = useState(window.innerWidth);
+  const [showNavbar, setShowNavbar] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
     };
+    const handleScroll = () => {
+      const currentPosition = window.scrollY || window.pageYOffset;
+      setShowNavbar(currentPosition < 300);
+    };
 
     window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
-    <nav id="nav_container" className={'flex items-center px-20 h-16 ' + theme.mainColor + ' ' + theme.mainTextColor}>
+    <nav id="nav_container" className={'flex items-center px-20 h-16 w-full fixed z-30 ' + (showNavbar ? 'show-nav': 'hide-nav') + ' ' + theme.mainColor + ' ' + theme.mainTextColor}>
         <p className="text-2xl">Camilo Canclini</p>
             <div className="nav_options grow h-full items-center flex ml-auto max-w-3xl justify-end">
               {
