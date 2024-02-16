@@ -8,7 +8,7 @@ export default function HomeScreen(){
   const { theme } = useThemeContext();
 
   return (
-    <div className={'h-screen w-full ' + theme.mainBgColor}>
+    <div className={'w-screen ' + theme.mainBgColor}>
       <NavBar></NavBar>
       <Presentation></Presentation>
     </div>
