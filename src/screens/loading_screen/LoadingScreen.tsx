@@ -1,5 +1,5 @@
 import './LoadingScreen.css'
-import { useThemeContext } from '../../ThemeContext';
+import { useThemeContext } from '@/providers/ThemeContext';
 
 export default function LoadingScreen() {
   

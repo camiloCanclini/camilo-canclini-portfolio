@@ -1,9 +1,9 @@
 //import './NavBar.css'
-import { useThemeContext } from "../../../ThemeContext"
+import { useThemeContext } from "@/providers/ThemeContext"
 import { useEffect, useState } from "react"
 
-import bgVideo from '../../../assets/videos/welcome.mp4'
-import icon from '../../../assets/icons/camilo.png'
+import bgVideo from '@/assets/videos/welcome.mp4'
+import icon from '@/assets/icons/camilo.png'
 import './Presentation.css'
 import WelcomeText from "./welcome_text/WelcomeText"
 

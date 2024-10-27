@@ -1,7 +1,7 @@
-import NavBar from '../components/home_screen/nav_bar/NavBar'
-import Presentation from '../components/home_screen/presentation/Presentation'
+import NavBar from '@/components/home_screen/nav_bar/NavBar'
+import Presentation from '@/components/home_screen/presentation/Hero'
 
-import { useThemeContext } from '../ThemeContext';
+import { useThemeContext } from '@/providers/ThemeContext';
 
 export default function HomeScreen(){
   

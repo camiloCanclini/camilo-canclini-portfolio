@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ThemeContextProvider } from './ThemeContext'
+import { ThemeContextProvider } from '@/providers/ThemeContext'
 import './App.css'
-import HomeScreen from './screens/HomeScreen'
-import LoadingScreen from './screens/loading_screen/LoadingScreen';
+import HomeScreen from  '@/screens/HomeScreen'
+import LoadingScreen from '@/screens/loading_screen/LoadingScreen';
 
 function App() {
   const timeLoading = 3000;

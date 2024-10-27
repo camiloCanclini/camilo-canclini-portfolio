@@ -1,6 +1,6 @@
 //import './NavBar.css'
 import { useState, useEffect } from 'react';
-import { useThemeContext } from "../../../ThemeContext"
+import { useThemeContext } from "@/providers/ThemeContext"
 import MenuBtn from './menu_btn/MenuBtn';
 import './NavBar.css';
 

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // ThemeContext.tsx
 import React, { createContext, useState, useContext, ReactNode } from 'react';
-import { darkTheme, lightTheme, Theme} from './providers/Theme'
+import { darkTheme, lightTheme, Theme} from './Themes'
 
 interface ThemeContextType {
   isDark: boolean;
