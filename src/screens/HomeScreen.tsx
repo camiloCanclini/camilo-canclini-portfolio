@@ -1,5 +1,5 @@
 import NavBar from '@/components/home_screen/nav_bar/NavBar'
-import Presentation from '@/components/home_screen/presentation/Hero'
+import Hero from '@/components/home_screen/hero/Hero'
 
 import { useThemeContext } from '@/providers/ThemeContext';
 
@@ -10,7 +10,7 @@ export default function HomeScreen(){
   return (
     <div className={'w-screen ' + theme.mainBgColor}>
       <NavBar></NavBar>
-      <Presentation></Presentation>
+      <Hero></Hero>
     </div>
   )
 }

@@ -1,13 +1,13 @@
 //import './NavBar.css'
-import { useThemeContext } from "@/providers/ThemeContext"
+//import { useThemeContext } from "@/providers/ThemeContext"
 import { useEffect, useState } from "react"
 
 import bgVideo from '@/assets/videos/welcome.mp4'
 import icon from '@/assets/icons/camilo.png'
-import './Presentation.css'
-import WelcomeText from "./welcome_text/WelcomeText"
+import './Hero.css'
+import WelcomeText from "./main_text/MainText"
 
-function Presentation() {
+function Hero() {
 
   //let theme = useThemeContext()
   const [showIcon, setShowIcon] = useState(false)
@@ -46,4 +46,4 @@ function Presentation() {
   )
 }
 
-export default Presentation
+export default Hero
