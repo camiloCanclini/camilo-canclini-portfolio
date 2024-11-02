@@ -7,6 +7,10 @@ const WelcomeText = () => {
       <ReactTypingEffect
         text={["Hello world!", "I'm Camilo Canclini", "And I'm web developer"]}
         className='text-white text-4xl'
+        speed={70}
+        typingDelay={1000}
+        eraseDelay={2000}
+        eraseSpeed={50}
       />
     </>
   );

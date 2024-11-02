@@ -1,0 +1,151 @@
+[
+  {
+    "title": "Tic Tac Toe",
+    "description": "My first app using React and Tailwind!",
+    "technologies": [
+      {
+        "icon": "fa-brands fa-react",
+        "title": "REACT",
+        "color": "hover:text-blue-400 ease-in-out duration-150"
+      },
+      {
+        "icon": "fa-brands fa-node",
+        "title": "NODEJS",
+        "color": "hover:text-green-400 ease-in-out duration-150"
+      }
+    ],
+    "liveDemoLink": "https://camilocanclini.github.io/TicTacToe/",
+    "repoLink": "https://github.com/camiloCanclini/to-do-list",
+    "placeholderImage": "/src/assets/img/sections/projects/tictactoe/1.gif",
+    "images":[
+      "/src/assets/img/sections/projects/tictactoe/1.gif"
+    ]
+  },
+  {
+    "title": "To do List",
+    "description": "My first web app using MongoDb and implementing the NodeJs template engine",
+    "technologies": [
+      {
+        "icon": "fa-brands fa-node",
+        "title": "NODEJS",
+        "color": "hover:text-amber-500 ease-in-out duration-150"
+      },
+      {
+        "icon": "fa-solid fa-database",
+        "title": "MONGODB",
+        "color": "hover:text-green-500 ease-in-out duration-150"
+      },
+      {
+        "icon": "fa-solid fa-globe",
+        "title": "WEBAPP",
+        "color": "hover:text-amber-500 ease-in-out duration-150"
+      }
+    ],
+    
+    "repoLink": "https://github.com/camiloCanclini/to-do-list",
+    "placeholderImage": "/src/assets/img/sections/projects/todolist/1.gif",
+    "images":[
+      "/src/assets/img/sections/projects/tictactoe/1.gif"
+    ]
+  },
+  {
+    "title": "Card Game",
+    "description": "Online card game developed with Java Springboot and React",
+    "technologies": [
+      {
+        "icon": "fa-brands fa-java",
+        "title": "JAVA WITH SPRINGBOOT",
+        "color": "hover:text-amber-500 ease-in-out duration-150"
+      },
+      {
+        "icon": "fa-brands fa-react",
+        "title": "REACT",
+        "color": "hover:text-amber-500 ease-in-out duration-150"
+      },
+      {
+        "icon": "fa-solid fa-globe",
+        "title": "WEBAPP",
+        "color": "hover:text-amber-500 ease-in-out duration-150"
+      }
+    ],
+    "repoLink": "https://github.com/camiloCanclini/RoleGameSpringBoot",
+    "placeholderImage": "/src/assets/img/sections/projects/tictactoe/1.gif",
+    "images":[
+      "/src/assets/img/sections/projects/tictactoe/1.gif"
+    ]
+  },
+  {
+    "title": "Universitary System API",
+    "description": "An API system that manage a little database of a university.",
+    "technologies": [
+      {
+        "icon": "fa-brands fa-java",
+        "title": "JAVA WITH SPRINGBOOT",
+        "color": "hover:text-amber-500 ease-in-out duration-150"
+      }
+    ],
+    "repoLink": "https://github.com/camiloCanclini/SimpleUniversitySytemApi",
+    "placeholderImage": "/src/assets/img/sections/projects/tictactoe/1.gif",
+    "images":[
+      "/src/assets/img/sections/projects/tictactoe/1.gif"
+    ]
+  },
+  {
+    "title": "Mobile Store App",
+    "description": "A little application that simulates an store app. This was my first project using Flutter and Dart!",
+    "technologies": [
+      {
+        "icon": "fa-brands fa-flutter",
+        "title": "FLUTTER",
+        "color": "hover:text-amber-500 ease-in-out duration-150"
+      },
+      {
+        "icon": "fa-brands fa-dart-lang",
+        "title": "DART",
+        "color": "hover:text-amber-500 ease-in-out duration-150"
+      }
+    ],
+    "repoLink": "https://github.com/camiloCanclini/canclini_flutter_app",
+    "placeholderImage": "/src/assets/img/sections/projects/tictactoe/1.gif",
+    "images":[
+      "/src/assets/img/sections/projects/tictactoe/1.gif"
+    ]
+  },
+  {
+    "title": "Cinema console application",
+    "description": "Little application console that manages the sell of cinema tickets. Also one of my first applications using Python!",
+    "technologies": [
+      {
+        "icon": "fa-brands fa-python",
+        "title": "PYTHON",
+        "color": "hover:text-amber-500 ease-in-out duration-150"
+      }
+    ],
+    "repoLink": "https://github.com/camiloCanclini/Python_Proyect_Antunez_Canclini",
+    "placeholderImage": "/src/assets/img/sections/projects/tictactoe/1.gif",
+    "images":[
+      "/src/assets/img/sections/projects/tictactoe/1.gif"
+    ]
+  },
+  {
+    "title": "Cinema Billboard Web",
+    "description": "A little web application that consumes the OmdbApi and shows the billboard, it also has integrate a login system",
+    "technologies": [
+      {
+        "icon": "fa-brands fa-python",
+        "title": "PYTHON",
+        "color": "hover:text-amber-500 ease-in-out duration-150"
+      },
+      {
+        "icon": "fa-solid fa-globe",
+        "title": "WEBAPP",
+        "color": "hover:text-amber-500 ease-in-out duration-150"
+      }
+    ],
+    "repoLink": "https://github.com/camiloCanclini/proyecto-programacionII-Canclini-Antunez",
+    "placeholderImage": "/src/assets/img/sections/projects/tictactoe/1.gif",
+    "images":[
+      "/src/assets/img/sections/projects/tictactoe/1.gif"
+    ]
+  }
+]

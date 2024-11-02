@@ -41,17 +41,17 @@ function NavBar() {
   }, []);
 
   return (
-    <nav id="nav_container" className={'flex items-center px-20 h-16 w-full fixed z-30 ' + (showNavbar ? 'show-nav': 'hide-nav') + ' ' + theme.mainColor + ' ' + theme.mainTextColor}>
+    <nav id="nav_container" style={{zIndex: 999}} className={'flex items-center px-20 h-16 w-full fixed ' + (showNavbar ? 'show-nav': 'hide-nav') + ' ' + theme.mainColor + ' ' + theme.mainTextColor}>
         <p className="text-2xl">Camilo Canclini</p>
             <div className="nav_options grow h-full items-center flex ml-auto max-w-3xl justify-end">
               {
                 width > 1150 ? (
                   <>
-                    <NavOption label="Projects" link="projects_section"/>
-                    <NavOption label="About Me" link="about-me_section"/>
-                    <NavOption label="Carrer" link="carrer_section"/>
-                    <NavOption label="Skills" link="skills_section"/>
-                    <NavOption label="Contact Me" link="contact-me_section"/>
+                    <NavOption label="Projects" link="#projects_section"/>
+                    <NavOption label="About Me" link="#about_me_section"/>
+                    <NavOption label="Carrer" link="#carrer_section"/>
+                    <NavOption label="Skills" link="#skills_section"/>
+                    <NavOption label="Contact Me" link="#contact_me_section"/>
                   </>
                 )
                 :
