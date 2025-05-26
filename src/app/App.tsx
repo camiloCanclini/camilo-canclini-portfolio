@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeContextProvider } from '@/providers/ThemeContext'
 import './App.css'
-import HomeScreen from  '@/screens/HomeScreen'
+import HomeScreen from  '@/screens/home_screen/HomeScreen'
 import LoadingScreen from '@/screens/loading_screen/LoadingScreen';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import jsonData from '@config_files/projects.json';

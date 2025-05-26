@@ -9,10 +9,10 @@
   background-size: 0 0;
 }
 .hide-nav{
-  transition: 1.6s all ease-in-out;
+  transition: 1s all ease-in-out;
   top: 0
 }
 .show-nav{
   top: -100%;
-  transition: 1.6s all ease-in-out;
+  transition: 1s all ease-in-out;
 }

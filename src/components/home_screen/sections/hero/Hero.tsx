@@ -23,7 +23,7 @@ function Hero() {
     <div id="home" className="h-screen w-full relative flex justify-center items-center">
         
         <video src={bgVideo} className="absolute w-full h-full object-cover fadeIn" playsInline autoPlay muted loop />
-        <div className="h-full w-full z-20 flex items-center justify-center transition-all duration-700 ease-in-out">
+        <div className="h-full w-4/5 z-20 flex items-center justify-center transition-all duration-700 ease-in-out">
             <div className={(showIcon? "grow" : "") + " basis-0 text-center transition-all duration-700 ease-in-out"}>
                 {
                   showWelcome? <WelcomeText></WelcomeText> : null

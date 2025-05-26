@@ -26,6 +26,9 @@ export default {
     },
   },
   plugins: [addVariablesForColors],
+  corePlugins: {
+    scrollBehavior: true,
+  },
 }
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).

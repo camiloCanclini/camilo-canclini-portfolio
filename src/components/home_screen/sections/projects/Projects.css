@@ -106,3 +106,15 @@
       border: 5px double white;
       border-radius: 50%;
     }
+
+    .grid-background {
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      background-image: linear-gradient(to right, #ffffff09 1px, transparent 1px),
+        linear-gradient(to bottom, #ffffff09 1px, transparent 1px);
+      background-size: 24px 24px;
+      mask-image: radial-gradient(ellipse at top, #000000, transparent),
+      radial-gradient(ellipse at bottom, #000000, transparent);
+      
+    }

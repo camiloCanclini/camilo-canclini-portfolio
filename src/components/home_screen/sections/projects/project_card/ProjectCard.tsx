@@ -1,30 +1,26 @@
+
 import React from 'react';
+import './ProjectCard.css'
 import { useThemeContext } from '@/providers/ThemeContext';
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import Tilt from "react-parallax-tilt"
-import { motion } from 'framer-motion';
+
 
 export interface ProjectCardInterface {
-  placeholderImage: string
-  images: string[];
   title: string;
   description: string;
   technologies: { icon: string; title: string; color: string }[];
-  liveDemoLink: string | undefined | null;
-  repoLink: string| undefined | null;
+  liveDemoLink?: string;
+  repoLink?: string;
+  placeholderImage: string
+  images: string[];
 }
 
 const ProjectCard: React.FC<{ project: ProjectCardInterface, index: number}> = ({project, index}) => {
   const { theme } = useThemeContext();
+
   return (
-    <motion.div
-      className="card"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.3, duration: 0.5 , ease: 'easeInOut'}} // Cada tarjeta se muestra con un retraso
-    >
-    <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} glareEnable={true} glareMaxOpacity={0.05} glarePosition='all' className='h-full border border-gray-600 rounded-3xl overflow-hidden hover:cursor-pointer'>
-      <div className={" h-full" + " " + [theme.projectsCardBgColor,theme.projectsCardWidth, theme.projectsCardFontColor].join(" ")} >
+    <Tilt perspective={2000} tiltMaxAngleX={10} tiltMaxAngleY={10} glareEnable={true} glareMaxOpacity={0.05} glarePosition='all' className='project-card h-full border border-gray-600 rounded-xl overflow-hidden hover:cursor-pointer'>
+      <div className={" h-full w-full" + " " + [theme.projectsCardBgColor, theme.projectsCardFontColor].join(" ")} >
         <div className="w-full h-1/2" data-pos="0">
           <img className='rounded-b-3xl h-full w-full object-cover' src={project.placeholderImage} />
         </div>
@@ -68,7 +64,7 @@ const ProjectCard: React.FC<{ project: ProjectCardInterface, index: number}> = (
         </div>
       </div>
     </Tilt>
-    </motion.div>
+    
   );
   
 };

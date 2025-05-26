@@ -1,14 +1,10 @@
 import NavBar from '@/components/home_screen/nav_bar/NavBar'
 import Hero from '@/components/home_screen/sections/hero/Hero'
 import Projects from '@/components/home_screen/sections/projects/Projects';
-
+import React from "react";
 import { useThemeContext } from '@/providers/ThemeContext';
-import { PreloadedImageInterface } from '@/app/App'
 import { AboutMe } from '@/components/home_screen/sections/about_me/AboutMe';
-
-/* interface HomeScreenProps {
-  preloadedImages: PreloadedImageInterface[];
-} */
+import { HeroParallax } from '@/components/home_screen/sections/projects_2/Projects2';
 
 const HomeScreen: React.FC = () => {
   
@@ -17,10 +13,17 @@ const HomeScreen: React.FC = () => {
   return (
     <div className={' ' + theme.mainBgColor}>
       <NavBar></NavBar>
-      <Hero></Hero>
-      <div>
-        <Projects></Projects>
-        <div className="shadow-inner">
+      <div className="snap-always snap-center">
+        <Hero></Hero>
+      </div>
+      <div className='snap-always snap-center'>
+        {/* <div className="shadow-inner snap-always snap-center">
+          <HeroParallax></HeroParallax>
+        </div> */}
+        <div className="shadow-inner snap-always snap-center">
+          <Projects></Projects>
+        </div>
+        <div className="shadow-inner snap-always snap-center">
           <AboutMe></AboutMe>
         </div>
       </div>
@@ -29,3 +32,4 @@ const HomeScreen: React.FC = () => {
 }
 
 export default HomeScreen
+

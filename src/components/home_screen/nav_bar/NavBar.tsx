@@ -27,7 +27,7 @@ function NavBar() {
       setWidth(window.innerWidth);
     };
     const handleScroll = () => {
-      const currentPosition = window.scrollY || window.pageYOffset;
+      const currentPosition = window.scrollY;
       setShowNavbar(currentPosition < 300);
     };
 

@@ -16,7 +16,7 @@ export const darkTheme: Theme = {
   mainBgColor: "bg-gray-950",
   titlesSectionSize: "text-5xl",
   projectsCardBgColor: "bg-neutral-950",
-  projectsCardWidth: "max-w-72",
+  projectsCardWidth: "max-w-96",
   projectsCardFontColor: "text-slate-50"
 }
 
@@ -27,6 +27,6 @@ export const lightTheme: Theme = {
   mainBgColor: "bg-zinc-100",
   titlesSectionSize: "text-5xl",
   projectsCardBgColor: "bg-neutral-950",
-  projectsCardWidth: "max-w-72",
+  projectsCardWidth: "max-w-96",
   projectsCardFontColor: "text-zinc-950"
 }
