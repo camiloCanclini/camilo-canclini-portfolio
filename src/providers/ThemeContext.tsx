@@ -25,12 +25,18 @@ interface ThemeContextProviderProps {
 }
 
 export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({ children }) => {
+
   const [isDark, setIsDark] = useState(false);
   const [theme, setTheme] = useState(darkTheme);
 
   const toggleThemeContext = () => {
-    setIsDark(prevMode => !prevMode);
-    setTheme((isDark: any) => isDark ? darkTheme: lightTheme)
+    setIsDark(prev => {
+      const nextIsDark = !prev;
+      setTheme(nextIsDark ? darkTheme : lightTheme);
+      return nextIsDark;
+    });
+
+    setTheme((isDark: Theme) => isDark ? darkTheme: lightTheme)
   };
 
   return (

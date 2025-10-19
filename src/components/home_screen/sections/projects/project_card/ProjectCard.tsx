@@ -30,7 +30,7 @@ const ProjectCard: React.FC<{ project: ProjectCardInterface, index: number}> = (
           <div className="flex justify-between mt-auto">
               <div className='flex items-center gap-2'>
                 {project.technologies.map((tech, index) => (
-                  <div key={index} className={"text-xl" + ""}> {/* If i don´t put that way, it doesn´t work... */}
+                  <div key={index} className={"text-xl" + ""}>
                       <i
                       key={index}
                       className={tech.icon + " " + tech.color}

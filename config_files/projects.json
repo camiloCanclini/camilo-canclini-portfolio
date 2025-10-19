@@ -16,9 +16,9 @@
     ],
     "liveDemoLink": "https://camilocanclini.github.io/TicTacToe/",
     "repoLink": "https://github.com/camiloCanclini/to-do-list",
-    "placeholderImage": "/src/assets/img/sections/projects/tictactoe/1.gif",
+    "placeholderImage": "/public/resources/img/sections/projects/tictactoe/1.gif",
     "images":[
-      "/src/assets/img/sections/projects/tictactoe/1.gif"
+      "/public/resources/img/sections/projects/tictactoe/1.gif"
     ]
   },
   {
@@ -43,9 +43,9 @@
     ],
     
     "repoLink": "https://github.com/camiloCanclini/to-do-list",
-    "placeholderImage": "/src/assets/img/sections/projects/todolist/1.gif",
+    "placeholderImage": "/public/resources/img/sections/projects/todolist/1.gif",
     "images":[
-      "/src/assets/img/sections/projects/tictactoe/1.gif"
+      "/public/resources/img/sections/projects/tictactoe/1.gif"
     ]
   },
   {
@@ -69,9 +69,9 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/RoleGameSpringBoot",
-    "placeholderImage": "/src/assets/img/sections/projects/tictactoe/1.gif",
+    "placeholderImage": "/public/resources/img/sections/projects/tictactoe/1.gif",
     "images":[
-      "/src/assets/img/sections/projects/tictactoe/1.gif"
+      "/public/resources/img/sections/projects/tictactoe/1.gif"
     ]
   },
   {
@@ -85,9 +85,9 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/SimpleUniversitySytemApi",
-    "placeholderImage": "/src/assets/img/sections/projects/tictactoe/1.gif",
+    "placeholderImage": "/public/resources/img/sections/projects/tictactoe/1.gif",
     "images":[
-      "/src/assets/img/sections/projects/tictactoe/1.gif"
+      "/public/resources/img/sections/projects/tictactoe/1.gif"
     ]
   },
   {
@@ -106,9 +106,9 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/canclini_flutter_app",
-    "placeholderImage": "/src/assets/img/sections/projects/tictactoe/1.gif",
+    "placeholderImage": "/public/resources/img/sections/projects/tictactoe/1.gif",
     "images":[
-      "/src/assets/img/sections/projects/tictactoe/1.gif"
+      "/public/resources/img/sections/projects/tictactoe/1.gif"
     ]
   },
   {
@@ -122,9 +122,9 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/Python_Proyect_Antunez_Canclini",
-    "placeholderImage": "/src/assets/img/sections/projects/tictactoe/1.gif",
+    "placeholderImage": "/public/resources/img/sections/projects/tictactoe/1.gif",
     "images":[
-      "/src/assets/img/sections/projects/tictactoe/1.gif"
+      "/public/resources/img/sections/projects/tictactoe/1.gif"
     ]
   },
   {
@@ -143,9 +143,9 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/proyecto-programacionII-Canclini-Antunez",
-    "placeholderImage": "/src/assets/img/sections/projects/tictactoe/1.gif",
+    "placeholderImage": "/public/resources/img/sections/projects/tictactoe/1.gif",
     "images":[
-      "/src/assets/img/sections/projects/tictactoe/1.gif"
+      "/public/resources/img/sections/projects/tictactoe/1.gif"
     ]
   }
 ]

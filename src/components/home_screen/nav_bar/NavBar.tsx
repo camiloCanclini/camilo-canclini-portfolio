@@ -19,7 +19,7 @@ function NavOption({ label, link }: NavOptionProps): JSX.Element {
 
 function NavBar() {
   const { theme } = useThemeContext()
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(() => (typeof window !== 'undefined' ? window.innerWidth : 0)) // this way supports SSR
   const [showNavbar, setShowNavbar] = useState(true);
 
   useEffect(() => {

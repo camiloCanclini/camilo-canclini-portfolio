@@ -2,8 +2,8 @@
 //import { useThemeContext } from "@/providers/ThemeContext"
 import { useEffect, useState } from "react"
 
-import bgVideo from '@/assets/videos/welcome.mp4'
-import icon from '@/assets/icons/camilo.png'
+import bgVideo from '/public/resources/videos/welcome.mp4'
+import icon from '@assets/icons/camilo.png'
 import './Hero.css'
 import WelcomeText from "./main_text/MainText"
 
@@ -35,7 +35,7 @@ function Hero() {
         </div>
         {
           showCvBtn? 
-          <a title="CV" href="resources/docs/cv.pdf" target="_blank" className="text-white z-30 absolute bottom-5 left-0 right-0 flex items-center justify-center">
+          <a title="CV" href="public/resources/docs/cv.pdf" target="_blank" className="text-white z-30 absolute bottom-5 left-0 right-0 flex items-center justify-center">
               <i className="bounceIn fa-solid fa-file-arrow-down text-4xl"></i>
           </a>
           : 
