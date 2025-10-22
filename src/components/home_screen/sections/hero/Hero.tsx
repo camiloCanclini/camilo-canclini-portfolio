@@ -1,49 +1,182 @@
-//import './NavBar.css'
-//import { useThemeContext } from "@/providers/ThemeContext"
-import { useEffect, useState } from "react"
+import { useEffect, useRef } from "react";
+import { motion, useAnimationControls } from "framer-motion";
 
-import bgVideo from '/public/resources/videos/welcome.mp4'
-import icon from '@assets/icons/camilo.png'
-import './Hero.css'
-import WelcomeText from "./main_text/MainText"
+import WriteText from "./main_text/WriteText";
+import HeroImage from "./HeroImage";
+import {
+  createContainerVariants,
+  createImageSimpleVariants,
+  createImageWrapperVariants,
+  createSubtitleWrapperVariants,
+  createTextVariants,
+} from "./animations";
+
+const MotionVideo = motion.video;
+
+// Timings in one place
+const DURATION = {
+  videoFade: 4,
+  resizeTitles: 2,
+  showSubtitle: 2,
+  fadeInImage: 2,
+} as const;
+
+const DELAY = {
+  videoFade: 12,           // video fade starts after 10s
+  HelloWorldTypingStartDelay: 2,     // when to start typing the title
+  showSubtitle: 2,    // small reveal offset in wrapper
+  afterNormalResizeAnimationDelay: 2, // pause after collapsing title
+  subHelloWorldTypingStartDelay: 12,  // when to start typing subtitle (relative to wrapper)
+  fadeInImage: 2,
+  imageWrapperDelay:3
+} as const;
+
+const textVariants = createTextVariants({
+  normalDuration: DURATION.resizeTitles,
+  normalPostDelay: DELAY.afterNormalResizeAnimationDelay,
+});
+
+const subtitleVariants = createSubtitleWrapperVariants({
+  showDuration: DURATION.showSubtitle,
+  showDelay: DELAY.showSubtitle,
+});
+
+
+const imageWrapperVariants = createImageWrapperVariants({
+  visibleDuration: 1,
+  imageWrapperDelay: DELAY.imageWrapperDelay,
+});
+
+const imageVariants = createImageSimpleVariants({
+  fadeInImageDuration: DURATION.fadeInImage,
+  fadeInImageDelay: DELAY.fadeInImage,
+});
+
+const backgroundVideoSrc = "/resources/videos/welcome.mp4";
 
 function Hero() {
+  const textCtr = useAnimationControls();
+  const subtitleCtr = useAnimationControls();
+  const imageCtr = useAnimationControls();
+  const imageWrapperCtr = useAnimationControls();
+  const ranRef = useRef(false);
+  const ranRef2 = useRef(false);
 
-  //let theme = useThemeContext()
-  const [showIcon, setShowIcon] = useState(false)
-  const [showWelcome, setShowWelcome] = useState(false)
-  const [showCvBtn, setShowCvBtn] = useState(false)
-  
-  useEffect(()=>{
-    setTimeout(()=>{setShowIcon(true)},3000)
-    setTimeout(()=>{setShowWelcome(true)},4000)
-    setTimeout(()=>{setShowCvBtn(true)},5000)
-  },[])
+  useEffect(() => {
+    // Initial states for always-mounted wrappers
+    textCtr.set("large");
+    subtitleCtr.set("closed");
+    imageWrapperCtr.set("hidden");
+    imageCtr.set("hidden");
+  }, [textCtr, subtitleCtr, imageWrapperCtr,imageCtr]);
+
+  const handleTitleComplete = async () => {
+    if (ranRef.current) return;
+    ranRef.current = true;
+
+    // 1) Collapse title to the left
+    await textCtr.start("normal").then(()=>{
+      // 2) Open subtitle wrapper
+      subtitleCtr.start("show")
+
+    });
+
+  };
+
+  const handleSubtitleComplete = async () => {
+    if (ranRef2.current) return;
+    ranRef2.current = true;
+
+    // 3) Reveal image
+    await imageWrapperCtr.start("visible"). then(()=>{
+      imageCtr.start("fadeIn");
+    });
+
+  };
+
   return (
-    <div id="home" className="h-screen w-full relative flex justify-center items-center">
-        
-        <video src={bgVideo} className="absolute w-full h-full object-cover fadeIn" playsInline autoPlay muted loop />
-        <div className="h-full w-4/5 z-20 flex items-center justify-center transition-all duration-700 ease-in-out">
-            <div className={(showIcon? "grow" : "") + " basis-0 text-center transition-all duration-700 ease-in-out"}>
-                {
-                  showWelcome? <WelcomeText></WelcomeText> : null
-                }
-            </div>
-            <div className="grow basis-0 h-1/2 z-20 flex justify-center transition-all duration-700 ease-in-out">
-                <img src={icon} className="bounceIn" alt="Camilo Img" id="icon" data-aos="zoom-in" />
-            </div>
-        </div>
-        {
-          showCvBtn? 
-          <a title="CV" href="public/resources/docs/cv.pdf" target="_blank" className="text-white z-30 absolute bottom-5 left-0 right-0 flex items-center justify-center">
-              <i className="bounceIn fa-solid fa-file-arrow-down text-4xl"></i>
-          </a>
-          : 
-          null
-        }
-        
-    </div>
-  )
+    <section
+      id="home"
+      className="relative flex h-screen w-full items-center justify-center overflow-hidden"
+    >
+      <MotionVideo
+        className="absolute inset-0 h-full w-full object-cover brightness-50"
+        src={backgroundVideoSrc}
+        playsInline
+        autoPlay
+        muted
+        loop
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.6 }}
+        transition={{ duration: DURATION.videoFade, delay: DELAY.videoFade, ease: "easeOut" }}
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
+
+      <motion.div
+        className="relative z-20 flex h-full w-4/5 items-center justify-center gap-12"
+        initial="start"
+        animate="withImage"
+        variants={createContainerVariants()}
+      >
+        {/* Title + Subtitle column */}
+        <motion.div
+          className="flex flex-col gap-2"
+          variants={textVariants}
+          initial={false}
+          animate={textCtr}
+          layout="position"
+          transition={{ layout: { type: "spring", stiffness: 50, damping: 10 } }}
+        >
+          <WriteText
+            textToWrite="HELLO WORLD!"
+            className="text-[7em] md:text-[9em] flex font-semibold text-white leading-tight"
+            typingSpeed={90}
+            startDelay={DELAY.HelloWorldTypingStartDelay * 1000}
+            onComplete={handleTitleComplete}
+            as="h1"
+          />
+
+          <motion.div
+            key="hero-subtitle"
+            variants={subtitleVariants}
+            initial="hidden"
+            animate={subtitleCtr}
+            className="w-full"
+            layout="position"
+          >
+            <WriteText
+              textToWrite="I'm Camilo Canclini"
+              className="text-[8em] text-white md:text-[5em]"
+              typingSpeed={90}
+              startDelay={DELAY.subHelloWorldTypingStartDelay * 1000}
+              onComplete={handleSubtitleComplete}
+              as="h2"
+            />
+          </motion.div>
+        </motion.div>
+
+        {/* Image wrapper */}
+        <motion.div
+          layout
+          variants={imageWrapperVariants}
+          initial="hidden"
+          animate={imageWrapperCtr}
+          className="container flex justify-center items-center overflow-hidden"
+        >
+          <motion.div
+            layout
+            variants={imageVariants}
+            initial="hidden"
+            animate={imageCtr}
+            className="flex justify-center items-center overflow-hidden"
+          >
+            <HeroImage />
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </section>
+  );
 }
 
-export default Hero
+export default Hero;
