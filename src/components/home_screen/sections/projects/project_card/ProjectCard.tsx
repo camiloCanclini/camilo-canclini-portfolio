@@ -13,6 +13,7 @@ export interface ProjectCardInterface {
   repoLink?: string;
   placeholderImage: string
   images: string[];
+  year?: number | string; // 👈 NUEVO
 }
 
 const ProjectCard: React.FC<{ project: ProjectCardInterface, index: number}> = ({project, index}) => {

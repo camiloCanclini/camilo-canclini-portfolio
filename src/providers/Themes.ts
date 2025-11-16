@@ -14,7 +14,7 @@ export const darkTheme: Theme = {
   secondaryColor: "bg-slate-600",
   mainTextColor: "text-white",
   mainBgColor: "bg-gray-950",
-  titlesSectionSize: "text-5xl",
+  titlesSectionSize: "text-8xl",
   projectsCardBgColor: "bg-neutral-950",
   projectsCardWidth: "max-w-96",
   projectsCardFontColor: "text-slate-50"

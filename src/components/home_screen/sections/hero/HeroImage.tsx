@@ -8,7 +8,7 @@ export default function HeroImage() {
 
   return (
     <div
-      className="h-[200px] w-[200px] md:h-[500px] md:w-[500px] cursor-pointer relative flex justify-center items-center overflow-hidden rounded-full border-4 border-white/80 p-4 shadow-[0px_20px_45px_rgba(0,0,0,0.35)]"
+      className="h-[200px] w-[200px] md:h-[500px] md:w-[500px] cursor-pointer relative flex justify-center items-center rounded-full border-4 border-white p-4 shadow-[0px_20px_45px_rgba(0,0,0,0.35)]"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -32,18 +32,6 @@ export default function HeroImage() {
         transition={{ duration: 0.6, ease: "easeInOut" }}
       />
 
-      {/* <AnimatePresence mode="wait">
-        <motion.img
-          key={hovered ? "hover" : "base"}
-          src={hovered ? icon1 : icon2}
-          alt="Camilo Canclini"
-          className="bg-black/30 object-cover rounded-full h-full w-full "
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1.05 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-        />
-      </AnimatePresence> */}
     </div>
   );
 }

@@ -2,7 +2,9 @@ import { useEffect, useRef } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 
 import WriteText from "./main_text/WriteText";
-import HeroImage from "./HeroImage";
+
+import HeroImagePersona5 from "./HeroImagePersona5";
+
 import {
   createContainerVariants,
   createImageSimpleVariants,
@@ -10,6 +12,7 @@ import {
   createSubtitleWrapperVariants,
   createTextVariants,
 } from "./animations";
+
 
 const MotionVideo = motion.video;
 
@@ -27,8 +30,8 @@ const DELAY = {
   showSubtitle: 2,    // small reveal offset in wrapper
   afterNormalResizeAnimationDelay: 2, // pause after collapsing title
   subHelloWorldTypingStartDelay: 12,  // when to start typing subtitle (relative to wrapper)
-  fadeInImage: 2,
-  imageWrapperDelay:3
+  fadeInImage: 1,
+  imageWrapperDelay:2
 } as const;
 
 const textVariants = createTextVariants({
@@ -131,6 +134,7 @@ function Hero() {
           <WriteText
             textToWrite="HELLO WORLD!"
             className="text-[7em] md:text-[9em] flex font-semibold text-white leading-tight"
+            classNameText="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
             typingSpeed={90}
             startDelay={DELAY.HelloWorldTypingStartDelay * 1000}
             onComplete={handleTitleComplete}
@@ -146,13 +150,26 @@ function Hero() {
             layout="position"
           >
             <WriteText
-              textToWrite="I'm Camilo Canclini"
+              // 👇 Ahora usamos modo LOOP
+              textsToWrite={[
+                "Camilo Canclini",
+                "FullStack Dev",
+                "Web Designer",
+                "Database Dev",
+                "Technician",
+              ]}
+              prefix="I'm "
               className="text-[8em] text-white md:text-[5em]"
-              typingSpeed={90}
+              classNameText="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
+              typingSpeed={90} // velocidad de escritura
+              deleteSpeed={60} // velocidad de borrado del sufijo
+              holdTime={2400}  // cuánto tiempo queda cada frase escrita
+              firstHoldTime={8200}
               startDelay={DELAY.subHelloWorldTypingStartDelay * 1000}
-              onComplete={handleSubtitleComplete}
+              onComplete={handleSubtitleComplete} // se ejecuta cuando termina la PRIMERA ("Camilo Canclini")
               as="h2"
             />
+
           </motion.div>
         </motion.div>
 
@@ -162,16 +179,17 @@ function Hero() {
           variants={imageWrapperVariants}
           initial="hidden"
           animate={imageWrapperCtr}
-          className="container flex justify-center items-center overflow-hidden"
+          className="container flex justify-center items-center "
         >
           <motion.div
             layout
             variants={imageVariants}
             initial="hidden"
             animate={imageCtr}
-            className="flex justify-center items-center overflow-hidden"
+            className="flex justify-center items-center"
           >
-            <HeroImage />
+            {/* <HeroImage /> */}
+            <HeroImagePersona5></HeroImagePersona5>
           </motion.div>
         </motion.div>
       </motion.div>

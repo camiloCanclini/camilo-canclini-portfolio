@@ -1,0 +1,20 @@
+.persona-panel {
+  /* forma tipo boceto: punta hacia la derecha, base hacia el círculo */
+  clip-path: polygon(
+    15% 5%,
+    92% 0%,
+    100% 70%,
+    10% 100%,
+    0% 35%
+  );
+}
+
+.persona-shadow {
+  clip-path: polygon(
+    25% 0%,
+    92% 0%,
+    100% 70%,
+    10% 90%,
+    0% 35%
+  );
+}
