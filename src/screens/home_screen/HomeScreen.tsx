@@ -7,6 +7,10 @@ import { AboutMe } from '@/components/home_screen/sections/about_me/AboutMe';
 import { HeroParallax } from '@/components/home_screen/sections/projects_2/Projects2';
 import HeroPersona5 from '@/components/home_screen/sections/hero/HeroImagePersona5';
 import ProjectsParallax from '@/components/home_screen/sections/projects/ProjectsParallax';
+import { Career } from '@/components/home_screen/sections/career/Career';
+import { Skills } from '@/components/home_screen/sections/skills/Skills';
+import dataCareer from "@config_files/entriesCarrer.json";
+import dataSkills from "@config_files/skills.json";
 
 const HomeScreen: React.FC = () => {
   
@@ -29,8 +33,15 @@ const HomeScreen: React.FC = () => {
           {/* <Projects></Projects> */}
           <ProjectsParallax></ProjectsParallax>
         </div>
-        <div className="shadow-inner snap-always snap-center">
+        {/* <div className="shadow-inner snap-always snap-center">
           <AboutMe></AboutMe>
+        </div> */}
+        <div>
+          <Career data={dataCareer} heading="My Career" subheading="Here's my professional journey"></Career>
+        </div>
+
+        <div>
+          <Skills data={dataSkills}/>
         </div>
       </div>
     </div>

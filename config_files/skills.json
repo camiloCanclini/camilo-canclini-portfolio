@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Frontend",
+    "skills": [
+      { "name": "React", "icon": "/resources/img/icons/technologies/react.png" },
+      { "name": "TypeScript", "icon": "/resources/img/icons/technologies/typescript.png" },
+      { "name": "Tailwind CSS", "icon": "/resources/img/icons/technologies/tailwind.png" },
+      { "name": "ASP.NET", "icon": "/resources/img/icons/technologies/aspnet.png" },
+      { "name": "jQuery", "icon": "/resources/img/icons/technologies/jquery.png" },
+      { "name": "WordPress", "icon": "/resources/img/icons/technologies/wordpress.png" },
+      { "name": "JavaScript", "icon": "/resources/img/icons/technologies/javascript.png" },
+      { "name": "HTML", "icon": "/resources/img/icons/technologies/html.png" },
+      { "name": "CSS", "icon": "/resources/img/icons/technologies/css.png" }
+    ]
+  },
+  {
+    "name": "Backend",
+    "skills": [
+      { "name": "Oracle Database", "icon": "/resources/img/icons/technologies/oracle.png" },
+      { "name": "MySQL", "icon": "/resources/img/icons/technologies/mysql.png" },
+      { "name": "Node.js", "icon": "/resources/img/icons/technologies/nodejs.png" },
+      { "name": "Visual Basic .NET", "icon": "/resources/img/icons/technologies/vbnet.png" },
+      { "name": "Python", "icon": "/resources/img/icons/technologies/python.png" },
+      { "name": "Java", "icon": "/resources/img/icons/technologies/java.png" },
+      { "name": "PHP", "icon": "/resources/img/icons/technologies/php.png" }
+    ]
+  },
+  {
+    "name": "Tools & DevOps",
+    "skills": [
+      { "name": "Git", "icon": "/resources/img/icons/technologies/git.png" },
+      { "name": "Jira", "icon": "/resources/img/icons/technologies/jira.png" },
+      { "name": "JWT", "icon": "/resources/img/icons/technologies/jwt.png" },
+      { "name": "VSCode and Visual Studio", "icon": "/resources/img/icons/technologies/visualstudio.png" },
+      { "name": "Android Studio", "icon": "/resources/img/icons/technologies/androidstudio.png" },
+      { "name": "IntelliJ IDEA", "icon": "/resources/img/icons/technologies/intellij.png" }
+    ]
+  },
+  {
+    "name": "Others",
+    "skills": [
+      { "name": "Linux", "icon": "/resources/img/icons/technologies/linux.png" },
+      { "name": "Arduino", "icon": "/resources/img/icons/technologies/arduino.png" },
+      { "name": "Fusion 360", "icon": "/resources/img/icons/technologies/fusion360.png" },
+      { "name": "3D Printing", "icon": "/resources/img/icons/technologies/3dprinting.png" },
+      { "name": "Photoshop", "icon": "/resources/img/icons/technologies/photoshop.png" },
+      { "name": "Premier", "icon": "/resources/img/icons/technologies/premier.png" }
+    ]
+  }
+]

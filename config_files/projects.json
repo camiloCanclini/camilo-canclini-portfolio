@@ -16,9 +16,11 @@
     ],
     "liveDemoLink": "https://camilocanclini.github.io/TicTacToe/",
     "repoLink": "https://github.com/camiloCanclini/to-do-list",
-    "placeholderImage": "/public/resources/img/sections/projects/tictactoe/1.gif",
+    "placeholderImage": "/resources/img/sections/projects/tictactoe/1.gif",
     "images":[
-      "/public/resources/img/sections/projects/tictactoe/1.gif"
+      "/resources/img/sections/projects/tictactoe/1.gif",
+      "/resources/img/sections/projects/tictactoe/2.gif",
+      "/resources/img/sections/projects/tictactoe/3.gif"
     ]
   },
   {
@@ -33,19 +35,21 @@
       {
         "icon": "fa-solid fa-database",
         "title": "MONGODB",
-        "color": "hover:text-green-500 ease-in-out duration-150"
+        "color": "text-white hover:text-red-300 ease-in-out duration-150"
       },
       {
         "icon": "fa-solid fa-globe",
         "title": "WEBAPP",
-        "color": "hover:text-amber-500 ease-in-out duration-150"
+        "color": "text-white hover:text-yellow-300 ease-in-out duration-150"
       }
     ],
-    
-    "repoLink": "https://github.com/camiloCanclini/to-do-list",
-    "placeholderImage": "/public/resources/img/sections/projects/todolist/1.gif",
+    "placeholderImage": "/resources/img/sections/projects/todolist/1.gif",
     "images":[
-      "/public/resources/img/sections/projects/tictactoe/1.gif"
+      "/resources/img/sections/projects/todolist/1.gif",
+      "/resources/img/sections/projects/todolist/2.gif",
+      "/resources/img/sections/projects/todolist/3.gif",
+      "/resources/img/sections/projects/todolist/4.gif",
+      "/resources/img/sections/projects/todolist/5.gif"
     ]
   },
   {
@@ -69,9 +73,13 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/RoleGameSpringBoot",
-    "placeholderImage": "/public/resources/img/sections/projects/tictactoe/1.gif",
+    "placeholderImage": "/resources/img/sections/projects/todohardware/1.jpg",
     "images":[
-      "/public/resources/img/sections/projects/tictactoe/1.gif"
+      "/resources/img/sections/projects/todohardware/1.jpg",
+      "/resources/img/sections/projects/todohardware/2.jpg",
+      "/resources/img/sections/projects/todohardware/3.jpg",
+      "/resources/img/sections/projects/todohardware/4.jpg",
+      "/resources/img/sections/projects/todohardware/5.jpg"
     ]
   },
   {
@@ -85,9 +93,13 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/SimpleUniversitySytemApi",
-    "placeholderImage": "/public/resources/img/sections/projects/tictactoe/1.gif",
+    "placeholderImage": "/resources/img/sections/projects/flask-app/1.jpg",
     "images":[
-      "/public/resources/img/sections/projects/tictactoe/1.gif"
+      "/resources/img/sections/projects/flask-app/1.jpg",
+      "/resources/img/sections/projects/flask-app/2.jpg",
+      "/resources/img/sections/projects/flask-app/3.jpg",
+      "/resources/img/sections/projects/flask-app/4.jpg",
+      "/resources/img/sections/projects/flask-app/5.jpg"
     ]
   },
   {
@@ -106,9 +118,15 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/canclini_flutter_app",
-    "placeholderImage": "/public/resources/img/sections/projects/tictactoe/1.gif",
+    "placeholderImage": "/resources/img/sections/projects/rent-football-fields/1.jpg",
     "images":[
-      "/public/resources/img/sections/projects/tictactoe/1.gif"
+      "/resources/img/sections/projects/rent-football-fields/1.jpg",
+      "/resources/img/sections/projects/rent-football-fields/2.jpg",
+      "/resources/img/sections/projects/rent-football-fields/3.jpg",
+      "/resources/img/sections/projects/rent-football-fields/4.jpg",
+      "/resources/img/sections/projects/rent-football-fields/5.jpg",
+      "/resources/img/sections/projects/rent-football-fields/6.jpg",
+      "/resources/img/sections/projects/rent-football-fields/7.jpg"
     ]
   },
   {
@@ -122,9 +140,13 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/Python_Proyect_Antunez_Canclini",
-    "placeholderImage": "/public/resources/img/sections/projects/tictactoe/1.gif",
+    "placeholderImage": "/resources/img/sections/projects/cinema/1.jpg",
     "images":[
-      "/public/resources/img/sections/projects/tictactoe/1.gif"
+      "/resources/img/sections/projects/cinema/1.jpg",
+      "/resources/img/sections/projects/cinema/2.jpg",
+      "/resources/img/sections/projects/cinema/3.jpg",
+      "/resources/img/sections/projects/cinema/4.jpg",
+      "/resources/img/sections/projects/cinema/5.jpg"
     ]
   },
   {
@@ -143,9 +165,12 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/proyecto-programacionII-Canclini-Antunez",
-    "placeholderImage": "/public/resources/img/sections/projects/tictactoe/1.gif",
+    "placeholderImage": "/resources/img/sections/projects/movie-search/1.jpg",
     "images":[
-      "/public/resources/img/sections/projects/tictactoe/1.gif"
+      "/resources/img/sections/projects/movie-search/1.jpg",
+      "/resources/img/sections/projects/movie-search/2.jpg",
+      "/resources/img/sections/projects/movie-search/3.jpg",
+      "/resources/img/sections/projects/movie-search/4.jpg"
     ]
   }
 ]

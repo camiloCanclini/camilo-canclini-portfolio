@@ -16,16 +16,19 @@ const App: React.FC = () => {
   
   const [isLoading, setIsLoading] = useState<boolean>(true);
   
-  const imageUrls: string[] = jsonData.map((elem) => elem.placeholderImage)
-
-  const preloadImages = (imageUrls: string[]): Promise<void[]> => {
-    return Promise.all(
-      imageUrls.map((url) => {
+  const preloadImages = (projects: any[]): Promise<PromiseSettledResult<void>[]> => {
+    return Promise.allSettled(
+      projects.map((project, index) => {
         return new Promise<void>((resolve, reject) => {
+          const url = project.placeholderImage;
+          if (!url) {
+            reject(new Error(`Image URL is undefined for project: ${project.title}`));
+            return;
+          }
           const img = new Image();
           img.src = url;
           img.onload = () => resolve();
-          img.onerror = reject;
+          img.onerror = () => reject(new Error(`Failed to load image: ${url} for project: ${project.title}`));
         });
       })
     );
@@ -34,9 +37,15 @@ const App: React.FC = () => {
   
 
    useEffect(() => {
-    preloadImages(imageUrls)
-      .then(() => setIsLoading(false))
-      .catch((error) => console.error("Error loading images", error));
+    preloadImages(jsonData)
+      .then((results) => {
+        results.forEach((result, index) => {
+          if (result.status === 'rejected') {
+            console.error(result.reason.message);
+          }
+        });
+        setIsLoading(false);
+      });
   }, []);
 
   /* useEffect(() => {

@@ -158,7 +158,7 @@ function Hero() {
                 "Database Dev",
                 "Technician",
               ]}
-              prefix="I'm "
+              prefix="I am "
               className="text-[8em] text-white md:text-[5em]"
               classNameText="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
               typingSpeed={90} // velocidad de escritura

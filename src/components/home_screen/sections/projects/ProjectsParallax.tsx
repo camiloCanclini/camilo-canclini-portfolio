@@ -1,6 +1,6 @@
 import "./Projects.css";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useLayoutEffect } from "react";
 import { useThemeContext } from "@/providers/ThemeContext";
 import ProjectParallaxCard from "./project_card/ProjectParallaxCard";
 import type { ProjectCardInterface } from "./project_card/ProjectCard";
@@ -11,6 +11,14 @@ function ProjectsParallax() {
   const { theme } = useThemeContext();
   const [projects, setProjects] = useState<ProjectCardInterface[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const refProjectsContainer = useRef<HTMLDivElement | null>(null);
+  const [heightProjectContainer, setHeightProjectContainer] = useState<string | number>("auto");
+
+  useLayoutEffect(() => {
+    if (!refProjectsContainer.current) return;
+    const contentHeight = refProjectsContainer.current.scrollHeight; // alto natural
+    setHeightProjectContainer(contentHeight + 500);                
+  }, [projects]); // se recalcula si cambia el contenido
 
   useEffect(() => {
     setProjects(jsonData);
@@ -110,7 +118,9 @@ function ProjectsParallax() {
             translateX: translateXHero,
             translateY: translateYHero,
             opacity: opacityHero,
+            height: heightProjectContainer
           }}
+          ref={refProjectsContainer}
           className="hidden md:block"
         >
           <motion.div
