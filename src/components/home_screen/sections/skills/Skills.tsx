@@ -24,7 +24,7 @@ export type SkillItemType = {
 export const Skills: React.FC<{data: SkillCategoryType[]}> = ({data}) => {
   return (
     <>
-      <div className="w-full relative z-[100] pt-[20vh]  backdrop-blur-md">
+      <div className="w-full relative z-[100] pt-[20vh] overflow-hidden  backdrop-blur-md">
           
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[20vh] bg-gradient-to-b to-black/60 from-transparent z-20"></div>
         <SectionHeading heading="My Skills" subheading="Technologies that I work with" className="z-[200] relative"/>
@@ -35,7 +35,7 @@ export const Skills: React.FC<{data: SkillCategoryType[]}> = ({data}) => {
             ))}
         </div>
       </div>
-      <div className="pointer-events-none inset-x-0 bottom-0 h-[20vh] bg-gradient-to-b to-black/60 from-transparent z-20"></div>
+      <div className="pointer-events-none relative inset-x-0 bottom-0 h-[20vh] bg-gradient-to-t to-black/60 from-transparent z-20"></div>
     </>
   );
 }

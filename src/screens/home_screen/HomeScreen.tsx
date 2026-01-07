@@ -11,6 +11,8 @@ import { Career } from '@/components/home_screen/sections/career/Career';
 import { Skills } from '@/components/home_screen/sections/skills/Skills';
 import dataCareer from "@config_files/entriesCarrer.json";
 import dataSkills from "@config_files/skills.json";
+import { ContactMe } from '@/components/home_screen/sections/contact_me/ContactMe';
+import { Footer } from '@/components/home_screen/sections/footer/Footer';
 
 const HomeScreen: React.FC = () => {
   
@@ -39,9 +41,14 @@ const HomeScreen: React.FC = () => {
         <div>
           <Career data={dataCareer} heading="My Career" subheading="Here's my professional journey"></Career>
         </div>
-
         <div>
           <Skills data={dataSkills}/>
+        </div>
+        <div>
+          <ContactMe></ContactMe>
+        </div>
+        <div>
+          <Footer></Footer>
         </div>
       </div>
     </div>
