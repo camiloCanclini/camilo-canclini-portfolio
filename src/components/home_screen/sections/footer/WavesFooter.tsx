@@ -15,7 +15,7 @@ export function WavesFooter({
 }: WavesFooterProps) {
   return (
     <div className={`${className} relative container-waves`}>
-      <Wave fill='#eee'
+      <Wave fill='#1d2e54'
             paused={false}
             style={{ display: 'flex' }}
             options={{
@@ -24,9 +24,9 @@ export function WavesFooter({
               speed: 0.15,
               points: 10
             }}
-            className="absolute -top-6"
+            className="absolute -top-12"
       />
-      <Wave fill='#aaa'
+      <Wave fill='#060f24'
             paused={false}
             style={{ display: 'flex' }}
             options={{
@@ -35,7 +35,7 @@ export function WavesFooter({
               speed: 0.1,
               points: 8
             }}
-            className="absolute -top-2"
+            className="absolute -top-4"
       />
       <Wave fill='#000'
             paused={false}

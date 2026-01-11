@@ -65,6 +65,8 @@ function TimelineItem({
     ["rgba(115,115,115,1)", "rgba(255,255,255,0.9)"]
   );
 
+  const MAX_IMAGES = 3;
+
   return (
     <div
       ref={entryRef}
@@ -120,7 +122,7 @@ function TimelineItem({
 
           {!!item.images?.length && (
             <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3">
-              {item.images.map((img, i) => (
+              {item.images.slice(0, MAX_IMAGES).map((img, i) => (
                 <motion.div
                   key={`${img.src}-${i}`}
                   whileHover={{ y: -2 }}
