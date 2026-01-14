@@ -7,8 +7,7 @@
     "images": [
       { "src": "resources/img/sections/career/ITLP/1.jpg", "alt": "Instituto Tecnico La Piedad" },
       { "src": "resources/img/sections/career/ITLP/2.jpg", "alt": "Pasantía Robótica" },
-      { "src": "resources/img/sections/career/ITLP/4.jpg", "alt": "ITLP logo" },
-      { "src": "resources/img/sections/career/ITLP/3.jpg", "alt": "Manual Pasantía Robótica" }
+      { "src": "resources/img/sections/career/ITLP/3.jpg", "alt": "ITLP logo" }
     ]
   },
   {
@@ -55,7 +54,6 @@
     "title": "Introduction to Data Analytics Teacher at Nacional Technology University of Bahía Blanca (UTN FRBB)",
     "description": "As if it had fallen from the sky, after finished my journey as a student at UTN FRBB, I was given the opportunity to return as a teacher for the 'Introduction to Data Analytics' course. In this role, I am responsible for teaching students the fundamentals of data analytics, including data collection, cleaning, analysis, and visualization techniques. My goal is to provide students with a solid foundation in data analytics concepts and tools, preparing them for further studies or careers in this rapidly growing field. Teaching has been a rewarding experience, allowing me to share my knowledge and passion for data analytics with the next generation of tech professionals.",
     "images": [{ "src": "resources/img/sections/career/IAD_UTN/1.jpg", "alt": "IAD UTN Logo" },
-  { "src": "resources/img/sections/career/IAD_UTN/2.jpg", "alt": "IAD UTN Logo" },
-{ "src": "resources/img/sections/career/IAD_UTN/3.jpg", "alt": "IAD UTN Logo" }]
+  { "src": "resources/img/sections/career/IAD_UTN/2.jpg", "alt": "IAD UTN Logo" }]
   }
 ]

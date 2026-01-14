@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import iconSrc from "/public/resources/img/sections/contact_me/email.png";
+
+const iconSrc = "/resources/img/sections/contact_me/email.png";
 
 type NeonMailPanelProps = {
   iconAlt?: string;

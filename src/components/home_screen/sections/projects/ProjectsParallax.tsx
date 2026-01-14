@@ -5,7 +5,8 @@ import { useThemeContext } from "@/providers/ThemeContext";
 import ProjectParallaxCard from "./project_card/ProjectParallaxCard";
 import type { ProjectCardInterface } from "./project_card/ProjectCard";
 import jsonData from "@config_files/projects.json";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useAnimationControls } from "framer-motion";
+import { useMotionValueEvent } from "framer-motion";
 
 function ProjectsParallax() {
   const { theme } = useThemeContext();
@@ -33,24 +34,24 @@ function ProjectsParallax() {
   });
 
   const springConfig = { stiffness: 260, damping: 26, bounce: 0.2 };
-
+  const rotateZLimit = 0.1
   // FASE HERO (0 → 0.2): inclinación, rotación, aparición
   const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-55, 0]),
+    useTransform(scrollYProgress, [0, 0.1], [-55, 0]),
     springConfig
   );
   const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-25, 0]),
+    useTransform(scrollYProgress, [0, rotateZLimit], [-25, 0]),
     springConfig
   );
   const translateYHero = useSpring(
     // las cards arrancan "más atrás/arriba" y se acercan a su posición normal
-    useTransform(scrollYProgress, [0, 0.2], [-1000, 700]),
+    useTransform(scrollYProgress, [0, 0.1], [-1100, 300]),
     springConfig
   );
   const translateXHero = useSpring(
     // las cards arrancan "más atrás/arriba" y se acercan a su posición normal
-    useTransform(scrollYProgress, [0, 0.2], [300, 0]),
+    useTransform(scrollYProgress, [0, 0.1], [300, 0]),
     springConfig
   );
 
@@ -77,6 +78,20 @@ function ProjectsParallax() {
     });
     return cols;
   }, [projects]);
+
+  // Esto es para que el hover de las cards se active sólo después de la animación inicial
+  const projectContainerControls = useAnimationControls();
+  const [hoverEnabled, setHoverEnabled] = useState(false);
+
+  
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    // Si querés que se prenda UNA SOLA VEZ y no se apague al scrollear arriba:
+    setHoverEnabled(v >= rotateZLimit ? true : false);
+
+    // Si querés que se prenda y se apague al volver arriba, usá esto en vez de lo de arriba:
+    // if (!hoverEnabled && v >= INTRO_END) setHoverEnabled(true);
+    // if (hoverEnabled && v <= INTRO_END - INTRO_HYST) setHoverEnabled(false);
+  });
 
   return (
     <section
@@ -129,6 +144,7 @@ function ProjectsParallax() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             className="grid grid-cols-2 gap-8 md:gap-10"
+            animate={projectContainerControls}
           >
             {/* COLUMNA IZQUIERDA */}
             <motion.div
@@ -140,7 +156,7 @@ function ProjectsParallax() {
                   key={project.title + index}
                   className="h-[460px] lg:h-[700px]"
                 >
-                  <ProjectParallaxCard project={project} index={index} />
+                  <ProjectParallaxCard project={project} hoverEnabled={hoverEnabled} index={index} />
                 </div>
               ))}
             </motion.div>
@@ -155,7 +171,7 @@ function ProjectsParallax() {
                   key={project.title + index}
                   className="h-[260px] lg:h-[700px]"
                 >
-                  <ProjectParallaxCard project={project} index={index} />
+                  <ProjectParallaxCard project={project} hoverEnabled={hoverEnabled} index={index} />
                 </div>
               ))}
             </motion.div>
@@ -166,7 +182,7 @@ function ProjectsParallax() {
         <div className="md:hidden flex flex-col gap-6">
           {projects.map((project, index) => (
             <div key={project.title + index} className="h-[260px]">
-              <ProjectParallaxCard project={project} index={index} />
+              <ProjectParallaxCard project={project} hoverEnabled={hoverEnabled} index={index} />
             </div>
           ))}
         </div>

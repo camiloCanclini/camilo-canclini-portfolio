@@ -3,9 +3,6 @@ import Hero from '@/components/home_screen/sections/hero/Hero'
 import Projects from '@/components/home_screen/sections/projects/Projects';
 import React from "react";
 import { useThemeContext } from '@/providers/ThemeContext';
-import { AboutMe } from '@/components/home_screen/sections/about_me/AboutMe';
-import { HeroParallax } from '@/components/home_screen/sections/projects_2/Projects2';
-import HeroPersona5 from '@/components/home_screen/sections/hero/HeroImagePersona5';
 import ProjectsParallax from '@/components/home_screen/sections/projects/ProjectsParallax';
 import { Career } from '@/components/home_screen/sections/career/Career';
 import { Skills } from '@/components/home_screen/sections/skills/Skills';

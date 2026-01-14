@@ -4,12 +4,12 @@
     "description": "My first app using React and Tailwind!",
     "technologies": [
       {
-        "icon": "fa-brands fa-react",
+        "icon": "/resources/img/icons/technologies/react.png",
         "title": "REACT",
         "color": "hover:text-blue-400 ease-in-out duration-150"
       },
       {
-        "icon": "fa-brands fa-node",
+        "icon": "/resources/img/icons/technologies/nodejs2.svg",
         "title": "NODEJS",
         "color": "hover:text-green-400 ease-in-out duration-150"
       }
@@ -28,17 +28,17 @@
     "description": "My first web app using MongoDb and implementing the NodeJs template engine",
     "technologies": [
       {
-        "icon": "fa-brands fa-node",
+        "icon": "/resources/img/icons/technologies/nodejs2.svg",
         "title": "NODEJS",
         "color": "hover:text-amber-500 ease-in-out duration-150"
       },
       {
-        "icon": "fa-solid fa-database",
+        "icon": "/resources/img/icons/technologies/mongodb.png",
         "title": "MONGODB",
         "color": "text-white hover:text-red-300 ease-in-out duration-150"
       },
       {
-        "icon": "fa-solid fa-globe",
+        "icon": "/resources/img/icons/technologies/webapp.png",
         "title": "WEBAPP",
         "color": "text-white hover:text-yellow-300 ease-in-out duration-150"
       }
@@ -57,17 +57,17 @@
     "description": "Online card game developed with Java Springboot and React",
     "technologies": [
       {
-        "icon": "fa-brands fa-java",
+        "icon": "/resources/img/icons/technologies/java.png",
         "title": "JAVA WITH SPRINGBOOT",
         "color": "hover:text-amber-500 ease-in-out duration-150"
       },
       {
-        "icon": "fa-brands fa-react",
+        "icon": "/resources/img/icons/technologies/react.png",
         "title": "REACT",
         "color": "hover:text-amber-500 ease-in-out duration-150"
       },
       {
-        "icon": "fa-solid fa-globe",
+        "icon": "/resources/img/icons/technologies/webapp.png",
         "title": "WEBAPP",
         "color": "hover:text-amber-500 ease-in-out duration-150"
       }
@@ -87,7 +87,7 @@
     "description": "An API system that manage a little database of a university.",
     "technologies": [
       {
-        "icon": "fa-brands fa-java",
+        "icon": "/resources/img/icons/technologies/java.png",
         "title": "JAVA WITH SPRINGBOOT",
         "color": "hover:text-amber-500 ease-in-out duration-150"
       }
@@ -107,12 +107,12 @@
     "description": "A little application that simulates an store app. This was my first project using Flutter and Dart!",
     "technologies": [
       {
-        "icon": "fa-brands fa-flutter",
+        "icon": "/resources/img/icons/technologies/flutter.png",
         "title": "FLUTTER",
         "color": "hover:text-amber-500 ease-in-out duration-150"
       },
       {
-        "icon": "fa-brands fa-dart-lang",
+        "icon": "/resources/img/icons/technologies/dart.png",
         "title": "DART",
         "color": "hover:text-amber-500 ease-in-out duration-150"
       }
@@ -134,7 +134,7 @@
     "description": "Little application console that manages the sell of cinema tickets. Also one of my first applications using Python!",
     "technologies": [
       {
-        "icon": "fa-brands fa-python",
+        "icon": "/resources/img/icons/technologies/python.png",
         "title": "PYTHON",
         "color": "hover:text-amber-500 ease-in-out duration-150"
       }
@@ -154,12 +154,12 @@
     "description": "A little web application that consumes the OmdbApi and shows the billboard, it also has integrate a login system",
     "technologies": [
       {
-        "icon": "fa-brands fa-python",
+        "icon": "/resources/img/icons/technologies/python.png",
         "title": "PYTHON",
         "color": "hover:text-amber-500 ease-in-out duration-150"
       },
       {
-        "icon": "fa-solid fa-globe",
+        "icon": "/resources/img/icons/technologies/webapp.png",
         "title": "WEBAPP",
         "color": "hover:text-amber-500 ease-in-out duration-150"
       }

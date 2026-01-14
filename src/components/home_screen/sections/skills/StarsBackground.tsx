@@ -2,15 +2,35 @@
 
 import * as React from 'react';
 import {
-  type HTMLMotionProps,
+  type Transition,
   motion,
   useMotionValue,
   useSpring,
   type SpringOptions,
-  type Transition,
-} from 'motion/react';
+} from 'framer-motion';
 
-import { cn } from '@/../lib/utils';
+// Mini reemplazo de `cn` (string | undefined | { [className]: boolean })
+function cx(
+  ...args: Array<string | undefined | null | false | Record<string, boolean>>
+) {
+  const out: string[] = [];
+
+  for (const arg of args) {
+    if (!arg) continue;
+
+    if (typeof arg === 'string') {
+      out.push(arg);
+      continue;
+    }
+
+    // object form: { "class-a": true, "class-b": false }
+    for (const [k, v] of Object.entries(arg)) {
+      if (v) out.push(k);
+    }
+  }
+
+  return out.join(' ');
+}
 
 type StarLayerProps = React.ComponentProps<typeof motion.div> & {
   count: number;
@@ -48,7 +68,7 @@ function StarLayer({
       data-slot="star-layer"
       animate={{ y: [0, -2000] }}
       transition={transition}
-      className={cn('absolute top-0 left-0 w-full h-[2000px]', className)}
+      className={cx('absolute top-0 left-0 w-full h-[2000px]', className)}
       {...props}
     >
       <div
@@ -110,8 +130,8 @@ function StarsBackground({
   return (
     <div
       data-slot="stars-background"
-      className={cn(
-        'relative size-full overflow-hidden bg-[radial-gradient(ellipse_at_bottom,_#000_0%,_#000_100%)]',
+      className={cx(
+        'size-full overflow-hidden bg-[radial-gradient(ellipse_at_bottom,_#000_0%,_#000_100%)]',
         className,
       )}
       onMouseMove={handleMouseMove}
@@ -119,7 +139,7 @@ function StarsBackground({
     >
       <motion.div
         style={{ x: springX, y: springY }}
-        className={cn({ 'pointer-events-none': !pointerEvents })}
+        className={cx({ 'pointer-events-none': !pointerEvents })}
       >
         <StarLayer
           count={1000}
@@ -153,9 +173,4 @@ function StarsBackground({
   );
 }
 
-export {
-  StarLayer,
-  StarsBackground,
-  type StarLayerProps,
-  type StarsBackgroundProps,
-};
+export { StarLayer, StarsBackground, type StarLayerProps, type StarsBackgroundProps };

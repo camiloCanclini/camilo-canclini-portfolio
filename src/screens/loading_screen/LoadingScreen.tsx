@@ -17,7 +17,7 @@ export default function LoadingScreen() {
               <div className="face"></div>
           </div>
       </div>
-      <p className={"stretch-animation mt-20 text-4xl" + theme.mainTextColor}>LOADING</p>
+      <p className={"stretch-animation mt-20 text-4xl " + theme.mainTextColor}>LOADING</p>
     </div>
     
   )

@@ -25,9 +25,9 @@ export const Skills: React.FC<{data: SkillCategoryType[]}> = ({data}) => {
   return (
     <>
       <div className="w-full relative z-[100] pt-[20vh] overflow-hidden  backdrop-blur-md">
-          
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[20vh] bg-gradient-to-b to-black/60 from-transparent z-20"></div>
-        <SectionHeading heading="My Skills" subheading="Technologies that I work with" className="z-[200] relative"/>
+        <SectionHeading heading="My Skills" subheading="Technologies that I work with" className="z-[200] pt-[25vh] relative"/>
+        
         <div className="w-full flex flex-col items-center justify-evenly max-w-3/5 mx-auto  pb-[20vh] pt-[20vh]">
           <StarsBackground className="STARS-BG absolute top-[20vh] bottom-[20vh] w-full h-full"></StarsBackground>
           {data.map((category) => (

@@ -85,7 +85,7 @@ export const ContactMe: React.FC = () => {
     <>
       <div className="w-full min-h-[100vh] pt-[10vh]">
         <SectionHeading heading="Contact Me!" subheading="Let's get in touch" className="z-[200] relative"/>
-        <div className="w-full flex flex-col items-center justify-evenly max-w-3/5 mx-auto pb-[20vh]">
+        <div className="w-full flex flex-col items-center justify-evenly max-w-3/5 mx-auto pb-[40vh]">
           <div className="form-container relative flex overflow-hidden rounded-lg mx-auto flex min-w-[50vw] min-h-[60vh] bg-gray-800/50 ">
             <ConicBorderBox bg="#3e3d75" duration={2} />
             <div className="image-container grow w-1/2">

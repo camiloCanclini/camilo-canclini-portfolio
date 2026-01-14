@@ -24,25 +24,25 @@ export function WavesFooter({
               speed: 0.15,
               points: 10
             }}
-            className="absolute -top-12"
+            className="absolute -top-[80px]"
       />
       <Wave fill='#060f24'
             paused={false}
             style={{ display: 'flex' }}
             options={{
               height: 40,
-              amplitude: 40,
+              amplitude: 10,
               speed: 0.1,
               points: 8
             }}
-            className="absolute -top-4"
+            className="absolute -top-[40px]"
       />
       <Wave fill='#000'
             paused={false}
             style={{ display: 'flex' }}
             options={{
-              height: 70,
-              amplitude: 65,
+              height: 50,
+              amplitude: 15,
               speed: 0.05,
               points: 10
             }}

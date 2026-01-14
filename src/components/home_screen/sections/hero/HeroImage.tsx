@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import icon1 from "@assets/icons/camilo.jpg";
-import icon2 from "@assets/icons/camilo2.jpg";   // 👈 la que aparece al pasar el cursor
+
+const icon1 = "/assets/icons/camilo.jpg";
+const icon2 = "/assets/icons/camilo2.jpg";   // 👈 la que aparece al pasar el cursor
 
 export default function HeroImage() {
   const [hovered, setHovered] = useState(false);

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import icon1 from "@assets/icons/camilo.jpg";
-import icon2 from "@assets/icons/camilo2.jpg";
+
+const icon1 = "/assets/icons/camilo.jpg";
+const icon2 = "/assets/icons/camilo2.jpg";
 import "./HeroPersona5.css";
 
 const panelVariants = {

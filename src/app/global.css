@@ -5,6 +5,10 @@
 body{
   background-color: #000000;
 }
+*{
+  font-family: monospace;
+  scroll-behavior: smooth;
+}
 
 /* SCROLL BAR CUSTOM CSS */
 ::-webkit-scrollbar {

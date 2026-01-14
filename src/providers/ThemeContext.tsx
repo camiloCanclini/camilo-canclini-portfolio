@@ -35,8 +35,6 @@ export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({ chil
       setTheme(nextIsDark ? darkTheme : lightTheme);
       return nextIsDark;
     });
-
-    setTheme((isDark: Theme) => isDark ? darkTheme: lightTheme)
   };
 
   return (

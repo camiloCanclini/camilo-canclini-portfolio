@@ -2,10 +2,15 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 import { useThemeContext } from "@/providers/ThemeContext";
 import type { ProjectCardInterface } from "./ProjectCard";
+import { DynamicIcon } from 'lucide-react/dynamic';
+
+
+
 
 type Props = {
   project: ProjectCardInterface;
   index: number;
+  hoverEnabled: boolean;
 };
 
 // ===== Variants Framer Motion =====
@@ -103,7 +108,7 @@ const iconVariants: Variants = {
   },
 };
 
-const ProjectParallaxCard: React.FC<Props> = ({ project }) => {
+const ProjectParallaxCard: React.FC<Props> = ({ project, hoverEnabled }) => {
   const { theme } = useThemeContext();
 
   const mainTech = project.technologies?.[0];
@@ -121,7 +126,7 @@ const ProjectParallaxCard: React.FC<Props> = ({ project }) => {
       variants={cardVariants}
       initial="rest"
       animate="rest"
-      whileHover="hover"
+      whileHover={hoverEnabled ? "hover" : undefined}
     >
       {/* Fondo: screenshot del proyecto */}
       <img
@@ -159,7 +164,7 @@ const ProjectParallaxCard: React.FC<Props> = ({ project }) => {
 
         <div className="w-full px-6 pb-5 pt-10 z-20">
           {/* Título + descripción */}
-          <div className="space-y-2">
+          <div className="space-y-2 mb-4 min-h-[120px]">
             {/* Título con glow */}
             <motion.h3
               className={[
@@ -191,19 +196,11 @@ const ProjectParallaxCard: React.FC<Props> = ({ project }) => {
               {/* Tech principal con glow siempre visible */}
               {mainTech && (
                 <div className="flex items-center gap-2">
-                  <i
-                    className={[
-                      mainTech.icon,
+                  <img src={mainTech.icon} alt={mainTech.title} className={[
                       mainTech.color,
-                      "text-white",
-                      "text-2xl",
-                      "drop-shadow-[0_0_3px_rgba(255,255,255,0.5)]",
+                      "text-white text-[1.2em] drop-shadow-[0_0_3px_rgba(255,255,255,0.5)] w-12 h-12 object-contain grayscale brightness-0 invert",
                     ].join(" ")}
-                    aria-hidden="true"
-                  />
-                  <span className="text-xs uppercase tracking-wide text-gray-100">
-                    {/* {mainTech.title} */}
-                  </span>
+                    aria-hidden="true"></img>
                 </div>
               )}
 
@@ -214,11 +211,16 @@ const ProjectParallaxCard: React.FC<Props> = ({ project }) => {
                   variants={secondaryTechVariants}
                 >
                   {secondaryTechs.map((tech, idx) => (
-                    <motion.i
+                    <motion.img
                       key={tech.title + idx}
-                      className={[tech.icon, tech.color, "text-white"].join(" ")}
+                      src={tech.icon}
+                      alt={tech.title}
                       title={tech.title}
                       aria-hidden="true"
+                      className={[
+                        tech.color,
+                        "text-white text-[1.05em] mr-1 drop-shadow-[0_0_3px_rgba(255,255,255,0.5)] w-6 h-6 object-contain grayscale brightness-0 invert",
+                      ].join(" ")}
                       variants={iconVariants}
                     />
                   ))}
@@ -240,7 +242,13 @@ const ProjectParallaxCard: React.FC<Props> = ({ project }) => {
 
   if (mainLink) {
     return (
-      <a href={mainLink} target="_blank" rel="noopener noreferrer">
+      <a href={mainLink} target="_blank" rel="noopener noreferrer" 
+      onClick={(e) => {
+        if(!hoverEnabled){
+          e.preventDefault();
+          e.stopPropagation(); // opcional
+        }
+      }}>
         {CardContent}
       </a>
     );

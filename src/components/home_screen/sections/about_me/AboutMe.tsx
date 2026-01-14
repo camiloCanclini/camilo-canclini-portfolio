@@ -1,17 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
-import AuroraBackground from "./aurora_background/AuroraBackground";
 import { useThemeContext } from '@/providers/ThemeContext';
-import icon from "@assets/icons/camilo_canclini1.jpg"
+
+const icon = "/assets/icons/camilo_canclini1.jpg"
 
 export function AboutMe() {
 
   const { theme } = useThemeContext();
 
   return (
-    <AuroraBackground>
-      <div
+    <div
         className="relative flex flex-col justify-center items-center gap-4 px-4 pl-32"
       >
         <div id="about_me_section" className="px-2 py-2 self-start -top-6 relative" data-aos="fade-right">
@@ -30,7 +28,5 @@ export function AboutMe() {
           </div>
         </div>
       </div>
-      <div style={{boxShadow: "inset 0px 0px 300px 20px black"}} className="absolute top-0 bottom-0 right-0 left-0"></div>
-    </AuroraBackground>
   );
 }

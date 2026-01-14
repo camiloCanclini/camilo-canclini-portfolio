@@ -157,7 +157,7 @@ export function Career({
   useEffect(() => {
     if (!contentRef.current) return;
     const el = contentRef.current;
-    const ro = new ResizeObserver(() => setHeight(el.scrollHeight + 200));
+    const ro = new ResizeObserver(() => setHeight(el.scrollHeight + 0));
     ro.observe(el);
     setHeight(el.scrollHeight);
     return () => ro.disconnect();
@@ -165,7 +165,7 @@ export function Career({
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 10%", "end 20%"],
+    offset: ["start 15%", "end 70%"],
   });
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);

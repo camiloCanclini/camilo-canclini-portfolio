@@ -1,6 +1,7 @@
 import React from "react";
 import { WavesFooter } from "./WavesFooter";
 import Wave from "react-wavify";
+import {Linkedin, Github} from "lucide-react"
 
 type FooterSectionProps = {
   className?: string;
@@ -24,18 +25,22 @@ export function FooterSocialMedias({ className }: FooterSectionProps) {
           target="_blank"
           rel="noreferrer noopener"
           href="https://github.com/camiloCanclini?tab=repositories"
-          className="mx-[.4em] my-[.2em] text-[2.5em] hover:scale-105 transition-transform duration-200"
+          className="mx-[.4em] my-[.2em] text-[2.5em] hover:scale-105 
+          transition-transform duration-200 border rounded-full p-2
+          hover:bg-white hover:text-black transition-colors"
         >
-          <i className="fa fa-github" aria-hidden="true" />
+          <Github ></Github>
         </a>
 
         <a
           target="_blank"
           rel="noreferrer noopener"
           href="https://www.linkedin.com/in/camilo-canclini-635110220/"
-          className="mx-[.4em] my-[.2em] text-[2.5em] hover:scale-105 transition-transform duration-200"
+          className="mx-[.4em] my-[.2em] text-[2.5em] hover:scale-105 
+          transition-transform duration-200 border rounded-full p-2
+          hover:bg-white hover:text-black transition-colors"
         >
-          <i className="fa fa-linkedin-square" aria-hidden="true" />
+          <Linkedin></Linkedin>
         </a>
 {/* 
         <a
@@ -67,9 +72,9 @@ export function FooterAboutRepo({ className }: FooterSectionProps) {
             target="_blank"
             rel="noreferrer noopener"
             href="https://github.com/camiloCanclini/camilo_canclini_portfolio"
-            className="mx-[1em] my-[.2em] inline-flex text-[2.5em] hover:scale-105 transition-transform duration-200"
+            className="mx-[1em] my-[.2em] inline-flex text-[2.5em] hover:scale-105 transition-transform duration-200 border rounded-full p-2"
           >
-            <i className="fa-brands fa-square-github" aria-hidden="true" />
+            <Github></Github>
           </a>
         </div>
       </div>
@@ -102,7 +107,7 @@ export function Footer({ className }: FooterProps) {
     <>
       <WavesFooter className="h-20 md:h-28 w-full" />
       <footer
-        className={`bg-black text-white flex w-full px-0 py-[1em] pt-[10vh] text-[8px] ${
+        className={`bg-black text-white flex w-full px-0 py-[1em] py-[10vh] text-[8px] ${
           className ?? ""
         }`}
       >
