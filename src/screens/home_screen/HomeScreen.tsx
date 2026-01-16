@@ -29,7 +29,6 @@ const HomeScreen: React.FC = () => {
           <HeroParallax></HeroParallax>
         </div> */}
         <div className="shadow-inner snap-always snap-center">
-          {/* <Projects></Projects> */}
           <ProjectsParallax></ProjectsParallax>
         </div>
         {/* <div className="shadow-inner snap-always snap-center">
