@@ -1,8 +1,6 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import { useThemeContext } from "@/providers/ThemeContext";
 import type { ProjectCardInterface } from "./ProjectCard";
-import { DynamicIcon } from 'lucide-react/dynamic';
 
 
 
@@ -109,7 +107,7 @@ const iconVariants: Variants = {
 };
 
 const ProjectParallaxCard: React.FC<Props> = ({ project, hoverEnabled }) => {
-  const { theme } = useThemeContext();
+
 
   const mainTech = project.technologies?.[0];
   const secondaryTechs = project.technologies?.slice(1) ?? [];

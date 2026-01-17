@@ -114,7 +114,7 @@ export default function HeroImagePersona5() {
         variants={panelVariants}
       >
         {/* sombra negra del panel */}
-        <div className="persona-shadow bg-black absolute inset-0 translate-x-3 translate-y-3" />
+        <div className="persona-shadow bg-theme-primary/50 dark:bg-themedark-primary/10 absolute inset-0 translate-x-3 translate-y-3" />
 
         {/* panel gris con iconos */}
         <div

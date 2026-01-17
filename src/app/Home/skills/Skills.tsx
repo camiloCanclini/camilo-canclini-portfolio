@@ -9,7 +9,7 @@ import {
   delay,
   Variants,
 } from "framer-motion";
-import { SectionHeading } from "../SectionHeading";
+import { SectionHeading } from "../../ui/home_screen/sections/SectionHeading";
 import { StarsBackground } from "./StarsBackground";
 
 export type SkillCategoryType = {
@@ -130,15 +130,15 @@ function SkillCategory({ category }: { category: SkillCategoryType }) {
                           }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
               />
-              <motion.span className="text-white text-center "
+              <motion.div className="text-white text-center "
                 variants={{
-                            rest: { opacity: 0, y: 10 },
+                            rest: { opacity: 0, y: 8 },
                             hover: { opacity: 1, y: 0 }
                           }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 {skill.name}
-              </motion.span>
+              </motion.div>
             </motion.div>
           </motion.div>
           ))}

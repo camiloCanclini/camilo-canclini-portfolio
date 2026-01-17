@@ -1,45 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // ThemeContext.tsx
-import React, { createContext, useState, useContext, ReactNode } from 'react';
-import { darkTheme, lightTheme, Theme} from './Themes'
+"use client"
+import React from 'react';
+import { ThemeProvider } from "next-themes";
 
-interface ThemeContextType {
-  isDark: boolean;
-  toggleThemeContext: () => void;
-  theme: Theme;
-}
-
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const useThemeContext = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useThemeContext must be used inside of ThemeContextProvider');
-  }
-  return context;
-};
-
-interface ThemeContextProviderProps {
-  children: ReactNode;
-}
-
-export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({ children }) => {
-
-  const [isDark, setIsDark] = useState(false);
-  const [theme, setTheme] = useState(darkTheme);
-
-  const toggleThemeContext = () => {
-    setIsDark(prev => {
-      const nextIsDark = !prev;
-      setTheme(nextIsDark ? darkTheme : lightTheme);
-      return nextIsDark;
-    });
-  };
-
-  return (
-    <ThemeContext.Provider value={{ isDark, toggleThemeContext, theme}}>
+export const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
+  
+return (
+    <ThemeProvider
+      attribute="class"       // pone "dark" en <html> o <body>
+      defaultTheme="dark"   // 👈 por defecto oscuro
+      enableSystem={false}  // 👈 opcional: no seguir el sistema
+    >
       {children}
-    </ThemeContext.Provider>
+    </ThemeProvider>
   );
 };

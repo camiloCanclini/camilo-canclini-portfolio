@@ -28,10 +28,10 @@
         "src/*"
       ],
       "@assets/*": [
-        "src/assets/*"
+        "public/assets/*"
       ],
-      "@config_files/*": [
-        "src/config_files/*"
+      "@data/*": [
+        "data/*"
       ]
     }
   },

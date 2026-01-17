@@ -6,6 +6,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       animation: {
@@ -19,6 +20,22 @@ export default {
           to: {
             backgroundPosition: "350% 50%, 350% 50%",
           },
+        },
+      },
+      colors: {
+        theme: {
+          bg: "#FAFAFA",
+          bg2: "#EBEBEB",
+          primary: "#000",
+          secondary: "#333",
+          complementary: "#FFF",
+        },
+        themedark: {
+          bg: "#02040d",
+          bg2: "#283C52",
+          primary: "#FFF",
+          secondary: "#DDD",
+          complementary: "#000",
         },
       },
     },

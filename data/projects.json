@@ -36,11 +36,6 @@
         "icon": "/resources/img/icons/technologies/mongodb.png",
         "title": "MONGODB",
         "color": "text-white hover:text-red-300 ease-in-out duration-150"
-      },
-      {
-        "icon": "/resources/img/icons/technologies/webapp.png",
-        "title": "WEBAPP",
-        "color": "text-white hover:text-yellow-300 ease-in-out duration-150"
       }
     ],
     "placeholderImage": "/resources/img/sections/projects/todolist/1.gif",
@@ -64,11 +59,6 @@
       {
         "icon": "/resources/img/icons/technologies/react.png",
         "title": "REACT",
-        "color": "hover:text-amber-500 ease-in-out duration-150"
-      },
-      {
-        "icon": "/resources/img/icons/technologies/webapp.png",
-        "title": "WEBAPP",
         "color": "hover:text-amber-500 ease-in-out duration-150"
       }
     ],
@@ -109,11 +99,6 @@
       {
         "icon": "/resources/img/icons/technologies/flutter.png",
         "title": "FLUTTER",
-        "color": "hover:text-amber-500 ease-in-out duration-150"
-      },
-      {
-        "icon": "/resources/img/icons/technologies/dart.png",
-        "title": "DART",
         "color": "hover:text-amber-500 ease-in-out duration-150"
       }
     ],
@@ -156,11 +141,6 @@
       {
         "icon": "/resources/img/icons/technologies/python.png",
         "title": "PYTHON",
-        "color": "hover:text-amber-500 ease-in-out duration-150"
-      },
-      {
-        "icon": "/resources/img/icons/technologies/webapp.png",
-        "title": "WEBAPP",
         "color": "hover:text-amber-500 ease-in-out duration-150"
       }
     ],

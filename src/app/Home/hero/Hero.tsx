@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useRef } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 
@@ -110,7 +111,7 @@ function Hero() {
         muted
         loop
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.6 }}
+        animate={{ opacity: 0.4 }}
         transition={{ duration: DURATION.videoFade, delay: DELAY.videoFade, ease: "easeOut" }}
       />
 

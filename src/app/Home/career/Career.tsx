@@ -7,7 +7,7 @@ import {
   useTransform,
   useMotionTemplate,
 } from "framer-motion";
-import { SectionHeading } from "../SectionHeading";
+import { SectionHeading } from "../../ui/home_screen/sections/SectionHeading";
 
 export type TimelineEntryData = {
   id?: string | number;

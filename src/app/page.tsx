@@ -1,56 +1,18 @@
-'use client'
+import HomeScreen from "@/app/Home/HomeScreen";
 
-import { useState, useEffect } from 'react';
-import HomeScreen from '@/screens/home_screen/HomeScreen'
-import LoadingScreen from '@/screens/loading_screen/LoadingScreen';
-import jsonData from '@/config_files/projects.json';
-
-export interface PreloadedImageInterface {
-  src: string;
-  element: HTMLImageElement;
-}
+import projectsData from "@data/projects.json";
+import careerData from "@data/career.json";
+import skillsData from "@data/skills.json";
+import { ThemeContextProvider } from "../providers/ThemeContext";
 
 export default function Page() {
-
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  const preloadImages = (projects: any[]): Promise<PromiseSettledResult<void>[]> => {
-    return Promise.allSettled(
-      projects.map((project, index) => {
-        return new Promise<void>((resolve, reject) => {
-          const url = project.placeholderImage;
-          if (!url) {
-            reject(new Error(`Image URL is undefined for project: ${project.title}`));
-            return;
-          }
-          const img = new Image();
-          img.src = url;
-          img.onload = () => resolve();
-          img.onerror = () => reject(new Error(`Failed to load image: ${url} for project: ${project.title}`));
-        });
-      })
-    );
+  const data = {
+    projects: projectsData,
+    career: careerData,
+    skills: skillsData,
   };
 
-  useEffect(() => {
-    preloadImages(jsonData)
-      .then((results) => {
-        results.forEach((result, index) => {
-          if (result.status === 'rejected') {
-            console.error(result.reason.message);
-          }
-        });
-        setIsLoading(false);
-      });
-  }, []);
-
-  return (
-    <>
-      {isLoading ? (
-        <LoadingScreen/>
-      ) : (
-        <HomeScreen />
-      )}
-    </>
-  )
+  return <ThemeContextProvider>
+            <HomeScreen data={data} />;
+          </ThemeContextProvider>
 }
