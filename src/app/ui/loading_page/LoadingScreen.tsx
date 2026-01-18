@@ -1,12 +1,10 @@
 import './LoadingScreen.css'
-import { useThemeContext } from '@/providers/ThemeContext';
 
 export default function LoadingScreen() {
   
-  const { theme } = useThemeContext();
 
   return (
-    <div className={'flex flex-col w-full h-screen items-center justify-center '+ theme.mainBgColor}>
+    <div className='flex flex-col w-full h-screen items-center justify-center text-theme-bg dark:text-themedark-bg'>
       <div className="loader">
           <div className="cube">
               <div className="face"></div>
@@ -17,7 +15,7 @@ export default function LoadingScreen() {
               <div className="face"></div>
           </div>
       </div>
-      <p className={"stretch-animation mt-20 text-4xl " + theme.mainTextColor}>LOADING</p>
+      <p className="stretch-animation mt-20 text-4xl text-theme-primary dark:text-themedark-primary">LOADING</p>
     </div>
     
   )

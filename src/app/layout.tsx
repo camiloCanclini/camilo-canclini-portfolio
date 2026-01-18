@@ -1,11 +1,7 @@
 import type { Metadata } from 'next'
-import ClientLayout from './ClientLayout'
-// @ts-ignore
-import './global.css'
 
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-config.autoAddCss = false
+import './global.css'
+import { ThemeContextProvider } from "../providers/ThemeContext";
 
 export const metadata: Metadata = {
   title: 'Camilo Canclini Portfolio',
@@ -16,7 +12,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>{children}</body>
+      <body>
+        <ThemeContextProvider>
+          {children}    
+        </ThemeContextProvider>
+      </body>
     </html>
   );
 }

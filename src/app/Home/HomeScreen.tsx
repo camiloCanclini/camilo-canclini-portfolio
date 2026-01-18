@@ -1,14 +1,30 @@
 "use client"
-import ProjectsParallax from '@/app/Home/projects/ProjectsParallax';
-import NavBar from '@/app/ui/home_screen/nav_bar/NavBar'
-import Hero from '@/app/Home/hero/Hero'
-import { Career } from '@/app/Home/career/Career';
-import { Skills } from '@/app/Home/skills/Skills';
-import { ContactMe } from '@/app/Home/contact_me/ContactMe';
-import { Footer } from '@/app/Home/footer/Footer';
-import ConfigurationMenu from '../ui/components/configurationMenu';
 
-export default function HomeScreen ({ data }: { data: any }) {
+// ============================================================
+// IMPORTS - UI Components
+// ============================================================
+import { NavBar, ConfigurationMenu } from '@/app/ui/barrel_files/components'
+
+// ============================================================
+// IMPORTS - Home Sections
+// ============================================================
+import { 
+  Hero, 
+  ProjectsParallax, 
+  Career, 
+  Skills, 
+  ContactMe, 
+  Footer 
+} from '@ui/barrel_files/home_sections'
+
+// ============================================================
+// IMPORTS - Data
+// ============================================================
+import projectsData from "@data/projects.json";
+import careerData from "@data/career.json";
+import skillsData from "@data/skills.json";
+  
+export default function HomeScreen () {
 
   return (
     <div className="bg-theme-bg dark:bg-themedark-bg">
@@ -21,13 +37,13 @@ export default function HomeScreen ({ data }: { data: any }) {
       </div>
       <div className='snap-always snap-center'>
         <div className="shadow-inner snap-always snap-center">
-          <ProjectsParallax data={data.projects}></ProjectsParallax>
+          <ProjectsParallax data={projectsData}></ProjectsParallax>
         </div>
         <div>
-          <Career data={data.career} heading="My Career" subheading="Here's my professional journey"></Career>
+          <Career data={careerData} heading="My Career" subheading="Here's my professional journey"></Career>
         </div>
         <div>
-          <Skills data={data.skills}/>
+          <Skills data={skillsData}/>  
         </div>
         <div>
           <ContactMe></ContactMe>
