@@ -1,11 +1,16 @@
 // app/api/contact/route.ts
+import { EmailTemplate } from "@/app/backend/email/EmailTemplate";
+import { error } from "console";
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
 type Payload = {
   name: string;
   email: string;
   message: string;
 };
+
+const resend = new Resend(process.env.RESEND_SERVICE_API_KEY);
 
 const isEmail = (s: string) => /\S+@\S+\.\S+/.test(s);
 
@@ -28,10 +33,23 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, field: "message", error: "Invalid message." }, { status: 400 });
     }
 
-    // TODO: enviar email (Resend/Nodemailer/EmailJS/etc.)
-    // Por ahora simulamos OK:
+    const { data, error } = await resend.emails.send({
+      from: process.env.RESEND_SERVICE_EMAIL_FROM!,
+      to: process.env.RESEND_SERVICE_EMAIL_TO!,
+      subject: "Nuevo mensaje de contacto desde el portfolio web!",
+      replyTo: email,
+      react: EmailTemplate({ name, email, message }),
+    });
+
+    if (error) {
+      return NextResponse.json({ error: "Ocurrió un error al enviar el email." + error.message }, { status: 500 });
+    }
+
     return NextResponse.json({ ok: true }, { status: 200 });
-  } catch {
-    return NextResponse.json({ ok: false, error: "Bad request." }, { status: 400 });
+
+  } catch (error) {
+
+    return NextResponse.json({ ok: false, error: "Bad request." + error.message }, { status: 400 });
+
   }
 }
