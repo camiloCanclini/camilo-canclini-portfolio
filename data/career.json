@@ -38,7 +38,9 @@
     "title": "Junior Fullstack Developer at VGS Consulting",
     "description": "During my last year of university, I started working as a Junior Fullstack Developer at VGS Consulting. I was contract to develop the new dedicated ERP platform for Droguería Sur. This new system it envolved so many modules of the entire company, such as accounting, stock managment, client sells, supply purcharse, taxes managment, and others. Working at VGS Consulting has allowed me to apply the knowledge and skills I have acquired during my studies in a real-world setting and in the context of a large company. I have been able to work on a variety of projects, which has helped me to develop my technical skills and gain valuable experience in the field.",
     "images": [
-                { "src": "resources/img/sections/career/VGS/1.jpg", "alt": "VGS Logo" }
+                { "src": "resources/img/sections/career/VGS/1.jpg", "alt": "VGS Logo" },
+                { "src": "resources/img/sections/career/VGS/2.jpg", "alt": "VGS" },
+                { "src": "resources/img/sections/career/VGS/3.jpg", "alt": "VGS" }
               ]
   },
   {
