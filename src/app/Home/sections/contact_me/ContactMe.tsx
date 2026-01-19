@@ -3,14 +3,19 @@
 // ============================================================
 // IMPORTS - External libraries
 // ============================================================
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { X } from "lucide-react";
+
+/* To ReCaptcha */
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 // ============================================================
 // IMPORTS - Internal components
 // ============================================================
 import { SectionHeading } from "@ui/barrel_files/components";
 import { NeonMailPanel } from "./NeonMailPanel";
+import Image from "next/image";
 
 // ============================================================
 // TYPES
@@ -69,8 +74,33 @@ export const ContactMe: React.FC = () => {
   const [errors, setErrors] = useState({ name: false, email: false, message: false });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<Status>({ type: "idle" });
+  const [showRecaptchaInfo, setShowRecaptchaInfo] = useState(false);
 
-  const maxValueLength = 200;
+  const MAX_VALUE_LENGTH = 200;
+  const TIME_TO_DISMISS_MESSAGE = 5000; // 5 seconds
+
+  // ============================================================
+  // GOOGLE RECAPTCHA
+  // ============================================================
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+
+  // ============================================================
+  // EFFECTS
+  // ============================================================
+  /**
+   * Auto-dismiss success message after 5 seconds
+   */
+  useEffect(() => {
+    if (status.type === "success") {
+      const timer = setTimeout(() => {
+        setStatus({ type: "idle" });
+      }, TIME_TO_DISMISS_MESSAGE);
+
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
 
   // ============================================================
   // HANDLERS
@@ -79,7 +109,7 @@ export const ContactMe: React.FC = () => {
     let error = false;
     if (name === "name") error = value.trim() === "";
     if (name === "email") error = !/\S+@\S+\.\S+/.test(value);
-    if (name === "message") error = value.trim() === "" || value.length > maxValueLength;
+    if (name === "message") error = value.trim() === "" || value.length > MAX_VALUE_LENGTH;
     setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
@@ -87,8 +117,8 @@ export const ContactMe: React.FC = () => {
     const { name, value } = e.target;
     let newValue = value;
 
-    if (name === "message" && value.length > maxValueLength) {
-      newValue = value.slice(0, maxValueLength);
+    if (name === "message" && value.length > MAX_VALUE_LENGTH) {
+      newValue = value.slice(0, MAX_VALUE_LENGTH);
     }
 
     setValues((prev) => ({ ...prev, [name]: newValue }));
@@ -100,11 +130,14 @@ export const ContactMe: React.FC = () => {
     e.preventDefault();
     if (isSubmitting) return;
 
+    /* Execute reCAPTCHA */
+    if (!executeRecaptcha) return;
+
     // Validate all fields
     const newErrors = {
       name: values.name.trim() === "",
       email: !/\S+@\S+\.\S+/.test(values.email),
-      message: values.message.trim() === "" || values.message.length > maxValueLength,
+      message: values.message.trim() === "" || values.message.length > MAX_VALUE_LENGTH,
     };
 
     setErrors(newErrors);
@@ -118,6 +151,26 @@ export const ContactMe: React.FC = () => {
       setIsSubmitting(true);
       setStatus({ type: "idle" });
 
+      // Generate reCAPTCHA token with correct action name
+      const token = await executeRecaptcha('contact_form_submit');
+
+      // Verify reCAPTCHA token
+      const captchaResponse = await fetch('/api/verify-captcha', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token, email: values.email }),
+      });
+
+      if (!captchaResponse.ok) {
+        const errorData = await captchaResponse.json().catch(() => ({}));
+        setStatus({ 
+          type: "error", 
+          msg: errorData.message || "Security verification failed. Please try again." 
+        });
+        return;
+      }
+
+      // If captcha passes, send the email
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -125,6 +178,8 @@ export const ContactMe: React.FC = () => {
       });
 
       const json = await res.json().catch(() => null);
+
+      console.log("Contact form response:", json);
 
       if (!res.ok) {
         setStatus({ type: "error", msg: json?.error ?? "Something went wrong." });
@@ -156,11 +211,11 @@ export const ContactMe: React.FC = () => {
 
           {/* Left side: Neon mail illustration */}
           <div className="image-container grow w-1/2">
-            <NeonMailPanel />
+            <NeonMailPanel status={status.type} />
           </div>
 
           {/* Right side: Contact form */}
-          <form className="w-1/2 z-20 grow flex flex-col justify-center px-10 bg-gray/10" onSubmit={handleSubmit}>
+          <form className="w-1/2 z-20 grow flex flex-col justify-start py-24 px-10 bg-gray/10" onSubmit={handleSubmit}>
             {/* Name input */}
             <input
               type="text"
@@ -169,8 +224,10 @@ export const ContactMe: React.FC = () => {
               value={values.name}
               onChange={handleChange}
               disabled={isSubmitting}
-              className={`p-2 border-b rounded border-white/20 focus:border-white/80 focus:outline-none py-2 mb-4 transition-all duration-200 text-white hover:scale-[1.02] hover:cursor-pointer ${
-                errors.name ? "border-red-500" : values.name && !errors.name ? "border-green-500" : ""
+              className={`p-2 border-b rounded border-white/20 focus:border-white/80 
+                focus:outline-none py-2 mb-4 transition-all duration-200 text-white
+                hover:scale-[1.02] hover:cursor-pointer ${
+                errors.name ? "border-red-500/50" : values.name && !errors.name ? "border-green-500/50" : ""
               }`}
               style={{ backgroundColor: "#ffffff11" }}
             />
@@ -184,7 +241,7 @@ export const ContactMe: React.FC = () => {
               onChange={handleChange}
               disabled={isSubmitting}
               className={`p-2 border-b rounded border-white/20 focus:border-white/80 focus:outline-none py-2 mb-4 transition-all duration-200 text-white hover:scale-[1.02] hover:cursor-pointer ${
-                errors.email ? "border-red-500" : values.email && !errors.email ? "border-green-500" : ""
+                errors.email ? "border-red-500/50" : values.email && !errors.email ? "border-green-500/50" : ""
               }`}
               style={{ backgroundColor: "#ffffff11" }}
             />
@@ -198,12 +255,12 @@ export const ContactMe: React.FC = () => {
                 onChange={handleChange}
                 disabled={isSubmitting}
                 className={`p-2 w-full border-b rounded border-white/20 focus:border-white/80 focus:outline-none py-2 mb-4 h-32 resize-none transition-all duration-200 text-white hover:scale-[1.02] hover:cursor-pointer ${
-                  errors.message ? "border-red-500" : values.message && !errors.message ? "border-green-500" : ""
+                  errors.message ? "border-red-500/50" : values.message && !errors.message ? "border-green-500/50" : ""
                 }`}
                 style={{ backgroundColor: "#FFF1" }}
               />
               <span className="absolute bottom-1 right-1 text-xs text-white/50">
-                {values.message.length}/{maxValueLength}
+                {values.message.length}/{MAX_VALUE_LENGTH}
               </span>
             </div>
 
@@ -211,19 +268,123 @@ export const ContactMe: React.FC = () => {
             <motion.input
               type="submit"
               value={isSubmitting ? "Sending..." : "Send Message"}
-              className="contact-submit-button cursor-pointer mt-1 px-4 py-2 
-                bg-gradient-to-t from-sky-700/40 to-fuchsia-700/20 text-white rounded 
-                hover:bg-gradient-to-t hover:from-sky-400/30 hover:to-fuchsia-500/30 
+              className="contact-submit-button cursor-pointer mt-1 px-4 py-2 border-b focus:border-white/80
+                bg-gradient-to-t from-stone-50/10 to-stone-400/10 text-white rounded 
+                hover:bg-gradient-to-t hover:from-stone-50/10 hover:to-stone-400/30 
                 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
               whileHover={isSubmitting ? undefined : { scale: 1.05 }}
               disabled={isSubmitting}
             />
 
-            {/* Status message */}
-            <div className="min-h-[24px] mt-2 text-sm">
-              {status.type === "success" && <p className="text-green-400">{status.msg}</p>}
-              {status.type === "error" && <p className="text-red-400">{status.msg}</p>}
+            {/* ReCaptcha Google Advice*/}
+            <div className="absolute bottom-2 right-2">
+              <button
+                type="button"
+                onClick={() => setShowRecaptchaInfo(!showRecaptchaInfo)}
+                className=" rounded p-2 hover:bg-zinc-50/10 transition-colors cursor-pointer"
+                aria-label="Show reCAPTCHA information"
+              >
+                <Image 
+                  src="/resources/img/sections/contact_me/recaptcha.png" 
+                  className="brightness-0 invert" 
+                  alt="reCAPTCHA logo" 
+                  width={40} 
+                  height={20} 
+                />
+              </button>
+
+              {/* Popup with reCAPTCHA info */}
+              <AnimatePresence>
+                {showRecaptchaInfo && (
+                  <>
+                    {/* Backdrop to close popup */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="fixed inset-0 z-[100]"
+                      onClick={() => setShowRecaptchaInfo(false)}
+                    />
+                    
+                    {/* Popup content */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.9, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute bottom-2 right-0 mr-16 mb-2 bg-zinc-900/95 backdrop-blur-sm border border-white/20 rounded-lg p-3 w-64 shadow-xl z-[101]"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setShowRecaptchaInfo(false)}
+                        className="absolute top-2 right-2 hover:opacity-70 transition-opacity"
+                        aria-label="Close"
+                      >
+                        <X size={14} />
+                      </button>
+                      
+                      <p className="text-[10px] text-white/80 leading-relaxed pr-4">
+                        This site is protected by reCAPTCHA and the Google{" "}
+                        <a 
+                          href="https://policies.google.com/privacy" 
+                          target="_blank" 
+                          rel="noreferrer"
+                          className="text-blue-400 hover:underline"
+                        >
+                          Privacy Policy
+                        </a>{" "}
+                        and{" "}
+                        <a 
+                          href="https://policies.google.com/terms" 
+                          target="_blank" 
+                          rel="noreferrer"
+                          className="text-blue-400 hover:underline"
+                        >
+                          Terms of Service
+                        </a>{" "}
+                        apply.
+                      </p>
+                    </motion.div>
+                  </>
+                )}
+              </AnimatePresence>
             </div>
+
+
+            {/* Status message */}
+            <AnimatePresence mode="wait">
+              {status.type !== "idle" && (
+                <motion.div
+                  key="status-message"
+                  initial={{ opacity: 0, scale: 0.8, y: -10 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.8, y: -10 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 20,
+                    duration: 0.3,
+                  }}
+                  className={`relative min-h-[24px] mt-[2em] text-sm p-2 px-4 rounded ${
+                    status.type === "error"
+                      ? "text-red-400 bg-red-400/20 border-red-400/70 border"
+                      : "text-green-400 bg-green-400/20 border-green-400/70 border"
+                  }`}
+                >
+                  <p className="pr-8">{status.msg}</p>
+                  {(status.type === "error") ?
+                  <button
+                    type="button"
+                    onClick={() => setStatus({ type: "idle" })}
+                    className="absolute top-2 right-2 hover:opacity-70 transition-opacity"
+                    aria-label="Close message"
+                  >
+                    <X size={16} />
+                  </button> : null}  
+                </motion.div>
+              )}
+            </AnimatePresence>
           </form>
         </div>
       </div>

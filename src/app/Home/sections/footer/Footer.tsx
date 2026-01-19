@@ -2,6 +2,7 @@
 // IMPORTS - External libraries
 // ============================================================
 import React from "react";
+import Link from "next/link";
 import { Linkedin, Github } from "lucide-react";
 
 // ============================================================
@@ -12,6 +13,13 @@ import { WavesFooter } from "./WavesFooter";
 // ============================================================
 // TYPES
 // ============================================================
+type FooterIconLinkProps = {
+  href: string;
+  children: React.ReactNode;
+  target?: string;
+  rel?: string;
+};
+
 type FooterSectionProps = {
   className?: string;
 };
@@ -19,6 +27,33 @@ type FooterSectionProps = {
 type FooterProps = {
   className?: string;
 };
+
+// ============================================================
+// SUB-COMPONENT - Icon Link
+// ============================================================
+function FooterIconLink({ href, children, target, rel }: FooterIconLinkProps) {
+  const isExternal = target === "_blank";
+  const sharedClassName = "mx-[.4em] my-[.2em] text-[2.5em] hover:scale-105 transition-transform duration-200 border rounded-full p-2 hover:bg-white hover:text-black transition-colors";
+
+  if (isExternal) {
+    return (
+      <a
+        target={target}
+        rel={rel}
+        href={href}
+        className={sharedClassName}
+      >
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={sharedClassName}>
+      {children}
+    </Link>
+  );
+}
 
 // ============================================================
 // SUB-COMPONENT - Section Title
@@ -41,28 +76,22 @@ export function FooterSocialMedias({ className }: FooterSectionProps) {
       <SectionTitle title="Social Medias" />
       <div className="info-text my-4 box-border flex w-full items-center justify-center px-[3.4em] text-[2em]">
         {/* GitHub link */}
-        <a
+        <FooterIconLink
+          href="https://github.com/camiloCanclini?tab=repositories"
           target="_blank"
           rel="noreferrer noopener"
-          href="https://github.com/camiloCanclini?tab=repositories"
-          className="mx-[.4em] my-[.2em] text-[2.5em] hover:scale-105 
-          transition-transform duration-200 border rounded-full p-2
-          hover:bg-white hover:text-black transition-colors"
         >
           <Github />
-        </a>
+        </FooterIconLink>
 
         {/* LinkedIn link */}
-        <a
+        <FooterIconLink
+          href="https://www.linkedin.com/in/camilo-canclini-635110220/"
           target="_blank"
           rel="noreferrer noopener"
-          href="https://www.linkedin.com/in/camilo-canclini-635110220/"
-          className="mx-[.4em] my-[.2em] text-[2.5em] hover:scale-105 
-          transition-transform duration-200 border rounded-full p-2
-          hover:bg-white hover:text-black transition-colors"
         >
           <Linkedin />
-        </a>
+        </FooterIconLink>
       </div>
     </div>
   );
@@ -83,14 +112,13 @@ export function FooterAboutRepo({ className }: FooterSectionProps) {
             visit the next link💜
           </p>
 
-          <a
+          <FooterIconLink
+            href="https://github.com/camiloCanclini/camilo_canclini_portfolio"
             target="_blank"
             rel="noreferrer noopener"
-            href="https://github.com/camiloCanclini/camilo_canclini_portfolio"
-            className="mx-[1em] my-[.2em] inline-flex text-[2.5em] hover:scale-105 transition-transform duration-200 border rounded-full p-2"
           >
             <Github />
-          </a>
+          </FooterIconLink>
         </div>
       </div>
     </div>
@@ -103,12 +131,16 @@ export function FooterAboutRepo({ className }: FooterSectionProps) {
 export function FooterContactInfo({ className }: FooterSectionProps) {
   return (
     <div className={`${className ?? ""}`}>
-      <SectionTitle title="Contact Info" />
+      <SectionTitle title="Other pages" />
       <div className="info-text my-4 box-border flex w-full items-center justify-center px-[3.4em] text-[2em]">
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-center gap-2">
-            <i className="fa-solid fa-envelope text-[1.4em]" aria-hidden="true" />
-            <p className="text-[1.1em]">camilocanclini@gmail.com</p>
+            <Link 
+              href="/terms-and-conditions" 
+              className="text-[1.1em] hover:underline hover:text-blue-200 transition-colors"
+            >
+              Terms and Conditions
+            </Link>
           </div>
         </div>
       </div>

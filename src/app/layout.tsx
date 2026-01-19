@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import './global.css'
 import { ThemeContextProvider } from "../providers/ThemeContext";
+import ReCaptchaProvider from '@/providers/GoogleReCaptchaProvider';
 
 export const metadata: Metadata = {
   title: 'Camilo Canclini Portfolio',
@@ -14,7 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeContextProvider>
-          {children}    
+          <ReCaptchaProvider>
+            {children}
+          </ReCaptchaProvider>
         </ThemeContextProvider>
       </body>
     </html>

@@ -2,19 +2,64 @@
 // EXTERNAL DEPENDENCIES
 // ============================================================
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 // ============================================================
 // TYPES
 // ============================================================
+type FormStatus = "idle" | "success" | "error";
+
 type NeonMailPanelProps = {
+  status?: FormStatus;
   iconAlt?: string;
 };
 
 // ============================================================
 // CONSTANTS
 // ============================================================
-const ICON_SRC = "/resources/img/sections/contact_me/email.png";
+const ICON_SOURCES: Record<FormStatus, string> = {
+  idle: "/resources/img/sections/contact_me/email.png",
+  success: "/resources/img/sections/contact_me/email_success.png",
+  error: "/resources/img/sections/contact_me/email_error.png",
+};
+
+/**
+ * Color themes for each status state
+ */
+const COLOR_THEMES: Record<FormStatus, {
+  gradient1: string;
+  gradient2: string;
+  radialGradient: string;
+  floorGlow: string;
+  dropShadow: string;
+  halo: string;
+}> = {
+  idle: {
+    gradient1: "bg-fuchsia-500/10",
+    gradient2: "bg-cyan-400/10",
+    radialGradient: "bg-[radial-gradient(circle_at_50%_40%,rgba(59,130,246,0.10),transparent_55%)]",
+    floorGlow: "radial-gradient(circle, rgba(120,200,255,0.55) 0%, rgba(120,200,255,0.15) 55%, rgba(0,0,0,0) 70%)",
+    dropShadow: "drop-shadow-[0_0_18px_rgba(120,200,255,0.35)]",
+    halo: "radial-gradient(circle, rgba(120,200,255,0.18) 0%, rgba(120,200,255,0.06) 35%, rgba(0,0,0,0) 70%)",
+  },
+  success: {
+    gradient1: "bg-emerald-500/10",
+    gradient2: "bg-green-400/10",
+    radialGradient: "bg-[radial-gradient(circle_at_50%_40%,rgba(34,197,94,0.10),transparent_55%)]",
+    floorGlow: "radial-gradient(circle, rgba(120,255,150,0.55) 0%, rgba(120,255,150,0.15) 55%, rgba(0,0,0,0) 70%)",
+    dropShadow: "drop-shadow-[0_0_18px_rgba(120,255,150,0.35)]",
+    halo: "radial-gradient(circle, rgba(120,255,150,0.18) 0%, rgba(120,255,150,0.06) 35%, rgba(0,0,0,0) 70%)",
+  },
+  error: {
+    gradient1: "bg-red-500/10",
+    gradient2: "bg-rose-400/10",
+    radialGradient: "bg-[radial-gradient(circle_at_50%_40%,rgba(239,68,68,0.10),transparent_55%)]",
+    floorGlow: "radial-gradient(circle, rgba(255,120,120,0.55) 0%, rgba(255,120,120,0.15) 55%, rgba(0,0,0,0) 70%)",
+    dropShadow: "drop-shadow-[0_0_18px_rgba(255,120,120,0.35)]",
+    halo: "radial-gradient(circle, rgba(255,120,120,0.18) 0%, rgba(255,120,120,0.06) 35%, rgba(0,0,0,0) 70%)",
+  },
+};
+
 const ANIMATION_DURATION = 4.5;
 
 // ============================================================
@@ -47,6 +92,15 @@ const iconFloatAnimation = {
 };
 
 /**
+ * Icon transition - entrance and exit animation when status changes
+ */
+const iconTransition = {
+  initial: { opacity: 0, scale: 0.8, rotateZ: -10 },
+  animate: { opacity: 1, scale: 1.0, rotateZ: 0 },
+  exit: { opacity: 0, scale: 0.8, rotateZ: 10 },
+};
+
+/**
  * Background halo - ambient glow behind icon
  */
 const haloAnimation = {
@@ -67,22 +121,25 @@ const sharedTransition = {
 // MAIN COMPONENT
 // ============================================================
 export const NeonMailPanel: React.FC<NeonMailPanelProps> = ({
+  status = "idle",
   iconAlt = "Email",
 }) => {
+  const currentIcon = ICON_SOURCES[status];
+  const theme = COLOR_THEMES[status];
   return (
     <div className="relative h-full w-full flex justify-center overflow-hidden">
       {/* ============================================================ */}
       {/* BACKGROUND GRADIENTS */}
       {/* ============================================================ */}
       <div className="pointer-events-none absolute inset-0">
-        {/* Top fuchsia gradient */}
-        <div className="absolute top-10 h-72 w-72 rounded-full bg-fuchsia-500/10 blur-3xl" />
+        {/* Top gradient */}
+        <div className={`absolute top-10 h-72 w-72 rounded-full ${theme.gradient1} blur-3xl transition-colors duration-500`} />
         
-        {/* Bottom cyan gradient */}
-        <div className="absolute bottom-10 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+        {/* Bottom gradient */}
+        <div className={`absolute bottom-10 h-72 w-72 rounded-full ${theme.gradient2} blur-3xl transition-colors duration-500`} />
         
-        {/* Radial blue gradient overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(59,130,246,0.10),transparent_55%)]" />
+        {/* Radial gradient overlay */}
+        <div className={`absolute inset-0 ${theme.radialGradient} transition-all duration-500`} />
       </div>
 
       {/* ============================================================ */}
@@ -91,8 +148,7 @@ export const NeonMailPanel: React.FC<NeonMailPanelProps> = ({
       <motion.div
         className="pointer-events-none absolute bottom-8 h-10 w-[80%] -translate-x-1/2 rounded-full"
         style={{
-          background:
-            "radial-gradient(circle, rgba(120,200,255,0.55) 0%, rgba(120,200,255,0.15) 55%, rgba(0,0,0,0) 70%)",
+          background: theme.floorGlow,
           filter: "blur(10px)",
         }}
         animate={floorGlowAnimation}
@@ -112,14 +168,27 @@ export const NeonMailPanel: React.FC<NeonMailPanelProps> = ({
       {/* ============================================================ */}
       {/* FLOATING EMAIL ICON */}
       {/* ============================================================ */}
-      <motion.img
-        src={ICON_SRC}
-        alt={iconAlt}
-        className="absolute left-auto right-auto top-[35%] w-56 -translate-y-1/2 select-none drop-shadow-[0_0_18px_rgba(120,200,255,0.35)]"
-        draggable={false}
-        animate={iconFloatAnimation}
-        transition={sharedTransition}
-      />
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={status}
+          src={currentIcon}
+          alt={iconAlt}
+          className={`absolute left-auto right-auto top-[35%] w-56 -translate-y-1/2 select-none ${theme.dropShadow}`}
+          draggable={false}
+          initial={iconTransition.initial}
+          animate={[
+            iconTransition.animate,
+            iconFloatAnimation,
+          ]}
+          exit={iconTransition.exit}
+          transition={{
+            ...sharedTransition,
+            opacity: { duration: 0.3 },
+            scale: { duration: 0.3 },
+            rotateZ: { duration: 0.3 },
+          }}
+        />
+      </AnimatePresence>
 
       {/* ============================================================ */}
       {/* AMBIENT HALO BEHIND ICON */}
@@ -127,8 +196,7 @@ export const NeonMailPanel: React.FC<NeonMailPanelProps> = ({
       <motion.div
         className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
-          background:
-            "radial-gradient(circle, rgba(120,200,255,0.18) 0%, rgba(120,200,255,0.06) 35%, rgba(0,0,0,0) 70%)",
+          background: theme.halo,
           filter: "blur(18px)",
         }}
         animate={haloAnimation}
