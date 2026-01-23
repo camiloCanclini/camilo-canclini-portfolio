@@ -10,6 +10,8 @@ import { motion, Variants } from "framer-motion";
 // ============================================================
 import { SectionHeading } from "@/app/ui/barrel_files/components";
 import { StarsBackground } from "./StarsBackground";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 // ============================================================
 // TYPES
@@ -46,7 +48,7 @@ export const Skills = ({ data }: SkillsProps) => {
       {/* Skills Container */}
       <div className="w-full relative z-[100] pt-[20vh] overflow-hidden backdrop-blur-md">
         {/* Top gradient overlay */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[20vh] bg-gradient-to-b to-black/60 from-transparent z-20" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[20vh] bg-gradient-to-b dark:to-black/60 to-white from-transparent z-20" />
         
         {/* Section heading */}
         <SectionHeading 
@@ -56,8 +58,8 @@ export const Skills = ({ data }: SkillsProps) => {
         />
         
         {/* Skills categories container */}
-        <div className="w-full flex flex-col items-center justify-evenly max-w-3/5 mx-auto pb-[20vh] pt-[20vh]">
-          <StarsBackground className="STARS-BG absolute top-[20vh] bottom-[20vh] w-full h-full" />
+        <div className="w-full flex flex-col items-center justify-evenly w-full mx-auto pb-[20vh] pt-[20vh]">
+          <StarsBackground className="STARS-BG absolute top-[20vh] bottom-[20vh] w-full h-full invert dark:invert-0" />
           
           {/* Map through skill categories */}
           {data.map((category, index) => (
@@ -67,7 +69,7 @@ export const Skills = ({ data }: SkillsProps) => {
       </div>
       
       {/* Bottom gradient overlay */}
-      <div className="pointer-events-none relative inset-x-0 bottom-0 h-[20vh] bg-gradient-to-t to-black/60 from-transparent z-20" />
+      <div className="pointer-events-none relative inset-x-0 bottom-0 h-[20vh] bg-gradient-to-t dark:to-black/60 to-white from-transparent z-20" />
     </>
   );
 };
@@ -77,6 +79,13 @@ export const Skills = ({ data }: SkillsProps) => {
 // ============================================================
 function SkillCategory({ category }: SkillCategoryProps) {
   
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+   // OJO: antes de mounted, no uses theme para decidir estilos
+  const isDark = mounted && resolvedTheme === "dark";
   // ============================================================
   // ANIMATION VARIANTS
   // ============================================================
@@ -135,11 +144,11 @@ function SkillCategory({ category }: SkillCategoryProps) {
   const iconHoverVariants = {
     rest: {
       scale: 1,
-      filter: "brightness(0) invert(1) drop-shadow(0 0 0px rgba(255,255,255,0))",
+      filter: `brightness(0) invert(${isDark? 1 : 0}) drop-shadow(0 0 0px rgba(255,255,255,0))`,
     },
     hover: {
       scale: 1.05,
-      filter: "brightness(0) invert(1) drop-shadow(0 0 10px rgba(255,255,255,0.45))",
+      filter: `brightness(0) invert(${isDark? 1 : 0}) drop-shadow(0 0 10px rgba(255,255,255,0.45))`,
     },
   };
 
@@ -165,11 +174,11 @@ function SkillCategory({ category }: SkillCategoryProps) {
       initial="hidden"
       whileInView="visible"
       variants={skillCategoryBoxVariants}
-      className="skillsCategoryBox bg-black flex flex-col justify-center rounded-lg border mb-[24vh] w-3/5 p-12 pt-16 shadow-md min-h-[200px] relative"
+      className="skillsCategoryBox bg-neutral-100 dark:bg-black flex flex-col justify-center rounded-lg border dark:border-themedark-primary border-theme-primary mb-[24vh] w-3/5 p-12 pt-16 shadow-md min-h-[200px] relative"
     >
       {/* Category title badge */}
-      <div className="absolute -top-5 -left-10 min-w-[400px] text-center px-4 bg-black border rounded">
-        <h3 className="text-[3em] text-white font-semibold m-0">
+      <div className="absolute -top-5 -left-10 min-w-[400px] text-center px-4 bg-neutral-100 dark:bg-black border dark:border-themedark-primary border-theme-primary rounded">
+        <h3 className="text-[3em] text-theme-primary dark:text-themedark-primary font-semibold m-0">
           {category.name}
         </h3>
       </div>
@@ -200,14 +209,14 @@ function SkillCategory({ category }: SkillCategoryProps) {
               <motion.img
                 src={skill.icon}
                 alt={skill.name}
-                className="w-full h-full mb-4 contain select-none object-contain cursor-pointer invert brightness-0"
+                className="icon-skill w-full h-full mb-4 contain select-none object-contain cursor-pointer"
                 variants={iconHoverVariants}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
               />
 
               {/* Skill name label (appears on hover) */}
               <motion.div
-                className="text-white text-center"
+                className="text-theme-primary dark:text-themedark-primary text-center"
                 variants={labelHoverVariants}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >

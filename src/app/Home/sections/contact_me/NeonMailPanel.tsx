@@ -145,21 +145,21 @@ export const NeonMailPanel: React.FC<NeonMailPanelProps> = ({
       {/* ============================================================ */}
       {/* FLOOR GLOW EFFECT */}
       {/* ============================================================ */}
-      <motion.div
+      {/* <motion.div
         className="pointer-events-none absolute bottom-8 h-10 w-[80%] -translate-x-1/2 rounded-full"
         style={{
           background: theme.floorGlow,
-          filter: "blur(10px)",
+          filter: "blur(20px)",
         }}
         animate={floorGlowAnimation}
         transition={sharedTransition}
       />
-
+    */}
       {/* ============================================================ */}
       {/* FLOOR SHADOW */}
       {/* ============================================================ */}
       <motion.div
-        className="pointer-events-none absolute bottom-8 h-6 w-[85%] -translate-x-1/2 rounded-full bg-black/70"
+        className="pointer-events-none absolute bottom-8 h-6 w-[85%] -translate-x-1/2 rounded-full dark:bg-black/70"
         style={{ filter: "blur(12px)" }}
         animate={shadowAnimation}
         transition={sharedTransition}

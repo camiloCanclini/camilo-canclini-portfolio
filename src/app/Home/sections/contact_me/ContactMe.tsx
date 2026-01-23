@@ -4,7 +4,7 @@
 // IMPORTS - External libraries
 // ============================================================
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { X } from "lucide-react";
 
 /* To ReCaptcha */
@@ -16,6 +16,7 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { SectionHeading } from "@ui/barrel_files/components";
 import { NeonMailPanel } from "./NeonMailPanel";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 // ============================================================
 // TYPES
@@ -25,7 +26,7 @@ type ConicBorderBoxProps = {
   radius?: number;
   border?: number;
   duration?: number;
-  bg?: string;
+  classnameSupContainer?: string;
 };
 
 type Status =
@@ -33,6 +34,7 @@ type Status =
   | { type: "success"; msg: string }
   | { type: "error"; msg: string };
 
+  
 // ============================================================
 // SUB-COMPONENT - Conic Border Animation
 // ============================================================
@@ -41,8 +43,21 @@ export const ConicBorderBox: React.FC<ConicBorderBoxProps> = ({
   radius = 12,
   border = 8,
   duration = 2,
-  bg = "#6d28d9",
+  classnameSupContainer = "",
 }) => {
+
+  // ============================================================
+  // THEME ADJUSTMENT
+  // ============================================================
+  const entryRef = useRef<HTMLDivElement>(null);
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+   // OJO: antes de mounted, no uses theme para decidir estilos
+  const isDark = mounted && resolvedTheme === "dark";
+
   return (
     <>
       <motion.div
@@ -50,13 +65,13 @@ export const ConicBorderBox: React.FC<ConicBorderBoxProps> = ({
         style={{
           scale: 120,
           borderRadius: radius,
-          background: `conic-gradient(from 0deg, transparent 70%, #fff)`,
+          background: `conic-gradient(from 0deg, transparent 70%, ${isDark? "#FFF": "#000"})`,
         }}
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, ease: "linear", duration }}
       />
       <div
-        className="absolute inset-1 mx-auto my-auto bg-black"
+        className={`absolute inset-1 mx-auto my-auto ${classnameSupContainer}`}
         style={{ borderRadius: Math.max(0, radius - border) }}
       />
     </>
@@ -206,8 +221,8 @@ export const ContactMe: React.FC = () => {
 
       <div className="w-full flex flex-col items-center justify-evenly max-w-3/5 mx-auto pb-[40vh]">
         {/* Form container with animated border */}
-        <div className="form-container relative flex overflow-hidden rounded-lg mx-auto min-w-[50vw] min-h-[60vh] bg-gray-800/50">
-          <ConicBorderBox bg="#3e3d75" duration={2} />
+        <div className="form-container relative flex overflow-hidden rounded-lg mx-auto min-w-[50vw] min-h-[60vh] bg-white/50 dark:bg-gray-800/50">
+          <ConicBorderBox classnameSupContainer="dark:bg-black bg-neutral-300" duration={2} />
 
           {/* Left side: Neon mail illustration */}
           <div className="image-container grow w-1/2">
@@ -224,12 +239,11 @@ export const ContactMe: React.FC = () => {
               value={values.name}
               onChange={handleChange}
               disabled={isSubmitting}
-              className={`p-2 border-b rounded border-white/20 focus:border-white/80 
-                focus:outline-none py-2 mb-4 transition-all duration-200 text-white
+              className={`p-2 dark:border-b dark:border-0 border border-black/20 rounded bg-white dark:bg-neutral-900 focus:border-black/80 dark:border-white/20 dark:focus:border-white/80 
+                focus:outline-none py-2 mb-4 transition-all duration-200 text-theme-primary dark:text-white
                 hover:scale-[1.02] hover:cursor-pointer ${
-                errors.name ? "border-red-500/50" : values.name && !errors.name ? "border-green-500/50" : ""
+                errors.name ? "!border-red-500/50" : values.name && !errors.name ? "!border-green-500/50" : ""
               }`}
-              style={{ backgroundColor: "#ffffff11" }}
             />
 
             {/* Email input */}
@@ -240,10 +254,9 @@ export const ContactMe: React.FC = () => {
               value={values.email}
               onChange={handleChange}
               disabled={isSubmitting}
-              className={`p-2 border-b rounded border-white/20 focus:border-white/80 focus:outline-none py-2 mb-4 transition-all duration-200 text-white hover:scale-[1.02] hover:cursor-pointer ${
-                errors.email ? "border-red-500/50" : values.email && !errors.email ? "border-green-500/50" : ""
+              className={`p-2 dark:border-b dark:border-0 border border-black/20 rounded bg-white dark:bg-neutral-900 focus:border-black/80 dark:border-white/20 dark:focus:border-white/80 focus:outline-none py-2 mb-4 transition-all duration-200 text-theme-primary dark:text-white hover:scale-[1.02] hover:cursor-pointer ${
+                errors.email ? "!border-red-500/50" : values.email && !errors.email ? "!border-green-500/50" : ""
               }`}
-              style={{ backgroundColor: "#ffffff11" }}
             />
 
             {/* Message textarea with character counter */}
@@ -254,12 +267,11 @@ export const ContactMe: React.FC = () => {
                 value={values.message}
                 onChange={handleChange}
                 disabled={isSubmitting}
-                className={`p-2 w-full border-b rounded border-white/20 focus:border-white/80 focus:outline-none py-2 mb-4 h-32 resize-none transition-all duration-200 text-white hover:scale-[1.02] hover:cursor-pointer ${
-                  errors.message ? "border-red-500/50" : values.message && !errors.message ? "border-green-500/50" : ""
+                className={`p-2 w-full dark:border-b dark:border-0 border rounded bg-white dark:bg-neutral-900 border-black/20 focus:border-black/80 dark:border-white/20 dark:focus:border-white/80 focus:outline-none py-2 mb-4 h-32 resize-none transition-all duration-200 text-theme-primary dark:text-white hover:scale-[1.02] hover:cursor-pointer ${
+                  errors.message ? "!border-red-500/50" : values.message && !errors.message ? "!border-green-500/50" : ""
                 }`}
-                style={{ backgroundColor: "#FFF1" }}
               />
-              <span className="absolute bottom-1 right-1 text-xs text-white/50">
+              <span className="absolute bottom-1 right-1 text-xs text-black/50 dark:text-white/50">
                 {values.message.length}/{MAX_VALUE_LENGTH}
               </span>
             </div>
@@ -268,8 +280,8 @@ export const ContactMe: React.FC = () => {
             <motion.input
               type="submit"
               value={isSubmitting ? "Sending..." : "Send Message"}
-              className="contact-submit-button cursor-pointer mt-1 px-4 py-2 border-b focus:border-white/80
-                bg-gradient-to-t from-stone-50/10 to-stone-400/10 text-white rounded 
+              className="contact-submit-button bg-white dark:bg-neutral-900 cursor-pointer mt-1 px-4 py-2 dark:border-b dark:border-0 border border-black/20 focus:border-white/80
+                bg-gradient-to-t from-stone-50/10 to-stone-400/10 dark:text-white text-black rounded 
                 hover:bg-gradient-to-t hover:from-stone-50/10 hover:to-stone-400/30 
                 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
               whileHover={isSubmitting ? undefined : { scale: 1.05 }}
@@ -277,11 +289,11 @@ export const ContactMe: React.FC = () => {
             />
 
             {/* ReCaptcha Google Advice*/}
-            <div className="absolute bottom-2 right-2">
+            <div className="absolute bottom-2 right-2 ">
               <button
                 type="button"
                 onClick={() => setShowRecaptchaInfo(!showRecaptchaInfo)}
-                className=" rounded p-2 hover:bg-zinc-50/10 transition-colors cursor-pointer"
+                className=" rounded p-2 hover:bg-zinc-50/10 transition-colors cursor-pointer dark:invert-0 invert"
                 aria-label="Show reCAPTCHA information"
               >
                 <Image 
@@ -312,19 +324,19 @@ export const ContactMe: React.FC = () => {
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.9, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute bottom-2 right-0 mr-16 mb-2 bg-zinc-900/95 backdrop-blur-sm border border-white/20 rounded-lg p-3 w-64 shadow-xl z-[101]"
+                      className="absolute bottom-2 right-0 mr-16 mb-2 bg-white dark:bg-zinc-900/95 backdrop-blur-sm border border-white/20 rounded-lg p-3 w-64 shadow-xl z-[101]"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <button
                         type="button"
                         onClick={() => setShowRecaptchaInfo(false)}
-                        className="absolute top-2 right-2 hover:opacity-70 transition-opacity"
+                        className="absolute top-2 right-2 hover:opacity-70 transition-opacity dark:text-white/80 text-black/80"
                         aria-label="Close"
                       >
                         <X size={14} />
                       </button>
                       
-                      <p className="text-[10px] text-white/80 leading-relaxed pr-4">
+                      <p className="text-[10px] text-black/80 dark:text-white/80 leading-relaxed pr-4">
                         This site is protected by reCAPTCHA and the Google{" "}
                         <a 
                           href="https://policies.google.com/privacy" 
@@ -368,8 +380,8 @@ export const ContactMe: React.FC = () => {
                   }}
                   className={`relative min-h-[24px] mt-[2em] text-sm p-2 px-4 rounded ${
                     status.type === "error"
-                      ? "text-red-400 bg-red-400/20 border-red-400/70 border"
-                      : "text-green-400 bg-green-400/20 border-green-400/70 border"
+                      ? "dark:text-red-400 text-red-700 bg-red-400/30 border-red-400/70 border"
+                      : "dark:text-green-400 text-green-700 bg-green-400/30 border-green-400/70 border"
                   }`}
                 >
                   <p className="pr-8">{status.msg}</p>

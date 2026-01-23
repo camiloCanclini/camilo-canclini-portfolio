@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Wave from "react-wavify";
+import { useTheme } from "next-themes";
 
 type WavesFooterProps = {
   className?: string;
@@ -13,6 +14,14 @@ type WavesFooterProps = {
 export function WavesFooter({
   className,
 }: WavesFooterProps) {
+
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  const isDark = mounted && resolvedTheme === "dark";
+
   return (
     <div className={`${className} relative container-waves`}>
       <Wave fill='url(#gradientwave)'
@@ -28,8 +37,8 @@ export function WavesFooter({
       >
         <defs>
           <linearGradient id="gradientwave" gradientTransform="rotate(90)">
-            <stop offset="10%"  stopColor="#141D38" />
-            <stop offset="90%" stopColor="#273970" />
+            <stop offset="10%"  stopColor={isDark ? "#141D38" : "#fCfCfC"} />
+            <stop offset="90%" stopColor={isDark ? "#273970" : "#DDD"} />
           </linearGradient>
         </defs>
       </Wave>
@@ -48,12 +57,12 @@ export function WavesFooter({
       >
         <defs>
           <linearGradient id="gradient2" gradientTransform="rotate(90)">
-            <stop offset="10%"  stopColor="#1A2545" />
-            <stop offset="90%" stopColor="#0D1325" />
+            <stop offset="10%"  stopColor={isDark ? "#1A2545" : "#FAFAFA"} />
+            <stop offset="90%" stopColor={isDark ? "#0D1325" : "#FFF"} />
           </linearGradient>
         </defs>
       </Wave>
-      <Wave fill='#000'
+      <Wave fill={isDark ? "#000" : "#FFF"}
             paused={false}
             style={{ display: 'flex' }}
             options={{

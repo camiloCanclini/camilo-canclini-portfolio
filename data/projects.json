@@ -1,7 +1,85 @@
 [
   {
+    "title": "Andres Pinturerias Page",
+    "description": "One of my father friend's asked me to create an ecommerce website for his paint store. I decided to use WordPress and WooCommerce.",
+    "technologies": [
+      {
+        "icon": "/resources/img/icons/technologies/wordpress.png",
+        "title": "WORDPRESS",
+        "color": "hover:text-white-400 ease-in-out duration-150"
+      }
+    ],
+    "liveDemoLink": "https://andrespinturerias.com/",
+    "placeholderImage": "/resources/img/sections/projects/andres_pinturerias/p.jpg",
+    "images":[
+      "/resources/img/sections/projects/andres_pinturerias/1.gif",
+      "/resources/img/sections/projects/andres_pinturerias/2.gif",
+      "/resources/img/sections/projects/andres_pinturerias/3.jpg"
+    ]
+  },
+  {
+    "title": "Building Condition Landing",
+    "description": "My Aunt was starting a new business in Property & Facility Condition Assessments, so I created a landing page for her company using WordPress.",
+    "technologies": [
+      {
+        "icon": "/resources/img/icons/technologies/wordpress.png",
+        "title": "WORDPRESS",
+        "color": "hover:text-white-400 ease-in-out duration-150"
+      }
+    ],
+    "liveDemoLink": "https://buildingcondition.com/",
+    "placeholderImage": "/resources/img/sections/projects/building_condition/p.jpg",
+    "images":[
+      "/resources/img/sections/projects/building_condition/1.gif",
+      "/resources/img/sections/projects/building_condition/2.jpg",
+      "/resources/img/sections/projects/building_condition/3.jpg"
+    ]
+  },
+  {
+    "title": "Product Image Scraper",
+    "description": "This desktop application allows you to scrape product images from a list of product codes in a CSV. Then it downloads the images into a specified folder.",
+    "technologies": [
+      {
+        "icon": "/resources/img/icons/technologies/python.png",
+        "title": "PYTHON",
+        "color": "hover:text-amber-400 ease-in-out duration-150"
+      }
+    ],
+    "liveDemoLink": "https://github.com/camiloCanclini/ProductScraper/releases/tag/v1.2.3",
+    "repoLink": "https://github.com/camiloCanclini/ProductScraper",
+    "placeholderImage": "/resources/img/sections/projects/product_scraper/1.jpg",
+    "imageClassName": "object-left",
+    "images":[
+      "/resources/img/sections/projects/product_scraper/1.jpg",
+      "/resources/img/sections/projects/product_scraper/2.jpg",
+      "/resources/img/sections/projects/product_scraper/3.jpg",
+      "/resources/img/sections/projects/product_scraper/4.jpg"
+    ]
+  },
+  {
+    "title": "EXCEL to CSV Converter",
+    "description": "After of use and learn .NET framework at my job, I decided to create a simple desktop application that converts Excel files to CSV format.",
+    "technologies": [
+      {
+        "icon": "/resources/img/icons/technologies/dotnet.png",
+        "title": ".NET",
+        "color": "hover:text-purple-400 ease-in-out duration-150"
+      }
+    ],
+    "liveDemoLink": "https://github.com/camiloCanclini/ConversorArchivos/releases/tag/releases",
+    "repoLink": "https://github.com/camiloCanclini/ConversorArchivos",
+    "placeholderImage": "/resources/img/sections/projects/exceltocsv_converter/1.jpg",
+    "imageClassName": "object-left",
+    "images":[
+      "/resources/img/sections/projects/exceltocsv_converter/1.jpg",
+      "/resources/img/sections/projects/exceltocsv_converter/2.jpg",
+      "/resources/img/sections/projects/exceltocsv_converter/3.jpg",
+      "/resources/img/sections/projects/exceltocsv_converter/4.jpg"
+    ]
+  },
+  {
     "title": "Tic Tac Toe",
-    "description": "My first app using React and Tailwind!",
+    "description": "My first app using React and Tailwind! In the React documentation, they create a Tic Tac Toe game as a tutorial, so I decided to make my own version of it and style it with Tailwind CSS.",
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/react.png",
@@ -15,8 +93,8 @@
       }
     ],
     "liveDemoLink": "https://camilocanclini.github.io/TicTacToe/",
-    "repoLink": "https://github.com/camiloCanclini/to-do-list",
-    "placeholderImage": "/resources/img/sections/projects/tictactoe/1.gif",
+    "repoLink": "https://github.com/camiloCanclini/TicTacToe",
+    "placeholderImage": "/resources/img/sections/projects/tictactoe/p.jpg",
     "images":[
       "/resources/img/sections/projects/tictactoe/1.gif",
       "/resources/img/sections/projects/tictactoe/2.gif",
@@ -25,20 +103,20 @@
   },
   {
     "title": "To do List",
-    "description": "My first web app using MongoDb and implementing the NodeJs template engine",
+    "description": "My first web app using MongoDb and implementing the NodeJs template engine. It was a great experience to learn how to work with NoSql databases.",
     "technologies": [
-      {
-        "icon": "/resources/img/icons/technologies/nodejs2.svg",
-        "title": "NODEJS",
-        "color": "hover:text-amber-500 ease-in-out duration-150"
-      },
       {
         "icon": "/resources/img/icons/technologies/mongodb.png",
         "title": "MONGODB",
         "color": "text-white hover:text-red-300 ease-in-out duration-150"
+      },
+      {
+        "icon": "/resources/img/icons/technologies/nodejs2.svg",
+        "title": "NODEJS",
+        "color": "hover:text-amber-500 ease-in-out duration-150"
       }
     ],
-    "placeholderImage": "/resources/img/sections/projects/todolist/1.gif",
+    "placeholderImage": "/resources/img/sections/projects/todolist/p.jpg",
     "images":[
       "/resources/img/sections/projects/todolist/1.gif",
       "/resources/img/sections/projects/todolist/2.gif",
@@ -49,7 +127,7 @@
   },
   {
     "title": "Card Game",
-    "description": "Online card game developed with Java Springboot and React",
+    "description": "Online real-time card game developed with Java Springboot and React. This project was created as part of a university course.",
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/java.png",
@@ -63,33 +141,68 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/RoleGameSpringBoot",
-    "placeholderImage": "/resources/img/sections/projects/todohardware/1.jpg",
+    "placeholderImage": "/resources/img/sections/projects/card_game/5.jpg",
+    "imageClassName": "object-left",
     "images":[
-      "/resources/img/sections/projects/todohardware/1.jpg",
-      "/resources/img/sections/projects/todohardware/2.jpg",
-      "/resources/img/sections/projects/todohardware/3.jpg",
-      "/resources/img/sections/projects/todohardware/4.jpg",
-      "/resources/img/sections/projects/todohardware/5.jpg"
+      "/resources/img/sections/projects/card_game/1.jpg",
+      "/resources/img/sections/projects/card_game/2.jpg",
+      "/resources/img/sections/projects/card_game/3.jpg",
+      "/resources/img/sections/projects/card_game/4.jpg",
+      "/resources/img/sections/projects/card_game/5.jpg"
     ]
   },
   {
     "title": "Universitary System API",
-    "description": "An API system that manage a little database of a university.",
+    "description": "An little web application that simulates an universitary system. This project was created as part of a university course.",
+
     "technologies": [
       {
+        "icon": "/resources/img/icons/technologies/springboot.png",
+        "title": "SPRINGBOOT",
+        "color": "hover:text-green-500 ease-in-out duration-150"
+      },
+      {
         "icon": "/resources/img/icons/technologies/java.png",
-        "title": "JAVA WITH SPRINGBOOT",
-        "color": "hover:text-amber-500 ease-in-out duration-150"
+        "title": "JAVA",
+        "color": "hover:text-orange-500 ease-in-out duration-150"
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/SimpleUniversitySytemApi",
-    "placeholderImage": "/resources/img/sections/projects/flask-app/1.jpg",
+    "placeholderImage": "/resources/img/sections/projects/universitary_system_api/1.jpg",
+    "imageClassName": "object-left",
     "images":[
-      "/resources/img/sections/projects/flask-app/1.jpg",
-      "/resources/img/sections/projects/flask-app/2.jpg",
-      "/resources/img/sections/projects/flask-app/3.jpg",
-      "/resources/img/sections/projects/flask-app/4.jpg",
-      "/resources/img/sections/projects/flask-app/5.jpg"
+      "/resources/img/sections/projects/universitary_system_api/1.jpg",
+      "/resources/img/sections/projects/universitary_system_api/2.jpg",
+      "/resources/img/sections/projects/universitary_system_api/3.jpg"
+    ]
+  },
+  {
+    "title": "Old Portfolio Website",
+    "description": "Here's my old portfolio website made with HTML, CSS and JavaScript! It's a simple and static site that showcases my projects and skills.",
+    "technologies": [
+      {
+        "icon": "/resources/img/icons/technologies/html.png",
+        "title": "HTML",
+        "color": "hover:text-orange-500 ease-in-out duration-150"
+      },
+      {
+        "icon": "/resources/img/icons/technologies/css.png",
+        "title": "CSS",
+        "color": "hover:text-blue-500 ease-in-out duration-150"
+      },
+      {
+        "icon": "/resources/img/icons/technologies/javascript.png",
+        "title": "JS",
+        "color": "hover:text-amber-500 ease-in-out duration-150"
+      }
+    ],
+    "liveDemoLink": "https://camilocanclini.github.io/camilo_canclini_portfolio/",
+    "repoLink": "https://github.com/camiloCanclini/camilo_canclini_portfolio",
+    "placeholderImage": "/resources/img/sections/projects/old_portfolio/p.jpg",
+    "images":[
+      "/resources/img/sections/projects/old_portfolio/1.gif",
+      "/resources/img/sections/projects/old_portfolio/2.gif",
+      "/resources/img/sections/projects/old_portfolio/3.gif"
     ]
   },
   {
@@ -103,15 +216,11 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/canclini_flutter_app",
-    "placeholderImage": "/resources/img/sections/projects/rent-football-fields/1.jpg",
+    "placeholderImage": "/resources/img/sections/projects/flutter_store_app/1.jpg",
     "images":[
-      "/resources/img/sections/projects/rent-football-fields/1.jpg",
-      "/resources/img/sections/projects/rent-football-fields/2.jpg",
-      "/resources/img/sections/projects/rent-football-fields/3.jpg",
-      "/resources/img/sections/projects/rent-football-fields/4.jpg",
-      "/resources/img/sections/projects/rent-football-fields/5.jpg",
-      "/resources/img/sections/projects/rent-football-fields/6.jpg",
-      "/resources/img/sections/projects/rent-football-fields/7.jpg"
+      "/resources/img/sections/projects/flutter_store_app/1.jpg",
+      "/resources/img/sections/projects/flutter_store_app/2.jpg",
+      "/resources/img/sections/projects/flutter_store_app/3.jpg"
     ]
   },
   {

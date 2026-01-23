@@ -130,12 +130,12 @@ function StarLayer({
       data-slot="star-layer"
       animate={{ y: [0, -2000] }}
       transition={transition}
-      className={cx("absolute top-0 left-0 w-full h-[2000px]", className)}
+      className={cx("star_layer absolute top-0 left-[40vh] w-full h-[2000px]", className)}
       {...props}
     >
       {/* First star field */}
       <div
-        className="absolute bg-transparent rounded-full"
+        className="absolute bg-transparent w-full rounded-full"
         style={{
           width: `${size}px`,
           height: `${size}px`,
@@ -145,7 +145,7 @@ function StarLayer({
       
       {/* Duplicate star field for seamless loop */}
       <div
-        className="absolute bg-transparent rounded-full top-[2000px]"
+        className="absolute bg-transparent w-full rounded-full top-[2000px]"
         style={{
           width: `${size}px`,
           height: `${size}px`,
@@ -209,7 +209,7 @@ function StarsBackground({
     <div
       data-slot="stars-background"
       className={cx(
-        "size-full overflow-hidden bg-[radial-gradient(ellipse_at_bottom,_#000_0%,_#000_100%)]",
+        "overflow-hidden bg-[radial-gradient(ellipse_at_bottom,_#000_0%,_#000_100%)]",
         className
       )}
       onMouseMove={handleMouseMove}

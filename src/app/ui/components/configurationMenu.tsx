@@ -107,7 +107,7 @@ export default function ConfigurationMenu() {
       {/* SETTINGS BUTTON */}
       {/* ============================================================ */}
       <div
-        className="bg-theme-bg dark:bg-themedark-bg hover:bg-theme-primary dark:hover:bg-themedark-primary
+        className="bg-white dark:bg-themedark-bg hover:bg-theme-primary dark:hover:bg-themedark-primary
                       p-2 rounded text-theme-primary dark:text-themedark-primary hover:text-theme-complementary dark:hover:text-themedark-complementary
                       border border-theme-primary/50 dark:border-themedark-primary/50
                       shadow-md rounded-full cursor-pointer
@@ -125,7 +125,7 @@ export default function ConfigurationMenu() {
         {isOpen && (
           <motion.div
             {...menuAnimation}
-            className="bg-theme-bg dark:bg-themedark-bg 
+            className="bg-white dark:bg-themedark-bg 
                         p-3 mt-2 rounded-lg text-theme-primary dark:text-themedark-primary
                         border border-theme-primary/50 dark:border-themedark-primary/50
                         shadow-md 

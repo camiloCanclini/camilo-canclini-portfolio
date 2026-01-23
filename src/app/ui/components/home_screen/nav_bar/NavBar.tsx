@@ -98,7 +98,7 @@ export default function NavBar() {
       style={{ zIndex: NAVBAR_Z_INDEX }}
       className={`flex items-center px-20 h-16 w-full fixed ${
         showNavbar ? "show-nav" : "hide-nav"
-      } text-theme-primary bg-theme-bg dark:text-themedark-primary dark:bg-themedark-bg`}
+      } text-theme-primary bg-white dark:text-themedark-primary dark:bg-themedark-bg shadow-md dark:shadow-white/10 border-t-0`}
     >
       {/* ============================================================ */}
       {/* BRAND NAME */}

@@ -33,7 +33,8 @@ type FooterProps = {
 // ============================================================
 function FooterIconLink({ href, children, target, rel }: FooterIconLinkProps) {
   const isExternal = target === "_blank";
-  const sharedClassName = "mx-[.4em] my-[.2em] text-[2.5em] hover:scale-105 transition-transform duration-200 border rounded-full p-2 hover:bg-white hover:text-black transition-colors";
+  const sharedClassName = "mx-[.4em] my-[.2em] text-[2.5em] hover:scale-105 transition-transform"+
+                            " duration-200 border rounded-full p-2 dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white transition-colors";
 
   if (isExternal) {
     return (
@@ -137,7 +138,7 @@ export function FooterContactInfo({ className }: FooterSectionProps) {
           <div className="flex items-center justify-center gap-2">
             <Link 
               href="/terms-and-conditions" 
-              className="text-[1.1em] hover:underline hover:text-blue-200 transition-colors"
+              className="text-[1.1em] hover:underline hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
             >
               Terms and Conditions
             </Link>
@@ -159,13 +160,13 @@ export function Footer({ className }: FooterProps) {
       
       {/* Footer content */}
       <footer
-        className={`bg-black text-white flex w-full px-0 py-[1em] py-[10vh] text-[8px] ${
+        className={`bg-white dark:bg-black text-white flex w-full px-0 py-[1em] py-[10vh] text-[8px] ${
           className ?? ""
         }`}
       >
-        <FooterSocialMedias className="w-1/3 p-6 px-10" />
-        <FooterAboutRepo className="w-1/3 p-6 px-10" />
-        <FooterContactInfo className="w-1/3 p-6 px-10" />
+        <FooterSocialMedias className="w-1/3 p-6 px-10 text-theme-primary dark:text-themedark-primary" />
+        <FooterAboutRepo className="w-1/3 p-6 px-10 text-theme-primary dark:text-themedark-primary" />
+        <FooterContactInfo className="w-1/3 p-6 px-10 text-theme-primary dark:text-themedark-primary" />
       </footer>
     </>
   );

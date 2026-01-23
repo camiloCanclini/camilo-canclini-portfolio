@@ -2,7 +2,7 @@
 // IMPORTS - External libraries
 // ============================================================
 import React from "react";
-import { motion, Variants } from "framer-motion";
+import { easeIn, motion, Variants } from "framer-motion";
 
 // ============================================================
 // IMPORTS - Internal components
@@ -27,6 +27,7 @@ export type ProjectCardInterface = {
   placeholderImage: string;
   images: string[];
   year?: string;
+  imageClassName?: string;
 };
 
 // ============================================================
@@ -94,10 +95,13 @@ const overlayVariants: Variants = {
 
 // Title slide up animation
 const titleVariants: Variants = {
-  rest: { y: 60 },
+  rest: {
+    y: 30,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
   hover: {
     y: 0,
-    transition: { duration: 0.25 },
+    transition: { duration: 0.5, ease: "easeInOut" },
   },
 };
 
@@ -106,11 +110,16 @@ const descriptionVariants: Variants = {
   rest: {
     opacity: 0,
     y: 0,
+    height: 20,
   },
   hover: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1 },
+    height: 140,
+    transition: {
+      opacity: { duration: 0.7, delay: 0.5, ease: "easeInOut"},
+      height: { duration: 0.3, ease: "easeInOut" },
+    },
   },
 };
 
@@ -176,7 +185,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <img
         src={project.placeholderImage}
         alt={project.title}
-        className="absolute inset-0 w-full h-full object-cover overlay-blend-multiply brightness-75"
+        className={"absolute inset-0 w-full h-full object-cover overlay-blend-multiply brightness-75 " + project.imageClassName }
       />
 
       {/* Capa de “bevel & emboss” */}
@@ -225,7 +234,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
             {/* Project description (appears on hover) */}
             <motion.p
-              className="text-[1.3em] text-gray-200/90 max-w-sm"
+              className="text-[1.3em] text-gray-200/90 max-w-sm overflow-hidden"
               variants={descriptionVariants}
             >
               {project.description}

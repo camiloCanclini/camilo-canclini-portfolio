@@ -24,7 +24,7 @@ export default {
       },
       colors: {
         theme: {
-          bg: "#FAFAFA",
+          bg: "#e8e8e8",
           bg2: "#EBEBEB",
           primary: "#000",
           secondary: "#333",

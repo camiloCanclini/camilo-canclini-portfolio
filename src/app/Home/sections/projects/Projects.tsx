@@ -49,12 +49,12 @@ export default function Projects({ data }: ProjectsProps) {
   const rotateZLimit = 0.1;
 
   // 3D rotation animations
-  const rotateX = useSpring(useTransform(scrollYProgress, [0, 0.1], [-55, 0]), springConfig);
+  const rotateX = useSpring(useTransform(scrollYProgress, [0, 0.1], [-65, 0]), springConfig);
   const rotateZ = useSpring(useTransform(scrollYProgress, [0, rotateZLimit], [-25, 0]), springConfig);
 
   // Hero entrance animations
-  const translateYHero = useSpring(useTransform(scrollYProgress, [0, 0.1], [-1100, 300]), springConfig);
-  const translateXHero = useSpring(useTransform(scrollYProgress, [0, 0.1], [300, 0]), springConfig);
+  const translateYHero = useSpring(useTransform(scrollYProgress, [0, 0.1], [-1700, 300]), springConfig);
+  const translateXHero = useSpring(useTransform(scrollYProgress, [0, 0.1], [500, 0]), springConfig);
   const opacityHero = useSpring(useTransform(scrollYProgress, [0, 0.2], [0.1, 1]), springConfig);
 
   // Column parallax animations
@@ -86,16 +86,16 @@ export default function Projects({ data }: ProjectsProps) {
       id="projects_section"
       ref={containerRef}
       className={[
-        "relative py-48 flex justify-center",
+        "relative py-48 pb-[70vh] flex justify-center",
         "overflow-visible md:overflow-hidden",
         "[perspective:1200px] [transform-style:preserve-3d]",
       ].join(" ")}
       style={{ boxShadow: "inset 0px 0px 50px 2px #0008" }}
     >
       {/* Background grid pattern */}
-      <div className="grid-background absolute inset-0" />
+      <div className="grid-background absolute inset-0 invert dark:invert-0" />
 
-      <div className="relative z-10 w-11/12 max-w-6xl mx-auto">
+      <div className="relative z-10 w-11/12 max-w-6xl mx-auto ">
         {/* Section heading with fade-in animation */}
         <motion.header
           initial={{ opacity: 0, y: 40 }}
@@ -110,7 +110,7 @@ export default function Projects({ data }: ProjectsProps) {
         {/* Desktop: 3D perspective grid with parallax columns */}
         <motion.div
           ref={refProjectsContainer}
-          className="hidden md:block pb-[100px]"
+          className="md:block"
           style={{
             rotateX,
             rotateZ,
@@ -120,7 +120,7 @@ export default function Projects({ data }: ProjectsProps) {
           }}
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 1, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
