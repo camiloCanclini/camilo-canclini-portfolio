@@ -19,6 +19,14 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 
 // ============================================================
+// LANGUAGE & CONTENT
+// ============================================================
+
+import { getSectionText } from "@/i18n/pageInfo";
+import { useLang } from "@/providers/LanguageProvider";
+
+
+// ============================================================
 // TYPES
 // ============================================================
 type ConicBorderBoxProps = {
@@ -34,7 +42,7 @@ type Status =
   | { type: "success"; msg: string }
   | { type: "error"; msg: string };
 
-  
+
 // ============================================================
 // SUB-COMPONENT - Conic Border Animation
 // ============================================================
@@ -55,7 +63,7 @@ export const ConicBorderBox: React.FC<ConicBorderBoxProps> = ({
 
   useEffect(() => setMounted(true), []);
 
-   // OJO: antes de mounted, no uses theme para decidir estilos
+  // OJO: antes de mounted, no uses theme para decidir estilos
   const isDark = mounted && resolvedTheme === "dark";
 
   return (
@@ -65,7 +73,7 @@ export const ConicBorderBox: React.FC<ConicBorderBoxProps> = ({
         style={{
           scale: 120,
           borderRadius: radius,
-          background: `conic-gradient(from 0deg, transparent 70%, ${isDark? "#FFF": "#000"})`,
+          background: `conic-gradient(from 0deg, transparent 70%, ${isDark ? "#FFF" : "#000"})`,
         }}
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, ease: "linear", duration }}
@@ -82,6 +90,12 @@ export const ConicBorderBox: React.FC<ConicBorderBoxProps> = ({
 // MAIN COMPONENT - Contact Me Section
 // ============================================================
 export const ContactMe: React.FC = () => {
+  // ============================================================
+  // TEXTS CONTENT (LANG BASED)
+  // ============================================================
+  const { locale } = useLang();
+  const content = getSectionText("contact_me", locale);
+
   // ============================================================
   // STATE
   // ============================================================
@@ -157,7 +171,7 @@ export const ContactMe: React.FC = () => {
 
     setErrors(newErrors);
     if (Object.values(newErrors).some(Boolean)) {
-      setStatus({ type: "error", msg: "Fix the highlighted fields." });
+      setStatus({ type: "error", msg: content!.content.messages.error_complete_fields });
       return;
     }
 
@@ -178,9 +192,9 @@ export const ContactMe: React.FC = () => {
 
       if (!captchaResponse.ok) {
         const errorData = await captchaResponse.json().catch(() => ({}));
-        setStatus({ 
-          type: "error", 
-          msg: errorData.message || "Security verification failed. Please try again." 
+        setStatus({
+          type: "error",
+          msg: errorData.message || "Security verification failed. Please try again."
         });
         return;
       }
@@ -201,11 +215,11 @@ export const ContactMe: React.FC = () => {
         return;
       }
 
-      setStatus({ type: "success", msg: "Message sent!" });
+      setStatus({ type: "success", msg: content!.content.messages.success });
       setValues({ name: "", email: "", message: "" });
       setErrors({ name: false, email: false, message: false });
     } catch {
-      setStatus({ type: "error", msg: "Network error. Try again." });
+      setStatus({ type: "error", msg: content!.content.messages.error });
     } finally {
       setIsSubmitting(false);
     }
@@ -215,9 +229,9 @@ export const ContactMe: React.FC = () => {
   // RENDER
   // ============================================================
   return (
-    <div className="w-full min-h-[100vh] pt-[10vh]">
+    <div className="w-full min-h-[100vh] pt-[10vh]" id="contact_me_section">
       {/* Section heading */}
-      <SectionHeading heading="Contact Me!" subheading="Let's get in touch" className="z-[200] relative" />
+      <SectionHeading heading={content!.title || "Contact Me!"} subheading={content!.subtitle.toString() || "Let's get in touch"} className="z-[200] relative" />
 
       <div className="w-full flex flex-col items-center justify-evenly max-w-3/5 mx-auto pb-[40vh]">
         {/* Form container with animated border */}
@@ -235,41 +249,38 @@ export const ContactMe: React.FC = () => {
             <input
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder={content!.content.inputName || "Name"}
               value={values.name}
               onChange={handleChange}
               disabled={isSubmitting}
               className={`p-2 dark:border-b dark:border-0 border border-black/20 rounded bg-white dark:bg-neutral-900 focus:border-black/80 dark:border-white/20 dark:focus:border-white/80 
                 focus:outline-none py-2 mb-4 transition-all duration-200 text-theme-primary dark:text-white
-                hover:scale-[1.02] hover:cursor-pointer ${
-                errors.name ? "!border-red-500/50" : values.name && !errors.name ? "!border-green-500/50" : ""
-              }`}
+                hover:scale-[1.02] hover:cursor-pointer ${errors.name ? "!border-red-500/50" : values.name && !errors.name ? "!border-green-500/50" : ""
+                }`}
             />
 
             {/* Email input */}
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={content!.content.inputEmail || "Email"}
               value={values.email}
               onChange={handleChange}
               disabled={isSubmitting}
-              className={`p-2 dark:border-b dark:border-0 border border-black/20 rounded bg-white dark:bg-neutral-900 focus:border-black/80 dark:border-white/20 dark:focus:border-white/80 focus:outline-none py-2 mb-4 transition-all duration-200 text-theme-primary dark:text-white hover:scale-[1.02] hover:cursor-pointer ${
-                errors.email ? "!border-red-500/50" : values.email && !errors.email ? "!border-green-500/50" : ""
-              }`}
+              className={`p-2 dark:border-b dark:border-0 border border-black/20 rounded bg-white dark:bg-neutral-900 focus:border-black/80 dark:border-white/20 dark:focus:border-white/80 focus:outline-none py-2 mb-4 transition-all duration-200 text-theme-primary dark:text-white hover:scale-[1.02] hover:cursor-pointer ${errors.email ? "!border-red-500/50" : values.email && !errors.email ? "!border-green-500/50" : ""
+                }`}
             />
 
             {/* Message textarea with character counter */}
             <div className="relative">
               <textarea
                 name="message"
-                placeholder="Message"
+                placeholder={content!.content.inputMessage || "Message"}
                 value={values.message}
                 onChange={handleChange}
                 disabled={isSubmitting}
-                className={`p-2 w-full dark:border-b dark:border-0 border rounded bg-white dark:bg-neutral-900 border-black/20 focus:border-black/80 dark:border-white/20 dark:focus:border-white/80 focus:outline-none py-2 mb-4 h-32 resize-none transition-all duration-200 text-theme-primary dark:text-white hover:scale-[1.02] hover:cursor-pointer ${
-                  errors.message ? "!border-red-500/50" : values.message && !errors.message ? "!border-green-500/50" : ""
-                }`}
+                className={`p-2 w-full dark:border-b dark:border-0 border rounded bg-white dark:bg-neutral-900 border-black/20 focus:border-black/80 dark:border-white/20 dark:focus:border-white/80 focus:outline-none py-2 mb-4 h-32 resize-none transition-all duration-200 text-theme-primary dark:text-white hover:scale-[1.02] hover:cursor-pointer ${errors.message ? "!border-red-500/50" : values.message && !errors.message ? "!border-green-500/50" : ""
+                  }`}
               />
               <span className="absolute bottom-1 right-1 text-xs text-black/50 dark:text-white/50">
                 {values.message.length}/{MAX_VALUE_LENGTH}
@@ -279,7 +290,7 @@ export const ContactMe: React.FC = () => {
             {/* Submit button */}
             <motion.input
               type="submit"
-              value={isSubmitting ? "Sending..." : "Send Message"}
+              value={isSubmitting ? "Sending..." : content!.content.button || "Send Message"}
               className="contact-submit-button bg-white dark:bg-neutral-900 cursor-pointer mt-1 px-4 py-2 dark:border-b dark:border-0 border border-black/20 focus:border-white/80
                 bg-gradient-to-t from-stone-50/10 to-stone-400/10 dark:text-white text-black rounded 
                 hover:bg-gradient-to-t hover:from-stone-50/10 hover:to-stone-400/30 
@@ -296,12 +307,12 @@ export const ContactMe: React.FC = () => {
                 className=" rounded p-2 hover:bg-zinc-50/10 transition-colors cursor-pointer dark:invert-0 invert"
                 aria-label="Show reCAPTCHA information"
               >
-                <Image 
-                  src="/resources/img/sections/contact_me/recaptcha.png" 
-                  className="brightness-0 invert" 
-                  alt="reCAPTCHA logo" 
-                  width={40} 
-                  height={20} 
+                <Image
+                  src="/resources/img/sections/contact_me/recaptcha.png"
+                  className="brightness-0 invert"
+                  alt="reCAPTCHA logo"
+                  width={40}
+                  height={20}
                 />
               </button>
 
@@ -317,7 +328,7 @@ export const ContactMe: React.FC = () => {
                       className="fixed inset-0 z-[100]"
                       onClick={() => setShowRecaptchaInfo(false)}
                     />
-                    
+
                     {/* Popup content */}
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9, y: 10 }}
@@ -335,21 +346,21 @@ export const ContactMe: React.FC = () => {
                       >
                         <X size={14} />
                       </button>
-                      
+
                       <p className="text-[10px] text-black/80 dark:text-white/80 leading-relaxed pr-4">
                         This site is protected by reCAPTCHA and the Google{" "}
-                        <a 
-                          href="https://policies.google.com/privacy" 
-                          target="_blank" 
+                        <a
+                          href="https://policies.google.com/privacy"
+                          target="_blank"
                           rel="noreferrer"
                           className="text-blue-400 hover:underline"
                         >
                           Privacy Policy
                         </a>{" "}
                         and{" "}
-                        <a 
-                          href="https://policies.google.com/terms" 
-                          target="_blank" 
+                        <a
+                          href="https://policies.google.com/terms"
+                          target="_blank"
                           rel="noreferrer"
                           className="text-blue-400 hover:underline"
                         >
@@ -378,22 +389,21 @@ export const ContactMe: React.FC = () => {
                     damping: 20,
                     duration: 0.3,
                   }}
-                  className={`relative min-h-[24px] mt-[2em] text-sm p-2 px-4 rounded ${
-                    status.type === "error"
-                      ? "dark:text-red-400 text-red-700 bg-red-400/30 border-red-400/70 border"
-                      : "dark:text-green-400 text-green-700 bg-green-400/30 border-green-400/70 border"
-                  }`}
+                  className={`relative min-h-[24px] mt-[2em] text-sm p-2 px-4 rounded ${status.type === "error"
+                    ? "dark:text-red-400 text-red-700 bg-red-400/30 border-red-400/70 border"
+                    : "dark:text-green-400 text-green-700 bg-green-400/30 border-green-400/70 border"
+                    }`}
                 >
                   <p className="pr-8">{status.msg}</p>
                   {(status.type === "error") ?
-                  <button
-                    type="button"
-                    onClick={() => setStatus({ type: "idle" })}
-                    className="absolute top-2 right-2 hover:opacity-70 transition-opacity"
-                    aria-label="Close message"
-                  >
-                    <X size={16} />
-                  </button> : null}  
+                    <button
+                      type="button"
+                      onClick={() => setStatus({ type: "idle" })}
+                      className="absolute top-2 right-2 hover:opacity-70 transition-opacity"
+                      aria-label="Close message"
+                    >
+                      <X size={16} />
+                    </button> : null}
                 </motion.div>
               )}
             </AnimatePresence>

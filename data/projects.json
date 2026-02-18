@@ -1,7 +1,15 @@
 [
   {
-    "title": "Andres Pinturerias Page",
-    "description": "One of my father friend's asked me to create an ecommerce website for his paint store. I decided to use WordPress and WooCommerce.",
+    "texts": {
+      "en": {
+        "title": "Andres Pinturerias Page",
+        "description": "One of my father friend's asked me to create an ecommerce website for his paint store. I decided to use WordPress and WooCommerce."
+      },
+      "es": {
+        "title": "Página de Andres Pinturerias",
+        "description": "Uno de los amigos de mi padre me pidió que creara un sitio web de comercio electrónico para su tienda de pinturas. Decidí usar WordPress y WooCommerce."
+      }
+    },
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/wordpress.png",
@@ -11,15 +19,23 @@
     ],
     "liveDemoLink": "https://andrespinturerias.com/",
     "placeholderImage": "/resources/img/sections/projects/andres_pinturerias/p.jpg",
-    "images":[
+    "images": [
       "/resources/img/sections/projects/andres_pinturerias/1.gif",
       "/resources/img/sections/projects/andres_pinturerias/2.gif",
       "/resources/img/sections/projects/andres_pinturerias/3.jpg"
     ]
   },
   {
-    "title": "Building Condition Landing",
-    "description": "My Aunt was starting a new business in Property & Facility Condition Assessments, so I created a landing page for her company using WordPress.",
+    "texts": {
+      "en": {
+        "title": "Building Condition Landing",
+        "description": "My Aunt was starting a new business in Property & Facility Condition Assessments, so I created a landing page for her company using WordPress."
+      },
+      "es": {
+        "title": "Building Condition Landing",
+        "description": "Mi tía estaba comenzando un nuevo negocio en Property & Facility Condition Assessments, por lo que creé una página de aterrizaje para su empresa usando WordPress."
+      }
+    },
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/wordpress.png",
@@ -29,15 +45,23 @@
     ],
     "liveDemoLink": "https://buildingcondition.com/",
     "placeholderImage": "/resources/img/sections/projects/building_condition/p.jpg",
-    "images":[
+    "images": [
       "/resources/img/sections/projects/building_condition/1.gif",
       "/resources/img/sections/projects/building_condition/2.jpg",
       "/resources/img/sections/projects/building_condition/3.jpg"
     ]
   },
   {
-    "title": "Product Image Scraper",
-    "description": "This desktop application allows you to scrape product images from a list of product codes in a CSV. Then it downloads the images into a specified folder.",
+    "texts": {
+      "en": {
+        "title": "Product Image Scraper",
+        "description": "This desktop application allows you to scrape product images from a list of product codes in a CSV. Then it downloads the images into a specified folder."
+      },
+      "es": {
+        "title": "Product Image Scraper",
+        "description": "Esta aplicación de escritorio permite extraer imágenes de productos de una lista de códigos de productos en un CSV. Luego descarga las imágenes en una carpeta especificada."
+      }
+    },
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/python.png",
@@ -49,7 +73,7 @@
     "repoLink": "https://github.com/camiloCanclini/ProductScraper",
     "placeholderImage": "/resources/img/sections/projects/product_scraper/1.jpg",
     "imageClassName": "object-left",
-    "images":[
+    "images": [
       "/resources/img/sections/projects/product_scraper/1.jpg",
       "/resources/img/sections/projects/product_scraper/2.jpg",
       "/resources/img/sections/projects/product_scraper/3.jpg",
@@ -57,8 +81,16 @@
     ]
   },
   {
-    "title": "EXCEL to CSV Converter",
-    "description": "After of use and learn .NET framework at my job, I decided to create a simple desktop application that converts Excel files to CSV format.",
+    "texts": {
+      "en": {
+        "title": "EXCEL to CSV Converter",
+        "description": "After of use and learn .NET framework at my job, I decided to create a simple desktop application that converts Excel files to CSV format."
+      },
+      "es": {
+        "title": "Conversor de EXCEL a CSV",
+        "description": "Después de usar y aprender el framework .NET en mi trabajo, decidí crear una simple aplicación de escritorio que convierte archivos Excel a formato CSV."
+      }
+    },
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/dotnet.png",
@@ -70,7 +102,7 @@
     "repoLink": "https://github.com/camiloCanclini/ConversorArchivos",
     "placeholderImage": "/resources/img/sections/projects/exceltocsv_converter/1.jpg",
     "imageClassName": "object-left",
-    "images":[
+    "images": [
       "/resources/img/sections/projects/exceltocsv_converter/1.jpg",
       "/resources/img/sections/projects/exceltocsv_converter/2.jpg",
       "/resources/img/sections/projects/exceltocsv_converter/3.jpg",
@@ -78,8 +110,16 @@
     ]
   },
   {
-    "title": "Tic Tac Toe",
-    "description": "My first app using React and Tailwind! In the React documentation, they create a Tic Tac Toe game as a tutorial, so I decided to make my own version of it and style it with Tailwind CSS.",
+    "texts": {
+      "en": {
+        "title": "Tic Tac Toe",
+        "description": "My first app using React and Tailwind! In the React documentation, they create a Tic Tac Toe game as a tutorial, so I decided to make my own version of it and style it with Tailwind CSS."
+      },
+      "es": {
+        "title": "Tic Tac Toe",
+        "description": "Mi primer app usando React y Tailwind! En la documentación de React, crean un juego de Tic Tac Toe como un tutorial, así que decidí hacer mi propia versión de él y estilizarlo con Tailwind CSS."
+      }
+    },
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/react.png",
@@ -95,15 +135,23 @@
     "liveDemoLink": "https://camilocanclini.github.io/TicTacToe/",
     "repoLink": "https://github.com/camiloCanclini/TicTacToe",
     "placeholderImage": "/resources/img/sections/projects/tictactoe/p.jpg",
-    "images":[
+    "images": [
       "/resources/img/sections/projects/tictactoe/1.gif",
       "/resources/img/sections/projects/tictactoe/2.gif",
       "/resources/img/sections/projects/tictactoe/3.gif"
     ]
   },
   {
-    "title": "To do List",
-    "description": "My first web app using MongoDb and implementing the NodeJs template engine. It was a great experience to learn how to work with NoSql databases.",
+    "texts": {
+      "en": {
+        "title": "To do List",
+        "description": "My first web app using MongoDb and implementing the NodeJs template engine. It was a great experience to learn how to work with NoSql databases."
+      },
+      "es": {
+        "title": "Lista de tareas",
+        "description": "Mi primer web app usando MongoDb y implementando el motor de plantillas NodeJs. Fue una gran experiencia aprender a trabajar con bases de datos NoSql."
+      }
+    },
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/mongodb.png",
@@ -117,7 +165,7 @@
       }
     ],
     "placeholderImage": "/resources/img/sections/projects/todolist/p.jpg",
-    "images":[
+    "images": [
       "/resources/img/sections/projects/todolist/1.gif",
       "/resources/img/sections/projects/todolist/2.gif",
       "/resources/img/sections/projects/todolist/3.gif",
@@ -126,8 +174,16 @@
     ]
   },
   {
-    "title": "Card Game",
-    "description": "Online real-time card game developed with Java Springboot and React. This project was created as part of a university course.",
+    "texts": {
+      "en": {
+        "title": "Card Game",
+        "description": "Online real-time card game developed with Java Springboot and React. This project was created as part of a university course."
+      },
+      "es": {
+        "title": "Juego de cartas",
+        "description": "Juego de cartas en tiempo real desarrollado con Java Springboot y React. Este proyecto fue creado como parte de una asignatura universitaria."
+      }
+    },
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/java.png",
@@ -143,7 +199,7 @@
     "repoLink": "https://github.com/camiloCanclini/RoleGameSpringBoot",
     "placeholderImage": "/resources/img/sections/projects/card_game/5.jpg",
     "imageClassName": "object-left",
-    "images":[
+    "images": [
       "/resources/img/sections/projects/card_game/1.jpg",
       "/resources/img/sections/projects/card_game/2.jpg",
       "/resources/img/sections/projects/card_game/3.jpg",
@@ -152,9 +208,16 @@
     ]
   },
   {
-    "title": "Universitary System API",
-    "description": "An little web application that simulates an universitary system. This project was created as part of a university course.",
-
+    "texts": {
+      "en": {
+        "title": "Universitary System API",
+        "description": "An little web application that simulates an universitary system. This project was created as part of a university course."
+      },
+      "es": {
+        "title": "API de Sistema Universitario",
+        "description": "Una pequeña aplicación web que simula un sistema universitario. Este proyecto fue creado como parte de una asignatura universitaria."
+      }
+    },
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/springboot.png",
@@ -170,15 +233,23 @@
     "repoLink": "https://github.com/camiloCanclini/SimpleUniversitySytemApi",
     "placeholderImage": "/resources/img/sections/projects/universitary_system_api/1.jpg",
     "imageClassName": "object-left",
-    "images":[
+    "images": [
       "/resources/img/sections/projects/universitary_system_api/1.jpg",
       "/resources/img/sections/projects/universitary_system_api/2.jpg",
       "/resources/img/sections/projects/universitary_system_api/3.jpg"
     ]
   },
   {
-    "title": "Old Portfolio Website",
-    "description": "Here's my old portfolio website made with HTML, CSS and JavaScript! It's a simple and static site that showcases my projects and skills.",
+    "texts": {
+      "en": {
+        "title": "Old Portfolio Website",
+        "description": "Here's my old portfolio website made with HTML, CSS and JavaScript! It's a simple and static site that showcases my projects and skills."
+      },
+      "es": {
+        "title": "Portfolio web antiguo",
+        "description": "Aquí está mi viejo sitio web de portafolio hecho con HTML, CSS y JavaScript! Es un sitio simple y estático que muestra mis proyectos y habilidades."
+      }
+    },
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/html.png",
@@ -199,15 +270,23 @@
     "liveDemoLink": "https://camilocanclini.github.io/camilo_canclini_portfolio/",
     "repoLink": "https://github.com/camiloCanclini/camilo_canclini_portfolio",
     "placeholderImage": "/resources/img/sections/projects/old_portfolio/p.jpg",
-    "images":[
+    "images": [
       "/resources/img/sections/projects/old_portfolio/1.gif",
       "/resources/img/sections/projects/old_portfolio/2.gif",
       "/resources/img/sections/projects/old_portfolio/3.gif"
     ]
   },
   {
-    "title": "Mobile Store App",
-    "description": "A little application that simulates an store app. This was my first project using Flutter and Dart!",
+    "texts": {
+      "en": {
+        "title": "Mobile Store App",
+        "description": "A little application that simulates an store app. This was my first project using Flutter and Dart!"
+      },
+      "es": {
+        "title": "Aplicación de tienda móvil",
+        "description": "Una pequeña aplicación que simula una app de tienda. Este fue mi primer proyecto usando Flutter y Dart!"
+      }
+    },
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/flutter.png",
@@ -217,15 +296,23 @@
     ],
     "repoLink": "https://github.com/camiloCanclini/canclini_flutter_app",
     "placeholderImage": "/resources/img/sections/projects/flutter_store_app/1.jpg",
-    "images":[
+    "images": [
       "/resources/img/sections/projects/flutter_store_app/1.jpg",
       "/resources/img/sections/projects/flutter_store_app/2.jpg",
       "/resources/img/sections/projects/flutter_store_app/3.jpg"
     ]
   },
   {
-    "title": "Cinema console application",
-    "description": "Little application console that manages the sell of cinema tickets. Also one of my first applications using Python!",
+    "texts": {
+      "en": {
+        "title": "Cinema console application",
+        "description": "Little application console that manages the sell of cinema tickets. Also one of my first applications using Python!"
+      },
+      "es": {
+        "title": "Aplicación de cines en consola",
+        "description": "Una pequeña aplicación console que gestiona la venta de boletos de cine. También uno de mis primeros proyectos usando Python!"
+      }
+    },
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/python.png",
@@ -235,7 +322,7 @@
     ],
     "repoLink": "https://github.com/camiloCanclini/Python_Proyect_Antunez_Canclini",
     "placeholderImage": "/resources/img/sections/projects/cinema/1.jpg",
-    "images":[
+    "images": [
       "/resources/img/sections/projects/cinema/1.jpg",
       "/resources/img/sections/projects/cinema/2.jpg",
       "/resources/img/sections/projects/cinema/3.jpg",
@@ -244,8 +331,16 @@
     ]
   },
   {
-    "title": "Cinema Billboard Web",
-    "description": "A little web application that consumes the OmdbApi and shows the billboard, it also has integrate a login system",
+    "texts": {
+      "en": {
+        "title": "Cinema Billboard Web",
+        "description": "A little web application that consumes the OmdbApi and shows the billboard, it also has integrate a login system"
+      },
+      "es": {
+        "title": "Cine cartel web",
+        "description": "Una pequeña aplicación web que consume la OmdbApi y muestra el cartel, también tiene integrado un sistema de login"
+      }
+    },
     "technologies": [
       {
         "icon": "/resources/img/icons/technologies/python.png",
@@ -255,7 +350,7 @@
     ],
     "repoLink": "https://github.com/camiloCanclini/proyecto-programacionII-Canclini-Antunez",
     "placeholderImage": "/resources/img/sections/projects/movie-search/1.jpg",
-    "images":[
+    "images": [
       "/resources/img/sections/projects/movie-search/1.jpg",
       "/resources/img/sections/projects/movie-search/2.jpg",
       "/resources/img/sections/projects/movie-search/3.jpg",

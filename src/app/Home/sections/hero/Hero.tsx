@@ -24,9 +24,16 @@ import {
 } from "./animations";
 
 // ============================================================
+// LANGUAGE & CONTENT
+// ============================================================
+
+import { getSectionText } from "@/i18n/pageInfo";
+import { useLang } from "@/providers/LanguageProvider";
+
+// ============================================================
 // CONSTANTS - Timing Configuration
 // ============================================================
-const DURATION = {
+let DURATION = {
   videoFade: 4,
   resizeTitles: 2,
   showSubtitle: 2,
@@ -37,11 +44,11 @@ const DELAY = {
   videoFade: 12,
   HelloWorldTypingStartDelay: 2,
   showSubtitle: 2,
-  afterNormalResizeAnimationDelay: 2,
+  afterNormalResizeAnimationDelay: 0.5,
   subHelloWorldTypingStartDelay: 12,
   fadeInImage: 1,
   imageWrapperDelay: 2,
-} as const;
+};
 
 const TYPING_SPEEDS = {
   write: 90,
@@ -120,7 +127,13 @@ const MotionVideo = motion.video;
  * 4. Subtitle appears with rotating text
  * 5. Hero image fades in
  */
-function Hero() {
+function Hero({ setShowConfigMenu }: { setShowConfigMenu: (showConfigMenu: boolean) => void }) {
+  // ============================================================
+  // TEXTS CONTENT (LANG BASED)
+  // ============================================================
+  const { locale } = useLang();
+  const content = getSectionText("hero", locale);
+
   // ============================================================
   // STATE & REFS
   // ============================================================
@@ -171,6 +184,13 @@ function Hero() {
     // Reveal image wrapper then fade in image
     await imageWrapperCtr.start("visible").then(() => {
       imageCtr.start("fadeIn");
+
+      // FIX WIDTH ERRORS POST ANIMATION (CHANGE LANGUAGE)
+      textCtr.start("fix_width");
+      DELAY.subHelloWorldTypingStartDelay = 2;
+
+      //SHOW CONFIG MENU
+      setShowConfigMenu(true);
     });
   };
 
@@ -179,7 +199,7 @@ function Hero() {
   // ============================================================
   return (
     <section
-      id="home"
+      id="home_section"
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
       {/* ============================================================ */}
@@ -214,16 +234,16 @@ function Hero() {
         {/* TEXT COLUMN (Title + Subtitle) */}
         {/* ============================================================ */}
         <motion.div
-          className="flex flex-col gap-2"
+          className="MAIN_TEXT flex flex-col gap-2"
           variants={textVariants}
-          initial={false}
+          initial="large"
           animate={textCtr}
           layout="position"
           transition={{ layout: { type: "spring", stiffness: 50, damping: 10 } }}
         >
           {/* Main title */}
           <WriteText
-            textToWrite="HELLO WORLD!"
+            textToWrite={content!.title || "HELLO WORLD!"}
             className="text-[7em] md:text-[9em] flex font-semibold text-white leading-tight"
             classNameText="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
             typingSpeed={TYPING_SPEEDS.write}
@@ -242,8 +262,8 @@ function Hero() {
             layout="position"
           >
             <WriteText
-              textsToWrite={SUBTITLE_TEXTS}
-              prefix={SUBTITLE_PREFIX}
+              textsToWrite={Array.isArray(content?.subtitle) ? content!.subtitle : SUBTITLE_TEXTS}
+              prefix=""//{SUBTITLE_PREFIX}
               className="text-[8em] text-white md:text-[5em]"
               classNameText="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
               typingSpeed={TYPING_SPEEDS.write}

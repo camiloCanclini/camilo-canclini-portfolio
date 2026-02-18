@@ -7,6 +7,15 @@ import { easeIn, motion, Variants } from "framer-motion";
 // ============================================================
 // IMPORTS - Internal components
 // ============================================================
+
+// ============================================================
+// LANGUAGE & CONTENT
+// ============================================================
+
+import { getLanguageTexts } from "@/i18n/pageInfo";
+import { useLang } from "@/providers/LanguageProvider";
+
+
 // ============================================================
 // TYPE DEFINITIONS - Project Card
 // ============================================================
@@ -19,8 +28,10 @@ export type Technology = {
 };
 
 export type ProjectCardInterface = {
-  title: string;
-  description: string;
+  texts: {
+    title: string;
+    description: string;
+  }
   technologies: Technology[];
   liveDemoLink?: string;
   repoLink?: string;
@@ -117,7 +128,7 @@ const descriptionVariants: Variants = {
     y: 0,
     height: 140,
     transition: {
-      opacity: { duration: 0.7, delay: 0.5, ease: "easeInOut"},
+      opacity: { duration: 0.7, delay: 0.5, ease: "easeInOut" },
       height: { duration: 0.3, ease: "easeInOut" },
     },
   },
@@ -154,17 +165,23 @@ const iconVariants: Variants = {
 // ============================================================
 // MAIN COMPONENT - Project Card
 // ============================================================
-export const ProjectCard: React.FC<ProjectCardProps> = ({ 
-  project, 
-  hoverEnabled 
+export const ProjectCard: React.FC<ProjectCardProps> = ({
+  project,
+  hoverEnabled
 }) => {
+
+  // ============================================================
+  // TEXTS CONTENT (LANG BASED)
+  // ============================================================
+  const { locale } = useLang();
+
   // ============================================================
   // COMPUTED VALUES
   // ============================================================
   const mainTech = project.technologies?.[0];
   const secondaryTechs = project.technologies?.slice(1) ?? [];
   const mainLink = project.liveDemoLink || project.repoLink || undefined;
-  
+
   // ============================================================
   // CARD CONTENT
   // ============================================================
@@ -184,8 +201,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       {/* Fondo: screenshot del proyecto */}
       <img
         src={project.placeholderImage}
-        alt={project.title}
-        className={"absolute inset-0 w-full h-full object-cover overlay-blend-multiply brightness-75 " + project.imageClassName }
+        alt={getLanguageTexts(project.texts, locale).title}
+        className={"absolute inset-0 w-full h-full object-cover overlay-blend-multiply brightness-75 " + project.imageClassName}
       />
 
       {/* Capa de “bevel & emboss” */}
@@ -229,7 +246,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               ].join(" ")}
               variants={titleVariants}
             >
-              {project.title}
+              {getLanguageTexts(project.texts, locale).title}
             </motion.h3>
 
             {/* Project description (appears on hover) */}
@@ -237,7 +254,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               className="text-[1.3em] text-gray-200/90 max-w-sm overflow-hidden"
               variants={descriptionVariants}
             >
-              {project.description}
+              {getLanguageTexts(project.texts, locale).description}
             </motion.p>
           </div>
 
@@ -247,9 +264,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               {/* Main technology - always visible with glow */}
               {mainTech && (
                 <div className="flex items-center gap-2">
-                  <img 
-                    src={mainTech.icon} 
-                    alt={mainTech.title} 
+                  <img
+                    src={mainTech.icon}
+                    alt={mainTech.title}
                     className={[
                       mainTech.color,
                       "text-white text-[1.2em] drop-shadow-[0_0_3px_rgba(255,255,255,0.5)]",
@@ -302,10 +319,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   // ============================================================
   if (mainLink) {
     return (
-      <a 
-        href={mainLink} 
-        target="_blank" 
-        rel="noopener noreferrer" 
+      <a
+        href={mainLink}
+        target="_blank"
+        rel="noopener noreferrer"
         className={hoverEnabled ? "" : "cursor-default"}
         onClick={(e) => {
           if (!hoverEnabled) {

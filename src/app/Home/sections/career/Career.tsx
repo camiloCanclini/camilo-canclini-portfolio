@@ -18,20 +18,34 @@ import { useTheme } from "next-themes";
 import { SectionHeading } from "@ui/barrel_files/components";
 
 // ============================================================
+// LANGUAGE & CONTENT
+// ============================================================
+
+import { getSectionText, getLanguageTexts } from "@/i18n/pageInfo";
+import { useLang } from "@/providers/LanguageProvider";
+
+
+// ============================================================
 // TYPES
 // ============================================================
 export type TimelineEntryData = {
   id?: string | number;
-  title: string;
-  description: string;
+  texts: {
+    en: {
+      title: string;
+      description: string;
+    };
+    es: {
+      title: string;
+      description: string;
+    };
+  };
   date: string;
   images?: Array<{ src: string; alt?: string }>;
 };
 
 type CareerProps = {
   data: TimelineEntryData[];
-  heading?: string;
-  subheading?: string;
 };
 
 type TimelineItemProps = {
@@ -44,9 +58,15 @@ type TimelineItemProps = {
 // ============================================================
 export function Career({
   data,
-  heading = "Changelog from my journey",
-  subheading = "A timeline generated from JSON.",
 }: CareerProps) {
+
+
+  // ============================================================
+  // TEXTS CONTENT (LANG BASED)
+  // ============================================================
+  const { locale } = useLang();
+  const content = getSectionText("career", locale);
+
   // ============================================================
   // REFS & STATE
   // ============================================================
@@ -84,7 +104,7 @@ export function Career({
     () =>
       data.map((item, index) => ({
         ...item,
-        _key: item.id ?? `${item.title}-${item.date}-${index}`,
+        _key: item.id ?? `${index}`,
       })),
     [data]
   );
@@ -94,11 +114,12 @@ export function Career({
   // ============================================================
   return (
     <div
+      id="carrer_section"
       ref={containerRef}
       className="w-4/5 mx-auto font-sans px-[20px] overflow-y-hidden pb-[20vh] pt-[20vh]"
     >
       {/* Section heading */}
-      <SectionHeading heading={heading} subheading={subheading} />
+      <SectionHeading heading={content!.title || "Projects"} subheading={content!.subtitle.toString() || "Here are some of the things I've been building..."} />
 
       <div
         ref={contentRef}
@@ -118,7 +139,7 @@ export function Career({
                       [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]"
         >
 
-          
+
 
           <motion.div
             style={{ height: heightTransform, opacity: opacityTransform }}
@@ -128,7 +149,7 @@ export function Career({
           />
         </div>
 
-        
+
       </div>
     </div>
   );
@@ -140,6 +161,13 @@ export function Career({
 // SUB-COMPONENT - Timeline Item
 // ============================================================
 function TimelineItem({ item, index }: TimelineItemProps) {
+
+
+  // ============================================================
+  // TEXTS CONTENT (LANG BASED)
+  // ============================================================
+  const { locale } = useLang();
+
   // ============================================================
   // REFS & SCROLL TRACKING
   // ============================================================
@@ -149,7 +177,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
 
   useEffect(() => setMounted(true), []);
 
-   // OJO: antes de mounted, no uses theme para decidir estilos
+  // OJO: antes de mounted, no uses theme para decidir estilos
   const isDark = mounted && resolvedTheme === "dark";
 
   // Track scroll progress for this item (activates when 60-40% in viewport)
@@ -163,9 +191,9 @@ function TimelineItem({ item, index }: TimelineItemProps) {
   // ============================================================
   // ANIMATION VALUES - Point Glow
   // ============================================================
- 
+
   const colorShadow = isDark ? 255 : 200;
-  
+
 
   const pointBlur = useTransform(glow, [0, 1], [0, 18]);
   const pointAlpha = useTransform(glow, [0, 1], isDark ? [255, 0] : [0, 255]);
@@ -174,7 +202,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
   const innerBlur = useTransform(glow, [0, 1], [0, 10]);
   const innerAlpha = useTransform(glow, [0, 1], [0, 0.75]);
   const innerShadow = useMotionTemplate`0 0 ${innerBlur}px rgba(${colorShadow},${colorShadow},${colorShadow},${innerAlpha})`;
-  
+
   const innerBg = useTransform(
     glow,
     [0, 1],
@@ -225,14 +253,14 @@ function TimelineItem({ item, index }: TimelineItemProps) {
           className="desktop_title hidden md:block text-xl md:pl-20 md:text-4xl font-bold"
           style={{ textShadow: titleShadow, color: titleColor }}
         >
-          {item.title}
+          {getLanguageTexts(item.texts, locale).title}
         </motion.h3>
       </div>
 
       {/* Timeline content card */}
       <div className="relative pl-20 w-full">
         <h3 className="md:hidden block text-xl mb-2 text-left font-bold text-neutral-500 dark:text-neutral-500">
-          {item.title}
+          {getLanguageTexts(item.texts, locale).title}
         </h3>
 
         <motion.div
@@ -245,18 +273,18 @@ function TimelineItem({ item, index }: TimelineItemProps) {
           {/* Date badge */}
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <span className="text-xs font-medium px-2 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200">
-              {item.date}
+              {getLanguageTexts(item.texts, locale).date}
             </span>
           </div>
 
           {/* Title */}
           <div className="text-lg md:text-xl font-semibold text-neutral-900 dark:text-neutral-100">
-            {item.title}
+            {getLanguageTexts(item.texts, locale).title}
           </div>
 
           {/* Description */}
           <p className="mt-2 text-sm md:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed">
-            {item.description}
+            {getLanguageTexts(item.texts, locale).description}
           </p>
 
           {/* Images grid */}
@@ -271,7 +299,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
                 >
                   <img
                     src={img.src}
-                    alt={img.alt ?? item.title}
+                    alt={img.alt ?? getLanguageTexts(item.texts, locale).title}
                     className="h-32 w-full object-cover"
                     loading="lazy"
                   />
@@ -284,4 +312,3 @@ function TimelineItem({ item, index }: TimelineItemProps) {
     </div>
   );
 }
-            

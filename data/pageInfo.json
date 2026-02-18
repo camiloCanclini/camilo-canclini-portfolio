@@ -1,0 +1,157 @@
+{
+  "sections": [
+    {
+      "name": "nav_bar",
+      "title": {
+        "en": "Nav Bar",
+        "es": "Barra de navegación"
+      },
+      "subtitle": {
+        "en": "",
+        "es": ""
+      },
+      "content": {
+        "es": {
+          "home": "Inicio",
+          "projects": "Proyectos",
+          "career": "Carrera",
+          "skills": "Habilidades",
+          "contact": "Contacto"
+        },
+        "en": {
+          "home": "Home",
+          "projects": "Projects",
+          "career": "Career",
+          "skills": "Skills",
+          "contact": "Contact"
+        }
+      }
+    },
+    {
+      "name": "hero",
+      "title": {
+        "en": "Hello World!",
+        "es": "Hola Mundo!"
+      },
+      "subtitle": {
+        "en": [
+          "I am Camilo Canclini",
+          "I am FullStack Dev",
+          "I am Teacher",
+          "I am Web Designer",
+          "I am Database Dev",
+          "I am Technician"
+        ],
+        "es": [
+          "Soy Camilo Canclini",
+          "Soy Dev Fullstack",
+          "Soy Profesor",
+          "Soy Diseñador",
+          "Soy Técnico"
+        ]
+      }
+    },
+    {
+      "name": "projects",
+      "title": {
+        "en": "Projects",
+        "es": "Proyectos"
+      },
+      "subtitle": {
+        "en": "Here are some of the things I've been building...",
+        "es": "Aquí hay algunas de las cosas que he estado construyendo..."
+      }
+    },
+    {
+      "name": "projects",
+      "title": {
+        "en": "Projects",
+        "es": "Proyectos"
+      },
+      "subtitle": {
+        "en": "Here are some of the things I've been building...",
+        "es": "Aquí hay algunas de las cosas que he estado construyendo..."
+      }
+    },
+    {
+      "name": "career",
+      "title": {
+        "en": "My Career",
+        "es": "Mi Carrera"
+      },
+      "subtitle": {
+        "en": "Here's my professional journey",
+        "es": "Aquí está mi trayectoria profesional"
+      }
+    },
+    {
+      "name": "skills",
+      "title": {
+        "en": "My Skills",
+        "es": "Mis Habilidades"
+      },
+      "subtitle": {
+        "en": "Technologies that I work with",
+        "es": "Tecnologías con las que trabajo"
+      }
+    },
+    {
+      "name": "contact_me",
+      "title": {
+        "en": "Contact Me",
+        "es": "Contáctame"
+      },
+      "subtitle": {
+        "en": "Get in touch with me!",
+        "es": "Ponte en contacto conmigo!"
+      },
+      "content": {
+        "es": {
+          "inputName": "Nombre",
+          "inputEmail": "Email",
+          "inputMessage": "Mensaje",
+          "button": "Enviar",
+          "messages": {
+            "success": "Mensaje enviado!",
+            "error": "Error al enviar el mensaje",
+            "error_complete_fields": "Completa los campos requeridos"
+          }
+        },
+        "en": {
+          "inputName": "Name",
+          "inputEmail": "Email",
+          "inputMessage": "Message",
+          "button": "Send",
+          "messages": {
+            "success": "Message sent!",
+            "error": "Error sending message",
+            "error_complete_fields": "Complete the required fields"
+          }
+        }
+      }
+    },
+    {
+      "name": "footer",
+      "title": {
+        "en": "Footer",
+        "es": "Pie de página"
+      },
+      "subtitle": {
+        "en": "Get in touch with me!",
+        "es": "Ponte en contacto conmigo!"
+      },
+      "content": {
+        "es": {
+          "titleSection1": "Redes Sociales",
+          "titleSection2": "Sobre este Repositorio",
+          "titleSection3": "Otras páginas"
+        },
+        "en": {
+          "titleSection1": "Social Medias",
+          "titleSection2": "About this Repository",
+          "titleSection3": "Other pages"
+        }
+      }
+    }
+  ]
+}

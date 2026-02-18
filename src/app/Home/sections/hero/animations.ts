@@ -18,7 +18,15 @@ export const createTextVariants = (opts: {
       scale: 1,
       //x: "-15vw",
       //maxWidth: "32rem",
-      transition: { delay: normalPostDelay,duration: normalDuration, ease: "easeInOut" },
+      transition: { delay: normalPostDelay, duration: normalDuration, ease: "easeInOut" },
+    },
+    fix_width: {
+      opacity: 1,
+      scale: 1,
+      width: "55%",
+      //x: "-15vw",
+      //maxWidth: "32rem",
+      transition: { delay: normalPostDelay, duration: normalDuration, ease: "easeInOut" },
     },
   };
 };
@@ -27,7 +35,7 @@ export const createSubtitleWrapperVariants = (opts: {
   showDuration: number;
   showDelay: number;
 }): Variants => {
-  const { showDuration, showDelay} = opts;
+  const { showDuration, showDelay } = opts;
   return {
     hidden: {
       height: 0,
@@ -53,11 +61,11 @@ export const createImageWrapperVariants = (opts: {
   const { visibleDuration, imageWrapperDelay } = opts;
   return {
     hidden: {
-      width:0,
+      width: 0,
       opacity: 0,
       scale: 0.95,
       //x: 30, 
-      filter: "blur(8px)" 
+      filter: "blur(8px)"
     },
     visible: {
       width: "auto",
@@ -100,7 +108,7 @@ export const createSubtitleSimpleVariants = (opts: {
 export const createImageSimpleVariants = (opts: { fadeInImageDuration: number, fadeInImageDelay: number }): Variants => {
   const { fadeInImageDuration, fadeInImageDelay } = opts;
   return {
-    hidden: { opacity: 0, scale: 0.85},
+    hidden: { opacity: 0, scale: 0.85 },
     fadeIn: {
       opacity: 1,
       scale: 1,

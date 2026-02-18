@@ -6,6 +6,13 @@ import Link from "next/link";
 import { Linkedin, Github } from "lucide-react";
 
 // ============================================================
+// LANGUAGE & CONTENT
+// ============================================================
+
+import { getSectionText } from "@/i18n/pageInfo";
+import { useLang } from "@/providers/LanguageProvider";
+
+// ============================================================
 // IMPORTS - Internal components
 // ============================================================
 import { WavesFooter } from "./WavesFooter";
@@ -22,6 +29,7 @@ type FooterIconLinkProps = {
 
 type FooterSectionProps = {
   className?: string;
+  title?: string;
 };
 
 type FooterProps = {
@@ -71,10 +79,10 @@ function SectionTitle({ title }: { title: string }) {
 // ============================================================
 // SUB-COMPONENT - Social Medias Section
 // ============================================================
-export function FooterSocialMedias({ className }: FooterSectionProps) {
+export function FooterSocialMedias({ className, title }: FooterSectionProps) {
   return (
     <div className={`${className ?? ""}`}>
-      <SectionTitle title="Social Medias" />
+      <SectionTitle title={title ?? "Social Medias"} />
       <div className="info-text my-4 box-border flex w-full items-center justify-center px-[3.4em] text-[2em]">
         {/* GitHub link */}
         <FooterIconLink
@@ -101,10 +109,10 @@ export function FooterSocialMedias({ className }: FooterSectionProps) {
 // ============================================================
 // SUB-COMPONENT - About Repository Section
 // ============================================================
-export function FooterAboutRepo({ className }: FooterSectionProps) {
+export function FooterAboutRepo({ className, title }: FooterSectionProps) {
   return (
     <div className={`${className ?? ""}`}>
-      <SectionTitle title="About this Repository" />
+      <SectionTitle title={title ?? "About this Repository"} />
       <div className="info-text my-4 box-border flex w-full items-center justify-center px-[3.4em] text-[2em]">
         <div className="flex flex-col items-center justify-center text-center">
           <p className="text-[0.9em] leading-relaxed px-10">
@@ -129,10 +137,11 @@ export function FooterAboutRepo({ className }: FooterSectionProps) {
 // ============================================================
 // SUB-COMPONENT - Contact Info Section
 // ============================================================
-export function FooterContactInfo({ className }: FooterSectionProps) {
+export function FooterContactInfo({ className, title }: FooterSectionProps) {
+  
   return (
     <div className={`${className ?? ""}`}>
-      <SectionTitle title="Other pages" />
+      <SectionTitle title={title ?? "Other pages"} />
       <div className="info-text my-4 box-border flex w-full items-center justify-center px-[3.4em] text-[2em]">
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-center gap-2">
@@ -153,6 +162,12 @@ export function FooterContactInfo({ className }: FooterSectionProps) {
 // MAIN COMPONENT - Footer Section
 // ============================================================
 export function Footer({ className }: FooterProps) {
+   // ============================================================
+  // TEXTS CONTENT (LANG BASED)
+  // ============================================================
+  const { locale } = useLang();
+  const content = getSectionText("footer", locale);
+  
   return (
     <>
       {/* Wave decoration */}
@@ -164,9 +179,9 @@ export function Footer({ className }: FooterProps) {
           className ?? ""
         }`}
       >
-        <FooterSocialMedias className="w-1/3 p-6 px-10 text-theme-primary dark:text-themedark-primary" />
-        <FooterAboutRepo className="w-1/3 p-6 px-10 text-theme-primary dark:text-themedark-primary" />
-        <FooterContactInfo className="w-1/3 p-6 px-10 text-theme-primary dark:text-themedark-primary" />
+        <FooterSocialMedias title={content!.content.titleSection1 || "Social Medias"} className="w-1/3 p-6 px-10 text-theme-primary dark:text-themedark-primary" />
+        <FooterAboutRepo title={content!.content.titleSection2 || "About this Repository"} className="w-1/3 p-6 px-10 text-theme-primary dark:text-themedark-primary" />
+        <FooterContactInfo title={content!.content.titleSection3 || "Other pages"} className="w-1/3 p-6 px-10 text-theme-primary dark:text-themedark-primary" />
       </footer>
     </>
   );

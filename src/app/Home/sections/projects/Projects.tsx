@@ -6,6 +6,13 @@
 import "./Projects.css";
 
 // ============================================================
+// LANGUAGE & CONTENT
+// ============================================================
+
+import { getSectionText } from "@/i18n/pageInfo";
+import { useLang } from "@/providers/LanguageProvider";
+
+// ============================================================
 // IMPORTS - External libraries
 // ============================================================
 import { useMemo, useRef, useState } from "react";
@@ -15,7 +22,7 @@ import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 
 // IMPORTS - Internal components
 // ============================================================
 import { SectionHeading } from "@ui/barrel_files/components";
-import {ProjectCard, ProjectCardInterface} from "./project_card/ProjectCard";
+import { ProjectCard, ProjectCardInterface } from "./project_card/ProjectCard";
 
 // ============================================================
 // TYPES
@@ -28,6 +35,13 @@ type ProjectsProps = {
 // MAIN COMPONENT - Projects Section
 // ============================================================
 export default function Projects({ data }: ProjectsProps) {
+
+  // ============================================================
+  // TEXTS CONTENT (LANG BASED)
+  // ============================================================
+  const { locale } = useLang();
+  const content = getSectionText("projects", locale);
+
   // ============================================================
   // STATE & REFS
   // ============================================================
@@ -104,7 +118,7 @@ export default function Projects({ data }: ProjectsProps) {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="mb-12 px-2 md:px-4"
         >
-          <SectionHeading heading="Projects" subheading="Here are some of the things I've been building..." />
+          <SectionHeading heading={content!.title || "Projects"} subheading={content!.subtitle.toString() || "Here are some of the things I've been building..."} />
         </motion.header>
 
         {/* Desktop: 3D perspective grid with parallax columns */}
@@ -129,7 +143,7 @@ export default function Projects({ data }: ProjectsProps) {
             {/* Left column with upward parallax */}
             <motion.div style={{ y: yColumnLeft }} className="flex flex-col gap-8 pb-32">
               {columns[0].map((project, index) => (
-                <div key={project.title + index} className="h-[460px] lg:h-[700px]">
+                <div key={"PROJECT_CARD_INDEX_" + index} className="h-[460px] lg:h-[700px]">
                   <ProjectCard project={project} hoverEnabled={hoverEnabled} index={index} />
                 </div>
               ))}
@@ -138,7 +152,7 @@ export default function Projects({ data }: ProjectsProps) {
             {/* Right column with downward parallax */}
             <motion.div style={{ y: yColumnRight }} className="flex flex-col gap-8 pb-32">
               {columns[1].map((project, index) => (
-                <div key={project.title + index} className="h-[260px] lg:h-[700px]">
+                <div key={"PROJECT_CARD_INDEX_" + index} className="h-[260px] lg:h-[700px]">
                   <ProjectCard project={project} hoverEnabled={hoverEnabled} index={index} />
                 </div>
               ))}
@@ -149,7 +163,7 @@ export default function Projects({ data }: ProjectsProps) {
         {/* Mobile: Simple vertical list */}
         <div className="md:hidden flex flex-col gap-6">
           {projects.map((project, index) => (
-            <div key={project.title + index} className="h-[260px]">
+            <div key={"PROJECT_CARD_INDEX_" + index} className="h-[260px]">
               <ProjectCard project={project} hoverEnabled={hoverEnabled} index={index} />
             </div>
           ))}

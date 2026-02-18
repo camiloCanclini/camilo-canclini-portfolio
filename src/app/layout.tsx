@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import './global.css'
 import { ThemeContextProvider } from "../providers/ThemeContext";
 import ReCaptchaProvider from '@/providers/GoogleReCaptchaProvider';
+import { LanguageProvider } from '@/providers/LanguageProvider';
 
 export const metadata: Metadata = {
   title: 'Camilo Canclini Portfolio',
@@ -14,11 +15,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ThemeContextProvider>
-          <ReCaptchaProvider>
-            {children}
-          </ReCaptchaProvider>
-        </ThemeContextProvider>
+        <LanguageProvider defaultLocale="en">
+          <ThemeContextProvider>
+            <ReCaptchaProvider>
+              {children}
+            </ReCaptchaProvider>
+          </ThemeContextProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

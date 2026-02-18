@@ -1,61 +1,164 @@
 [
   {
     "id": 1,
-    "date": "March 2014 - December 2021",
-    "title": "Personal and Professional Technician at Informatic",
-    "description": "I started my studies in informatics in a technical school, where I learned the fundamentals of computers, programming, and networking. During this period, I developed a strong foundation in various programming languages and technologies like Java, MySQL, Excel, HTML, CSS, JS and others. Additionally, I gained practical experience through internships and projects, which helped me apply theoretical knowledge to real-world scenarios. This education has been instrumental in shaping my career in the tech industry.",
+    "texts": {
+      "en": {
+        "date": "March 2014 - December 2021",
+        "title": "Personal and Professional Technician in Informatics",
+        "description": "I started my studies in informatics in a technical school, where I learned the fundamentals of computers, programming, and networking. During this period, I developed a strong foundation in various programming languages and technologies like Java, MySQL, Excel, HTML, CSS, JS and others. Additionally, I gained practical experience through internships and projects, which helped me apply theoretical knowledge to real-world scenarios. This education has been instrumental in shaping my career in the tech industry."
+      },
+      "es": {
+        "date": "Marzo 2014 - Diciembre 2021",
+        "title": "Técnico en Informática Personal y Profesional",
+        "description": "Comencé mis estudios en informática en una escuela técnica, donde aprendí los fundamentos de computadoras, programación y redes. Durante este período, desarrollé una base sólida en varios lenguajes de programación y tecnologías como Java, MySQL, Excel, HTML, CSS, JS y otros. Además, obtuve experiencia práctica a través de pasantías y proyectos, lo que me ayudó a aplicar conocimientos teóricos a escenarios del mundo real. Esta educación ha sido fundamental para moldear mi carrera en la industria de la tecnología."
+      }
+    },
     "images": [
-      { "src": "resources/img/sections/career/ITLP/1.jpg", "alt": "Instituto Tecnico La Piedad" },
-      { "src": "resources/img/sections/career/ITLP/2.jpg", "alt": "Pasantía Robótica" },
-      { "src": "resources/img/sections/career/ITLP/3.jpg", "alt": "ITLP logo" }
+      {
+        "src": "resources/img/sections/career/ITLP/1.jpg",
+        "alt": "Instituto Tecnico La Piedad"
+      },
+      {
+        "src": "resources/img/sections/career/ITLP/2.jpg",
+        "alt": "Pasantía Robótica"
+      },
+      {
+        "src": "resources/img/sections/career/ITLP/3.jpg",
+        "alt": "ITLP logo"
+      }
     ]
   },
   {
     "id": 2,
-    "date": "November 2021 - April 2022",
-    "title": "Installation Technician (Networks - Cameras - Acces Controlers) At BellCamInformatica",
-    "description": "When I finished the high school, I started working as an installation technician at BellCamInformatica. My main responsibilities included installing and configuring network systems, security cameras, and access control systems for various clients. This role allowed me to gain hands-on experience in the field of security technology and networking.",
+    "texts": {
+      "en": {
+        "date": "November 2021 - April 2022",
+        "title": "Installation Technician (Networks - Cameras - Acces Controlers) At BellCamInformatica",
+        "description": "When I finished the high school, I started working as an installation technician at BellCamInformatica. My main responsibilities included installing and configuring network systems, security cameras, and access control systems for various clients. This role allowed me to gain hands-on experience in the field of security technology and networking."
+      },
+      "es": {
+        "date": "Noviembre 2021 - Abril 2022",
+        "title": "Técnico Instalador (Redes - Cámaras - Control de Acceso) en BellCamInformatica",
+        "description": "Cuando terminé el secundario, comencé a trabajar como técnico instalador en BellCamInformatica. Mis principales responsabilidades incluían la instalación y configuración de sistemas de red, cámaras de seguridad y sistemas de control de acceso para diversos clientes. Este puesto me permitió obtener experiencia práctica en el campo de la tecnología de seguridad y redes."
+      }
+    },
     "images": [
-      { "src": "resources/img/sections/career/BCI/1.jpg", "alt": "BCI Flyer" },
-      { "src": "resources/img/sections/career/BCI/2.jpg", "alt": "Cameras" },
-      { "src": "resources/img/sections/career/BCI/3.jpg", "alt": "Desktop" }
+      {
+        "src": "resources/img/sections/career/BCI/1.jpg",
+        "alt": "BCI Flyer"
+      },
+      {
+        "src": "resources/img/sections/career/BCI/2.jpg",
+        "alt": "Cameras"
+      },
+      {
+        "src": "resources/img/sections/career/BCI/3.jpg",
+        "alt": "Desktop"
+      }
     ]
   },
   {
     "id": 3,
-    "date": "February 2022 - December 2023",
-    "title": "University Technician in Programming at Nacional Technology University of Bahía Blanca (UTN FRBB)",
-    "description": "Once I completed the highschool, I enrolled in the National Technological University of Bahía Blanca to pursue a degree in Programming. During my time at the university, I have been exposed to a wide range of programming languages, software development methodologies, and computer science concepts. The curriculum has provided me with a solid theoretical foundation as well as practical skills through various projects and assignments. This education has been crucial in preparing me for a successful career in the tech industry.",
+    "texts": {
+      "en": {
+        "date": "February 2022 - December 2023",
+        "title": "University Technician in Programming at UTN FRBB",
+        "description": "Once I completed the highschool, I enrolled in the National Technological University of Bahía Blanca to pursue a degree in Programming. During my time at the university, I have been exposed to a wide range of programming languages, software development methodologies, and computer science concepts. The curriculum has provided me with a solid theoretical foundation as well as practical skills through various projects and assignments. This education has been crucial in preparing me for a successful career in the tech industry."
+      },
+      "es": {
+        "date": "Febrero 2022 - Diciembre 2023",
+        "title": "Técnico Universitario en Programación en la UTN FRBB",
+        "description": "Una vez finalizado el secundario, me inscribí en la Universidad Tecnológica Nacional de Bahía Blanca para seguir la carrera de Ingeniería en Sistemas. Durante mi tiempo en la universidad, he estado expuesto a una amplia gama de lenguajes de programación, metodologías de desarrollo de software y conceptos de ciencias de la computación. El plan de estudios me ha proporcionado una base teórica sólida, así como habilidades prácticas a través de varios proyectos y tareas. Esta educación ha sido crucial para prepararme para una carrera exitosa en la industria de la tecnología."
+      }
+    },
     "images": [
-               { "src": "resources/img/sections/career/UTN/1.jpg", "alt": "UTN FRBB Building" },
-               { "src": "resources/img/sections/career/UTN/2.jpg", "alt": "UTN FRBB Entrance" },
-               { "src": "resources/img/sections/career/UTN/3.jpg", "alt": "UTN FRBB Logo" }
-              ]
+      {
+        "src": "resources/img/sections/career/UTN/1.jpg",
+        "alt": "UTN FRBB Building"
+      },
+      {
+        "src": "resources/img/sections/career/UTN/2.jpg",
+        "alt": "UTN FRBB Entrance"
+      },
+      {
+        "src": "resources/img/sections/career/UTN/3.jpg",
+        "alt": "UTN FRBB Logo"
+      }
+    ]
   },
   {
     "id": 4,
-    "date": "July 2023 - Present",
-    "title": "Junior Fullstack Developer at VGS Consulting",
-    "description": "During my last year of university, I started working as a Junior Fullstack Developer at VGS Consulting. I was contract to develop the new dedicated ERP platform for Droguería Sur. This new system it envolved so many modules of the entire company, such as accounting, stock managment, client sells, supply purcharse, taxes managment, and others. Working at VGS Consulting has allowed me to apply the knowledge and skills I have acquired during my studies in a real-world setting and in the context of a large company. I have been able to work on a variety of projects, which has helped me to develop my technical skills and gain valuable experience in the field.",
+    "texts": {
+      "en": {
+        "date": "July 2023 - Present",
+        "title": "Junior Fullstack Developer at VGS Consulting",
+        "description": "During my last year of university, I started working as a Junior Fullstack Developer at VGS Consulting. I was contract to develop the new dedicated ERP platform for Droguería Sur. This new system it envolved so many modules of the entire company, such as accounting, stock managment, client sells, supply purcharse, taxes managment, and others. Working at VGS Consulting has allowed me to apply the knowledge and skills I have acquired during my studies in a real-world setting and in the context of a large company. I have been able to work on a variety of projects, which has helped me to develop my technical skills and gain valuable experience in the field."
+      },
+      "es": {
+        "date": "Julio 2023 - Presente",
+        "title": "Desarrollador Fullstack Junior en VGS Consulting",
+        "description": "Durante mi último año de universidad, comencé a trabajar como Desarrollador Fullstack Junior en VGS Consulting. Fui contratado para desarrollar la nueva plataforma ERP dedicada para Droguería Sur. Este nuevo sistema involucraba muchos módulos de toda la empresa, como contabilidad, gestión de stock, ventas a clientes, compras a proveedores, gestión de impuestos y otros. Trabajar en VGS Consulting me ha permitido aplicar los conocimientos y habilidades que he adquirido durante mis estudios en un entorno del mundo real y en el contexto de una gran empresa. He podido trabajar en una variedad de proyectos, lo que me ha ayudado a desarrollar mis habilidades técnicas y obtener experiencia valiosa en el campo."
+      }
+    },
     "images": [
-                { "src": "resources/img/sections/career/VGS/1.jpg", "alt": "VGS Logo" },
-                { "src": "resources/img/sections/career/VGS/2.jpg", "alt": "VGS" },
-                { "src": "resources/img/sections/career/VGS/3.jpg", "alt": "VGS" }
-              ]
+      {
+        "src": "resources/img/sections/career/VGS/1.jpg",
+        "alt": "VGS Logo"
+      },
+      {
+        "src": "resources/img/sections/career/VGS/2.jpg",
+        "alt": "VGS"
+      },
+      {
+        "src": "resources/img/sections/career/VGS/3.jpg",
+        "alt": "VGS"
+      }
+    ]
   },
   {
     "id": 5,
-    "date": "February 2024 - August 2025",
-    "title": "Teaching Pedagogy Course",
-    "description": "During my study phase I was develop the ambition to become a teacher in the future. For that reason, I enrolled in a pedagogy of teaching course to learn the fundamentals of education, teaching methodologies, and classroom management. This course has provided me the certification needed to teach at the university and highschool level in Argentina. The knowledge and skills I have gained from this course will be invaluable as I pursue my goal of becoming an educator in the tech field.",
-    "images": [{ "src": "resources/img/sections/career/FASTA/1.jpg", "alt": "FASTA Logo" }]
+    "texts": {
+      "en": {
+        "date": "February 2024 - August 2025",
+        "title": "Teaching Pedagogy Course",
+        "description": "During my study phase I was develop the ambition to become a teacher in the future. For that reason, I enrolled in a pedagogy of teaching course to learn the fundamentals of education, teaching methodologies, and classroom management. This course has provided me the certification needed to teach at the university and highschool level in Argentina. The knowledge and skills I have gained from this course will be invaluable as I pursue my goal of becoming an educator in the tech field."
+      },
+      "es": {
+        "date": "Febrero 2024 - Agosto 2025",
+        "title": "Tramo pedagógico docente",
+        "description": "Durante mi etapa de estudio desarrollé la ambición de convertirme en docente en el futuro. Por esa razón, me inscribí en un curso de pedagogía para aprender los fundamentos de la educación, las metodologías de enseñanza y la gestión del aula. Este curso me ha proporcionado la certificación necesaria para enseñar a nivel universitario y secundario en Argentina. El conocimiento y las habilidades que he adquirido de este curso serán invaluables mientras persigo mi objetivo de convertirme en educador en el campo de la tecnología."
+      }
+    },
+    "images": [
+      {
+        "src": "resources/img/sections/career/FASTA/1.jpg",
+        "alt": "FASTA Logo"
+      }
+    ]
   },
   {
     "id": 6,
-    "date": "August 2025 - January 2026",
-    "title": "Introduction to Data Analytics Teacher at Nacional Technology University of Bahía Blanca (UTN FRBB)",
-    "description": "As if it had fallen from the sky, after finished my journey as a student at UTN FRBB, I was given the opportunity to return as a teacher for the 'Introduction to Data Analytics' course. In this role, I am responsible for teaching students the fundamentals of data analytics, including data collection, cleaning, analysis, and visualization techniques. My goal is to provide students with a solid foundation in data analytics concepts and tools, preparing them for further studies or careers in this rapidly growing field. Teaching has been a rewarding experience, allowing me to share my knowledge and passion for data analytics with the next generation of tech professionals.",
-    "images": [{ "src": "resources/img/sections/career/IAD_UTN/1.jpg", "alt": "IAD UTN Logo" },
-  { "src": "resources/img/sections/career/IAD_UTN/2.jpg", "alt": "IAD UTN Logo" }]
+    "texts": {
+      "en": {
+        "date": "August 2025 - January 2026",
+        "title": "Introduction to Data Analytics Teacher at UTN FRBB",
+        "description": "As if it had fallen from the sky, after finished my journey as a student at UTN FRBB, I was given the opportunity to return as a teacher for the 'Introduction to Data Analytics' course. In this role, I am responsible for teaching students the fundamentals of data analytics, including data collection, cleaning, analysis, and visualization techniques. My goal is to provide students with a solid foundation in data analytics concepts and tools, preparing them for further studies or careers in this rapidly growing field. Teaching has been a rewarding experience, allowing me to share my knowledge and passion for data analytics with the next generation of tech professionals."
+      },
+      "es": {
+        "date": "Agosto 2025 - Enero 2026",
+        "title": "Docente de Introducción al Análisis de Datos en la UTN FRBB",
+        "description": "Como si hubiera caído del cielo, después de terminar mi etapa como estudiante en la UTN FRBB, tuve la oportunidad de regresar como docente para el curso 'Introducción al Análisis de Datos'. En este rol, soy responsable de enseñar a los estudiantes los fundamentos del análisis de datos, incluyendo técnicas de recolección, limpieza, análisis y visualización de datos. Mi objetivo es proporcionar a los estudiantes una base sólida en conceptos y herramientas de análisis de datos, preparándolos para estudios futuros o carreras en este campo en rápido crecimiento. La enseñanza ha sido una experiencia gratificante, permitiéndome compartir mis conocimientos y pasión por el análisis de datos con la próxima generación de profesionales de la tecnología."
+      }
+    },
+    "images": [
+      {
+        "src": "resources/img/sections/career/IAD_UTN/1.jpg",
+        "alt": "IAD UTN Logo"
+      },
+      {
+        "src": "resources/img/sections/career/IAD_UTN/2.jpg",
+        "alt": "IAD UTN Logo"
+      }
+    ]
   }
 ]

@@ -14,6 +14,13 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 // ============================================================
+// LANGUAGE & CONTENT
+// ============================================================
+
+import { getSectionText } from "@/i18n/pageInfo";
+import { useLang } from "@/providers/LanguageProvider";
+
+// ============================================================
 // TYPES
 // ============================================================
 
@@ -43,31 +50,38 @@ type SkillsProps = {
 // MAIN COMPONENT - Skills Section
 // ============================================================
 export const Skills = ({ data }: SkillsProps) => {
+
+  // ============================================================
+  // TEXTS CONTENT (LANG BASED)
+  // ============================================================
+  const { locale } = useLang();
+  const content = getSectionText("skills", locale);
+
   return (
     <>
       {/* Skills Container */}
-      <div className="w-full relative z-[100] pt-[20vh] overflow-hidden backdrop-blur-md">
+      <div id="skills_section" className="w-full relative z-[100] pt-[20vh] overflow-hidden backdrop-blur-md">
         {/* Top gradient overlay */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[20vh] bg-gradient-to-b dark:to-black/60 to-white from-transparent z-20" />
-        
+
         {/* Section heading */}
-        <SectionHeading 
-          heading="My Skills" 
-          subheading="Technologies that I work with" 
+        <SectionHeading
+          heading={content!.title || "My Skills"}
+          subheading={content!.subtitle.toString() || "Technologies that I work with"}
           className="z-[200] pt-[25vh] relative"
         />
-        
+
         {/* Skills categories container */}
         <div className="w-full flex flex-col items-center justify-evenly w-full mx-auto pb-[20vh] pt-[20vh]">
           <StarsBackground className="STARS-BG absolute top-[20vh] bottom-[20vh] w-full h-full invert dark:invert-0" />
-          
+
           {/* Map through skill categories */}
           {data.map((category, index) => (
             <SkillCategory key={index} category={category} />
           ))}
         </div>
       </div>
-      
+
       {/* Bottom gradient overlay */}
       <div className="pointer-events-none relative inset-x-0 bottom-0 h-[20vh] bg-gradient-to-t dark:to-black/60 to-white from-transparent z-20" />
     </>
@@ -78,18 +92,18 @@ export const Skills = ({ data }: SkillsProps) => {
 // SUB-COMPONENT - Skill Category
 // ============================================================
 function SkillCategory({ category }: SkillCategoryProps) {
-  
+
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
-   // OJO: antes de mounted, no uses theme para decidir estilos
+  // OJO: antes de mounted, no uses theme para decidir estilos
   const isDark = mounted && resolvedTheme === "dark";
   // ============================================================
   // ANIMATION VARIANTS
   // ============================================================
-  
+
   // Category box animation (parent)
   const skillCategoryBoxVariants: Variants = {
     hidden: {
@@ -144,11 +158,11 @@ function SkillCategory({ category }: SkillCategoryProps) {
   const iconHoverVariants = {
     rest: {
       scale: 1,
-      filter: `brightness(0) invert(${isDark? 1 : 0}) drop-shadow(0 0 0px rgba(255,255,255,0))`,
+      filter: `brightness(0) invert(${isDark ? 1 : 0}) drop-shadow(0 0 0px rgba(255,255,255,0))`,
     },
     hover: {
       scale: 1.05,
-      filter: `brightness(0) invert(${isDark? 1 : 0}) drop-shadow(0 0 10px rgba(255,255,255,0.45))`,
+      filter: `brightness(0) invert(${isDark ? 1 : 0}) drop-shadow(0 0 10px rgba(255,255,255,0.45))`,
     },
   };
 
