@@ -9,11 +9,12 @@ export const createTextVariants = (opts: {
 
     large: {
       opacity: 1,
-      scale: 1.5,
-      y: 0,
+      scale: 1.17,
+      y: -50,
       x: 0
     },
     normal: {
+      y: -30,
       opacity: 1,
       scale: 1,
       //x: "-15vw",
@@ -23,7 +24,7 @@ export const createTextVariants = (opts: {
     fix_width: {
       opacity: 1,
       scale: 1,
-      width: "55%",
+      width: "100%",
       //x: "-15vw",
       //maxWidth: "32rem",
       transition: { delay: normalPostDelay, duration: normalDuration, ease: "easeInOut" },

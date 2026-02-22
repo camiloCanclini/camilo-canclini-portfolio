@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 // INTERNAL COMPONENTS
 // ============================================================
 import MenuBtn from "./menu_btn/MenuBtn";
+import MobileMenu from "./NavBarMobile";
 
 // ============================================================
 // STYLES
@@ -28,10 +29,6 @@ import Link from "next/link";
 // ============================================================
 // TYPES
 // ============================================================
-interface NavOptionProps {
-  label: string;
-  link: string;
-}
 
 type NavOption = {
   label: string;
@@ -59,7 +56,7 @@ const NAVBAR_Z_INDEX = 999;
  * Individual navigation option link
  * Features hover animation with fading gradient effect
  */
-function NavOption({ label, link }: NavOptionProps) {
+function NavOption({ label, link }: { label: string; link: string }) {
   return (
     <Link
       href={link}
@@ -96,10 +93,17 @@ export default function NavBar({ scrollEffect }: { scrollEffect?: boolean }) {
   // En tu CSS actual: .show-nav { top: -100% } y .hide-nav { top: 0 }
   // Por lo tanto, si qeremos que se VEA, necesitamos que showNavbar sea FALSE (clase hide-nav).
   const [isNavHidden, setIsNavHidden] = useState(isEffectActive);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // ============================================================
   // EFFECTS
   // ============================================================
+
+  // cerrar menú mobile al navegar
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   // Handle navbar visibility on scroll
   useEffect(() => {
     if (!isEffectActive) {
@@ -134,33 +138,46 @@ export default function NavBar({ scrollEffect }: { scrollEffect?: boolean }) {
   // RENDER
   // ============================================================
   return (
-    <nav
-      id="nav_container"
-      style={{ zIndex: NAVBAR_Z_INDEX }}
-      className={`flex items-center px-20 h-16 w-full fixed ${isNavHidden ? "show-nav" : "hide-nav"
-        } text-theme-primary bg-white dark:text-themedark-primary dark:bg-themedark-bg shadow-md dark:shadow-white/10 border-t-0`}
-    >
-      {/* ============================================================ */}
-      {/* BRAND NAME */}
-      {/* ============================================================ */}
-      <Link href="/" className="text-2xl">Camilo Canclini</Link>
+    <>
+      <nav
+        id="nav_container"
+        style={{ zIndex: NAVBAR_Z_INDEX }}
+        className={`flex items-center lg:px-20 px-8 h-16 w-full fixed ${isNavHidden ? "show-nav" : "hide-nav"
+          } text-theme-primary bg-white dark:text-themedark-primary dark:bg-themedark-bg shadow-md dark:shadow-white/10 border-t-0`}
+      >
+        {/* ============================================================ */}
+        {/* BRAND NAME */}
+        {/* ============================================================ */}
+        <Link href="/" className="lg:text-2xl text-xl">Camilo Canclini</Link>
 
-      {/* ============================================================ */}
-      {/* NAVIGATION OPTIONS */}
-      {/* ============================================================ */}
-      <div className="nav_options grow h-full items-center flex ml-auto max-w-3xl justify-end">
-        {/* Desktop menu (visible >= 1150px) */}
-        <div className="hidden xl:flex h-full items-center">
-          {navOptions.map((option) => (
-            <NavOption key={option.link} label={option.label} link={option.link} />
-          ))}
-        </div>
+        {/* ============================================================ */}
+        {/* NAVIGATION OPTIONS */}
+        {/* ============================================================ */}
+        <div className="nav_options grow h-full items-center flex ml-auto max-w-3xl justify-end">
+          {/* Desktop menu (visible >= 1150px) */}
+          <div className="hidden xl:flex h-full items-center">
+            {navOptions.map((option) => (
+              <NavOption key={option.link} label={option.label} link={option.link} />
+            ))}
+          </div>
 
-        {/* Mobile/Tablet menu (visible < 1150px) */}
-        <div className="flex xl:hidden items-center h-full">
-          <MenuBtn />
+          {/* Mobile */}
+          <div className="flex xl:hidden items-center h-full">
+            <MenuBtn
+              isOpen={isMobileMenuOpen}
+              onToggle={() => setIsMobileMenuOpen((v) => !v)}
+            />
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Dropdown mobile */}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        navOptions={navOptions}
+        topOffset={64}
+      />
+    </>
   );
 }

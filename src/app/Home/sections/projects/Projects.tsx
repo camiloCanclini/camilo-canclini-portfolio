@@ -101,7 +101,7 @@ export default function Projects({ data }: ProjectsProps) {
       ref={containerRef}
       className={[
         "relative py-48 pb-[70vh] flex justify-center",
-        "overflow-visible md:overflow-hidden",
+        "overflow-visible lg:overflow-hidden",
         "[perspective:1200px] [transform-style:preserve-3d]",
       ].join(" ")}
       style={{ boxShadow: "inset 0px 0px 50px 2px #0008" }}
@@ -116,7 +116,7 @@ export default function Projects({ data }: ProjectsProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mb-12 px-2 md:px-4"
+          className="mb-12 px-2 lg:px-4"
         >
           <SectionHeading heading={content!.title || "Projects"} subheading={content!.subtitle.toString() || "Here are some of the things I've been building..."} />
         </motion.header>
@@ -124,7 +124,7 @@ export default function Projects({ data }: ProjectsProps) {
         {/* Desktop: 3D perspective grid with parallax columns */}
         <motion.div
           ref={refProjectsContainer}
-          className="md:block"
+          className="hidden lg:block"
           style={{
             rotateX,
             rotateZ,
@@ -138,7 +138,7 @@ export default function Projects({ data }: ProjectsProps) {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-            className="grid grid-cols-2 gap-8 md:gap-10"
+            className="grid grid-cols-2 gap-8 lg:gap-10"
           >
             {/* Left column with upward parallax */}
             <motion.div style={{ y: yColumnLeft }} className="flex flex-col gap-8 pb-32">
@@ -161,9 +161,9 @@ export default function Projects({ data }: ProjectsProps) {
         </motion.div>
 
         {/* Mobile: Simple vertical list */}
-        <div className="md:hidden flex flex-col gap-6">
+        <div className="lg:hidden flex flex-col gap-6">
           {projects.map((project, index) => (
-            <div key={"PROJECT_CARD_INDEX_" + index} className="h-[260px]">
+            <div key={"PROJECT_CARD_INDEX_" + index} className="h-[460px]">
               <ProjectCard project={project} hoverEnabled={hoverEnabled} index={index} />
             </div>
           ))}

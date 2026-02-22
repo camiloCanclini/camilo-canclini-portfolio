@@ -127,16 +127,16 @@ export const NeonMailPanel: React.FC<NeonMailPanelProps> = ({
   const currentIcon = ICON_SOURCES[status];
   const theme = COLOR_THEMES[status];
   return (
-    <div className="relative h-full w-full flex justify-center overflow-hidden">
+    <div className="relative h-full w-full flex justify-center overflow-hidden ">
       {/* ============================================================ */}
       {/* BACKGROUND GRADIENTS */}
       {/* ============================================================ */}
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0  mb-10 lg:mb-0">
         {/* Top gradient */}
-        <div className={`absolute top-10 h-72 w-72 rounded-full ${theme.gradient1} blur-3xl transition-colors duration-500`} />
+        <div className={`absolute top-10 lg:h-72 h-48 w-48 lg:w-72 rounded-full ${theme.gradient1} blur-3xl transition-colors duration-500`} />
 
         {/* Bottom gradient */}
-        <div className={`absolute bottom-10 h-72 w-72 rounded-full ${theme.gradient2} blur-3xl transition-colors duration-500`} />
+        <div className={`absolute bottom-10 h-48 w-48 lg:h-72 lg:w-72 rounded-full ${theme.gradient2} blur-3xl transition-colors duration-500`} />
 
         {/* Radial gradient overlay */}
         <div className={`absolute inset-0 ${theme.radialGradient} transition-all duration-500`} />
@@ -159,7 +159,7 @@ export const NeonMailPanel: React.FC<NeonMailPanelProps> = ({
       {/* FLOOR SHADOW */}
       {/* ============================================================ */}
       <motion.div
-        className="pointer-events-none absolute bottom-8 h-6 w-[85%] -translate-x-1/2 rounded-full dark:bg-black/70"
+        className="pointer-events-none absolute bottom-8 h-6 w-[85%] -translate-x-1/2 lg:translate-y-0 rounded-full dark:bg-black/70 "
         style={{ filter: "blur(12px)" }}
         animate={shadowAnimation}
         transition={sharedTransition}
@@ -173,7 +173,7 @@ export const NeonMailPanel: React.FC<NeonMailPanelProps> = ({
           key={status}
           src={currentIcon}
           alt={iconAlt}
-          className={`absolute left-auto right-auto top-[35%] w-56 -translate-y-1/2 select-none ${theme.dropShadow}`}
+          className={`absolute left-auto right-auto lg:top-[35%] top-[20%] lg:w-56 w-[14em] -translate-y-1/2 select-none ${theme.dropShadow}`}
           draggable={false}
           initial={iconTransition.initial}
           animate={[

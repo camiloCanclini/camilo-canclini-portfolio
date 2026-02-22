@@ -10,6 +10,8 @@ import { X } from "lucide-react";
 /* To ReCaptcha */
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
+import recaptchaImg from "@public/resources/img/sections/contact_me/recaptcha_logo.png";
+
 // ============================================================
 // IMPORTS - Internal components
 // ============================================================
@@ -233,18 +235,18 @@ export const ContactMe: React.FC = () => {
       {/* Section heading */}
       <SectionHeading heading={content!.title || "Contact Me!"} subheading={content!.subtitle.toString() || "Let's get in touch"} className="z-[200] relative" />
 
-      <div className="w-full flex flex-col items-center justify-evenly max-w-3/5 mx-auto pb-[40vh]">
+      <div className="w-full flex flex-col items-center justify-evenly w-full lg:max-w-3/5 max-w-full p-3 lg:mx-auto pb-[40vh]">
         {/* Form container with animated border */}
-        <div className="form-container relative flex overflow-hidden rounded-lg mx-auto min-w-[50vw] min-h-[60vh] bg-white/50 dark:bg-gray-800/50">
+        <div className="form-container relative flex lg:flex-row flex-col-reverse overflow-hidden rounded-lg w-full lg:w-auto lg:mx-auto min-w-[50vw] min-h-[60vh] bg-white/50 dark:bg-gray-800/50">
           <ConicBorderBox classnameSupContainer="dark:bg-black bg-neutral-300" duration={2} />
 
           {/* Left side: Neon mail illustration */}
-          <div className="image-container grow w-1/2">
+          <div className="image-container grow lg:w-1/2 lg:h-auto lg:w-auto h-full h-[45vh] ">
             <NeonMailPanel status={status.type} />
           </div>
 
           {/* Right side: Contact form */}
-          <form className="w-1/2 z-20 grow flex flex-col justify-start py-24 px-10 bg-gray/10" onSubmit={handleSubmit}>
+          <form className="lg:w-1/2 z-20 grow flex flex-col justify-start lg:py-24 py-14 lg:px-10 px-8 bg-gray/10" onSubmit={handleSubmit}>
             {/* Name input */}
             <input
               type="text"
@@ -308,7 +310,7 @@ export const ContactMe: React.FC = () => {
                 aria-label="Show reCAPTCHA information"
               >
                 <Image
-                  src="/resources/img/sections/contact_me/recaptcha.png"
+                  src={recaptchaImg}
                   className="brightness-0 invert"
                   alt="reCAPTCHA logo"
                   width={40}

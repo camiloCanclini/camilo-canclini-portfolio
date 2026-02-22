@@ -64,7 +64,7 @@ export default function ConfigurationMenu({ showConfigMenu }: { showConfigMenu: 
   if (!mounted) return null;
 
   return (
-    <div className="fixed top-[8vh] z-[500000] top-0 right-4 flex flex-col items-end p-2">
+    <div className="lg:block fixed top-[8vh] z-[500] top-0 right-4 flex flex-col items-end p-2">
       {showConfigMenu && (
         <motion.div
           initial={{ scale: 0, opacity: 0 }}

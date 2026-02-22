@@ -225,7 +225,9 @@ function Hero({ setShowConfigMenu }: { setShowConfigMenu: (showConfigMenu: boole
       {/* MAIN CONTENT CONTAINER */}
       {/* ============================================================ */}
       <motion.div
-        className="relative z-20 flex h-full w-4/5 items-center justify-center gap-12"
+        className="relative z-20 flex flex-col-reverse lg:flex-row 
+        h-full w-full lg:w-4/6 justify-end pt-[20vh] lg:pt-0
+        lg:items-center lg:justify-center gap-12 h-[100vh]"
         initial="start"
         animate="withImage"
         variants={createContainerVariants()}
@@ -234,7 +236,7 @@ function Hero({ setShowConfigMenu }: { setShowConfigMenu: (showConfigMenu: boole
         {/* TEXT COLUMN (Title + Subtitle) */}
         {/* ============================================================ */}
         <motion.div
-          className="MAIN_TEXT flex flex-col gap-2"
+          className="MAIN_TEXT flex flex-col gap-2 lg:text-left text-center"
           variants={textVariants}
           initial="large"
           animate={textCtr}
@@ -244,7 +246,7 @@ function Hero({ setShowConfigMenu }: { setShowConfigMenu: (showConfigMenu: boole
           {/* Main title */}
           <WriteText
             textToWrite={content!.title || "HELLO WORLD!"}
-            className="text-[7em] md:text-[9em] flex font-semibold text-white leading-tight"
+            className="text-[3.8em] lg:text-[8em] justify-center lg:justify-start flex font-semibold text-white leading-tight"
             classNameText="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
             typingSpeed={TYPING_SPEEDS.write}
             startDelay={DELAY.HelloWorldTypingStartDelay * 1000}
@@ -264,7 +266,7 @@ function Hero({ setShowConfigMenu }: { setShowConfigMenu: (showConfigMenu: boole
             <WriteText
               textsToWrite={Array.isArray(content?.subtitle) ? content!.subtitle : SUBTITLE_TEXTS}
               prefix=""//{SUBTITLE_PREFIX}
-              className="text-[8em] text-white md:text-[5em]"
+              className="text-[2em] lg:text-[4em] text-white"
               classNameText="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
               typingSpeed={TYPING_SPEEDS.write}
               deleteSpeed={TYPING_SPEEDS.delete}

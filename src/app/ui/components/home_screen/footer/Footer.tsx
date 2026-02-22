@@ -76,7 +76,7 @@ function SectionTitle({ title }: { title: string }) {
   return (
     <>
       <div className="text-[3em] text-center">{title}</div>
-      <div className="w-3/5 mx-auto h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
+      <div className="w-3/5 mx-auto h-px bg-gradient-to-r from-transparent via-white to-transparent mb-[1em] lg:mb-0"></div>
     </>
   );
 }
@@ -120,9 +120,9 @@ export function FooterAboutRepo({ className, title }: FooterSectionProps) {
   return (
     <div className={`${className ?? ""}`}>
       <SectionTitle title={title ?? "About this Repository"} />
-      <div className="info-text my-4 box-border flex w-full items-center justify-center px-[3.4em] text-[2em]">
+      <div className="info-text my-4 box-border flex w-full items-center justify-center lg:px-[3.4em] text-[2em]">
         <div className="flex flex-col items-center justify-center text-center">
-          <p className="text-[0.9em] leading-relaxed px-10">
+          <p className="text-[0.9em] leading-relaxed lg:px-10 lg:py-auto">
             I leave the code and resources of this repo in my github, if you
             need copy some element or see how is made the code, feel free to
             visit the next link💜
@@ -194,16 +194,16 @@ export default function Footer({ className }: FooterProps) {
   return (
     <>
       {/* Wave decoration */}
-      <WavesFooter className="h-20 md:h-28 w-full" />
+      <WavesFooter className="h-20 lg:h-28 w-full" />
 
       {/* Footer content */}
       <footer
-        className={`bg-white dark:bg-black text-white flex w-full px-0 py-[1em] py-[10vh] text-[8px] ${className ?? ""
+        className={`bg-white dark:bg-black text-white flex lg:flex-row flex-col w-full px-0 py-[10vh] py-[10vh] text-[8px] ${className ?? ""
           }`}
       >
-        <FooterSocialMedias title={content!.content.titleSection1 || "Social Medias"} className="w-1/3 p-6 px-10 text-theme-primary dark:text-themedark-primary" />
-        <FooterAboutRepo title={content!.content.titleSection2 || "About this Repository"} className="w-1/3 p-6 px-10 text-theme-primary dark:text-themedark-primary" />
-        <FooterContactInfo title={content!.content.titleSection3 || "Other pages"} className="w-1/3 p-6 px-10 text-theme-primary dark:text-themedark-primary" />
+        <FooterSocialMedias title={content!.content.titleSection1 || "Social Medias"} className="lg:w-1/3 w-full p-6 px-10 text-theme-primary dark:text-themedark-primary" />
+        <FooterAboutRepo title={content!.content.titleSection2 || "About this Repository"} className="lg:w-1/3 w-full p-6 px-10 text-theme-primary dark:text-themedark-primary" />
+        <FooterContactInfo title={content!.content.titleSection3 || "Other pages"} className="lg:w-1/3 w-full p-6 px-10 text-theme-primary dark:text-themedark-primary" />
       </footer>
     </>
   );

@@ -72,7 +72,7 @@ export default function HeroImage() {
     <motion.div
       className="
         relative flex justify-center items-center
-        h-[200px] w-[200px] md:h-[500px] md:w-[500px]
+        h-[200px] w-[200px] lg:h-[500px] lg:w-[500px]
         cursor-pointer rounded-full border-4 border-white p-4
         shadow-[0px_20px_45px_rgba(0,0,0,0.35)]
       "

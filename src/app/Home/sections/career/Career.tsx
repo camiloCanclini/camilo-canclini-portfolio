@@ -116,14 +116,14 @@ export function Career({
     <div
       id="carrer_section"
       ref={containerRef}
-      className="w-4/5 mx-auto font-sans px-[20px] overflow-y-hidden pb-[20vh] pt-[20vh]"
+      className="lg:w-4/5 lg:mx-auto mx-0 font-sans lg:px-[20px] px-0 overflow-y-hidden pb-[20vh] lg:pt-[20vh]"
     >
       {/* Section heading */}
       <SectionHeading heading={content!.title || "Projects"} subheading={content!.subtitle.toString() || "Here are some of the things I've been building..."} />
 
       <div
         ref={contentRef}
-        className="w-4/6 relative max-w-7xl mx-auto pb-20 pt-[10vh]"
+        className="lg:w-4/6 w-full relative lg:max-w-7xl mx-auto pb-20 lg:pt-[10vh]"
       >
         {/* Timeline items */}
         {entries.map((item, index) => (
@@ -133,7 +133,7 @@ export function Career({
         {/* Animated timeline line */}
         <div
           style={{ height: height + "px" }}
-          className="timeline absolute md:left-8 left-8 top-0 overflow-hidden w-[2px]
+          className="timeline absolute lg:left-8 left-8 top-0 overflow-hidden w-[2px]
                      dark:bg-neutral-900 bg-neutral-100
                      [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]
                       [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]"
@@ -234,12 +234,12 @@ function TimelineItem({ item, index }: TimelineItemProps) {
   return (
     <div
       ref={entryRef}
-      className="flex flex-col justify-start pt-10 md:pt-40 md:gap-10"
+      className="flex flex-col justify-start pt-10 lg:pt-40 lg:gap-10"
     >
       {/* Timeline point and title */}
       <div className="flex flex-col z-40 items-center top-40 self-start">
         <motion.div
-          className="timeline_point h-10 absolute left-3 md:left-3 w-10 rounded-full 
+          className="timeline_point h-10 absolute left-3 lg:left-3 w-10 rounded-full 
           border dark:border-themedark-primary flex items-center justify-center"
           style={{ boxShadow: pointShadow, backgroundColor: innerBg }}
         >
@@ -250,7 +250,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
         </motion.div>
 
         <motion.h3
-          className="desktop_title hidden md:block text-xl md:pl-20 md:text-4xl font-bold"
+          className="desktop_title hidden lg:block text-xl lg:pl-20 lg:text-4xl font-bold"
           style={{ textShadow: titleShadow, color: titleColor }}
         >
           {getLanguageTexts(item.texts, locale).title}
@@ -258,8 +258,8 @@ function TimelineItem({ item, index }: TimelineItemProps) {
       </div>
 
       {/* Timeline content card */}
-      <div className="relative pl-20 w-full">
-        <h3 className="md:hidden block text-xl mb-2 text-left font-bold text-neutral-500 dark:text-neutral-500">
+      <div className="relative lg:pl-20 pr-6 pl-16 lg:pt-0 w-full">
+        <h3 className="lg:hidden block lg:text-xl text-[1.6em] mb-2 text-left font-bold text-neutral-500 dark:text-neutral-500">
           {getLanguageTexts(item.texts, locale).title}
         </h3>
 
@@ -268,7 +268,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-20% 0px -20% 0px" }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="rounded-2xl w-4/5 mx-auto border border-neutral-200/70 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/30 backdrop-blur px-4 py-4 md:px-6 md:py-5"
+          className="rounded-2xl lg:w-4/5 lg:mx-auto border border-neutral-200/70 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/30 backdrop-blur px-4 py-4 lg:px-6 lg:py-5"
         >
           {/* Date badge */}
           <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -278,18 +278,18 @@ function TimelineItem({ item, index }: TimelineItemProps) {
           </div>
 
           {/* Title */}
-          <div className="text-lg md:text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+          <div className="text-lg lg:text-xl font-semibold text-neutral-900 dark:text-neutral-100">
             {getLanguageTexts(item.texts, locale).title}
           </div>
 
           {/* Description */}
-          <p className="mt-2 text-sm md:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed">
+          <p className="mt-2 text-sm lg:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed">
             {getLanguageTexts(item.texts, locale).description}
           </p>
 
           {/* Images grid */}
           {!!item.images?.length && (
-            <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="mt-4 grid grid-cols-2 lg:grid-cols-3 gap-3">
               {item.images.slice(0, MAX_IMAGES).map((img, i) => (
                 <motion.div
                   key={`${img.src}-${i}`}
