@@ -18,11 +18,11 @@
       }
     ],
     "liveDemoLink": "https://andrespinturerias.com/",
-    "placeholderImage": "/resources/img/sections/projects/andres_pinturerias/p.jpg",
+    "placeholderImage": "/resources/img/sections/projects/andres_pinturerias/andres_pinturerias_img_p.jpg",
     "images": [
-      "/resources/img/sections/projects/andres_pinturerias/1.gif",
-      "/resources/img/sections/projects/andres_pinturerias/2.gif",
-      "/resources/img/sections/projects/andres_pinturerias/3.jpg"
+      "/resources/img/sections/projects/andres_pinturerias/andres_pinturerias_img_1.gif",
+      "/resources/img/sections/projects/andres_pinturerias/andres_pinturerias_img_2.gif",
+      "/resources/img/sections/projects/andres_pinturerias/andres_pinturerias_img_3.gif"
     ]
   },
   {
@@ -44,11 +44,11 @@
       }
     ],
     "liveDemoLink": "https://buildingcondition.com/",
-    "placeholderImage": "/resources/img/sections/projects/building_condition/p.jpg",
+    "placeholderImage": "/resources/img/sections/projects/building_condition/building_condition_img_p.jpg",
     "images": [
-      "/resources/img/sections/projects/building_condition/1.gif",
-      "/resources/img/sections/projects/building_condition/2.jpg",
-      "/resources/img/sections/projects/building_condition/3.jpg"
+      "/resources/img/sections/projects/building_condition/building_condition_img_1.gif",
+      "/resources/img/sections/projects/building_condition/building_condition_img_2.jpg",
+      "/resources/img/sections/projects/building_condition/building_condition_img_3.jpg"
     ]
   },
   {
@@ -71,13 +71,13 @@
     ],
     "liveDemoLink": "https://github.com/camiloCanclini/ProductScraper/releases/tag/v1.2.3",
     "repoLink": "https://github.com/camiloCanclini/ProductScraper",
-    "placeholderImage": "/resources/img/sections/projects/product_scraper/1.jpg",
+    "placeholderImage": "/resources/img/sections/projects/product_scraper/product_scraper_img_1.jpg",
     "imageClassName": "object-left",
     "images": [
-      "/resources/img/sections/projects/product_scraper/1.jpg",
-      "/resources/img/sections/projects/product_scraper/2.jpg",
-      "/resources/img/sections/projects/product_scraper/3.jpg",
-      "/resources/img/sections/projects/product_scraper/4.jpg"
+      "/resources/img/sections/projects/product_scraper/product_scraper_img_1.jpg",
+      "/resources/img/sections/projects/product_scraper/product_scraper_img_2.jpg",
+      "/resources/img/sections/projects/product_scraper/product_scraper_img_3.jpg",
+      "/resources/img/sections/projects/product_scraper/product_scraper_img_4.jpg"
     ]
   },
   {
@@ -100,13 +100,13 @@
     ],
     "liveDemoLink": "https://github.com/camiloCanclini/ConversorArchivos/releases/tag/releases",
     "repoLink": "https://github.com/camiloCanclini/ConversorArchivos",
-    "placeholderImage": "/resources/img/sections/projects/exceltocsv_converter/1.jpg",
+    "placeholderImage": "/resources/img/sections/projects/exceltocsv_converter/exceltocsv_converter_img_1.jpg",
     "imageClassName": "object-left",
     "images": [
-      "/resources/img/sections/projects/exceltocsv_converter/1.jpg",
-      "/resources/img/sections/projects/exceltocsv_converter/2.jpg",
-      "/resources/img/sections/projects/exceltocsv_converter/3.jpg",
-      "/resources/img/sections/projects/exceltocsv_converter/4.jpg"
+      "/resources/img/sections/projects/exceltocsv_converter/exceltocsv_converter_img_1.jpg",
+      "/resources/img/sections/projects/exceltocsv_converter/exceltocsv_converter_img_2.jpg",
+      "/resources/img/sections/projects/exceltocsv_converter/exceltocsv_converter_img_3.jpg",
+      "/resources/img/sections/projects/exceltocsv_converter/exceltocsv_converter_img_4.jpg"
     ]
   },
   {
@@ -134,11 +134,11 @@
     ],
     "liveDemoLink": "https://camilocanclini.github.io/TicTacToe/",
     "repoLink": "https://github.com/camiloCanclini/TicTacToe",
-    "placeholderImage": "/resources/img/sections/projects/tictactoe/p.jpg",
+    "placeholderImage": "/resources/img/sections/projects/tictactoe/tictactoe_img_p.jpg",
     "images": [
-      "/resources/img/sections/projects/tictactoe/1.gif",
-      "/resources/img/sections/projects/tictactoe/2.gif",
-      "/resources/img/sections/projects/tictactoe/3.gif"
+      "/resources/img/sections/projects/tictactoe/tictactoe_img_1.gif",
+      "/resources/img/sections/projects/tictactoe/tictactoe_img_2.gif",
+      "/resources/img/sections/projects/tictactoe/tictactoe_img_3.gif"
     ]
   },
   {
@@ -164,13 +164,13 @@
         "color": "hover:text-amber-500 ease-in-out duration-150"
       }
     ],
-    "placeholderImage": "/resources/img/sections/projects/todolist/p.jpg",
+    "placeholderImage": "/resources/img/sections/projects/todolist/todolist_img_p.jpg",
     "images": [
-      "/resources/img/sections/projects/todolist/1.gif",
-      "/resources/img/sections/projects/todolist/2.gif",
-      "/resources/img/sections/projects/todolist/3.gif",
-      "/resources/img/sections/projects/todolist/4.gif",
-      "/resources/img/sections/projects/todolist/5.gif"
+      "/resources/img/sections/projects/todolist/todolist_img_1.gif",
+      "/resources/img/sections/projects/todolist/todolist_img_2.gif",
+      "/resources/img/sections/projects/todolist/todolist_img_3.gif",
+      "/resources/img/sections/projects/todolist/todolist_img_4.gif",
+      "/resources/img/sections/projects/todolist/todolist_img_5.gif"
     ]
   },
   {
@@ -197,14 +197,14 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/RoleGameSpringBoot",
-    "placeholderImage": "/resources/img/sections/projects/card_game/5.jpg",
+    "placeholderImage": "/resources/img/sections/projects/card_game/card_game_img_5.jpg",
     "imageClassName": "object-left",
     "images": [
-      "/resources/img/sections/projects/card_game/1.jpg",
-      "/resources/img/sections/projects/card_game/2.jpg",
-      "/resources/img/sections/projects/card_game/3.jpg",
-      "/resources/img/sections/projects/card_game/4.jpg",
-      "/resources/img/sections/projects/card_game/5.jpg"
+      "/resources/img/sections/projects/card_game/card_game_img_1.jpg",
+      "/resources/img/sections/projects/card_game/card_game_img_2.jpg",
+      "/resources/img/sections/projects/card_game/card_game_img_3.jpg",
+      "/resources/img/sections/projects/card_game/card_game_img_4.jpg",
+      "/resources/img/sections/projects/card_game/card_game_img_5.jpg"
     ]
   },
   {
@@ -231,12 +231,12 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/SimpleUniversitySytemApi",
-    "placeholderImage": "/resources/img/sections/projects/universitary_system_api/1.jpg",
+    "placeholderImage": "/resources/img/sections/projects/universitary_system_api/universitary_system_api_img_1.jpg",
     "imageClassName": "object-left",
     "images": [
-      "/resources/img/sections/projects/universitary_system_api/1.jpg",
-      "/resources/img/sections/projects/universitary_system_api/2.jpg",
-      "/resources/img/sections/projects/universitary_system_api/3.jpg"
+      "/resources/img/sections/projects/universitary_system_api/universitary_system_api_img_1.jpg",
+      "/resources/img/sections/projects/universitary_system_api/universitary_system_api_img_2.jpg",
+      "/resources/img/sections/projects/universitary_system_api/universitary_system_api_img_3.jpg"
     ]
   },
   {
@@ -269,11 +269,11 @@
     ],
     "liveDemoLink": "https://camilocanclini.github.io/camilo_canclini_portfolio/",
     "repoLink": "https://github.com/camiloCanclini/camilo_canclini_portfolio",
-    "placeholderImage": "/resources/img/sections/projects/old_portfolio/p.jpg",
+    "placeholderImage": "/resources/img/sections/projects/old_portfolio/old_portfolio_img_p.jpg",
     "images": [
-      "/resources/img/sections/projects/old_portfolio/1.gif",
-      "/resources/img/sections/projects/old_portfolio/2.gif",
-      "/resources/img/sections/projects/old_portfolio/3.gif"
+      "/resources/img/sections/projects/old_portfolio/old_portfolio_img_1.gif",
+      "/resources/img/sections/projects/old_portfolio/old_portfolio_img_2.gif",
+      "/resources/img/sections/projects/old_portfolio/old_portfolio_img_3.gif"
     ]
   },
   {
@@ -295,11 +295,11 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/canclini_flutter_app",
-    "placeholderImage": "/resources/img/sections/projects/flutter_store_app/1.jpg",
+    "placeholderImage": "/resources/img/sections/projects/flutter_store_app/flutter_store_app_img_1.jpg",
     "images": [
-      "/resources/img/sections/projects/flutter_store_app/1.jpg",
-      "/resources/img/sections/projects/flutter_store_app/2.jpg",
-      "/resources/img/sections/projects/flutter_store_app/3.jpg"
+      "/resources/img/sections/projects/flutter_store_app/flutter_store_app_img_1.jpg",
+      "/resources/img/sections/projects/flutter_store_app/flutter_store_app_img_2.jpg",
+      "/resources/img/sections/projects/flutter_store_app/flutter_store_app_img_3.jpg"
     ]
   },
   {
@@ -321,13 +321,13 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/Python_Proyect_Antunez_Canclini",
-    "placeholderImage": "/resources/img/sections/projects/cinema/1.jpg",
+    "placeholderImage": "/resources/img/sections/projects/cinema/cinema_img_1.jpg",
     "images": [
-      "/resources/img/sections/projects/cinema/1.jpg",
-      "/resources/img/sections/projects/cinema/2.jpg",
-      "/resources/img/sections/projects/cinema/3.jpg",
-      "/resources/img/sections/projects/cinema/4.jpg",
-      "/resources/img/sections/projects/cinema/5.jpg"
+      "/resources/img/sections/projects/cinema/cinema_img_1.jpg",
+      "/resources/img/sections/projects/cinema/cinema_img_2.jpg",
+      "/resources/img/sections/projects/cinema/cinema_img_3.jpg",
+      "/resources/img/sections/projects/cinema/cinema_img_4.jpg",
+      "/resources/img/sections/projects/cinema/cinema_img_5.jpg"
     ]
   },
   {
@@ -349,12 +349,12 @@
       }
     ],
     "repoLink": "https://github.com/camiloCanclini/proyecto-programacionII-Canclini-Antunez",
-    "placeholderImage": "/resources/img/sections/projects/movie-search/1.jpg",
+    "placeholderImage": "/resources/img/sections/projects/movie_search/movie_search_img_1.jpg",
     "images": [
-      "/resources/img/sections/projects/movie-search/1.jpg",
-      "/resources/img/sections/projects/movie-search/2.jpg",
-      "/resources/img/sections/projects/movie-search/3.jpg",
-      "/resources/img/sections/projects/movie-search/4.jpg"
+      "/resources/img/sections/projects/movie_search/movie_search_img_1.jpg",
+      "/resources/img/sections/projects/movie_search/movie_search_img_2.jpg",
+      "/resources/img/sections/projects/movie_search/movie_search_img_3.jpg",
+      "/resources/img/sections/projects/movie_search/movie_search_img_4.jpg"
     ]
   }
 ]

@@ -6,9 +6,9 @@
 // ============================================================
 // HOME SECTIONS
 // ============================================================
-export { default as Hero } from "../../Home/sections/hero/Hero";
-export { default as ProjectsParallax } from "../../Home/sections/projects/Projects";
-export { Career } from "../../Home/sections/career/Career";
-export { Skills } from "../../Home/sections/skills/Skills";
-export { ContactMe } from "../../Home/sections/contact_me/ContactMe";
-export { Footer } from "../../Home/sections/footer/Footer";
+export { default as Hero } from "../../home/sections/hero/Hero";
+export { default as ProjectsParallax } from "../../home/sections/projects/Projects";
+export { Career } from "../../home/sections/career/Career";
+export { Skills } from "../../home/sections/skills/Skills";
+export { ContactMe } from "../../home/sections/contact_me/ContactMe";
+export { default as Footer } from "../components/home_screen/footer/Footer";

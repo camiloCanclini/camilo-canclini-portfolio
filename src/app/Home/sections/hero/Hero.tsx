@@ -63,7 +63,7 @@ const HOLD_TIMES = {
 // ============================================================
 // CONSTANTS - Content
 // ============================================================
-const BACKGROUND_VIDEO_SRC = "/resources/videos/welcome.mp4";
+const BACKGROUND_VIDEO_SRC = "/resources/videos/hero_background_video.mp4";
 
 const SUBTITLE_TEXTS = [
   "Camilo Canclini",

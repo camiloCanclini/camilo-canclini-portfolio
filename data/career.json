@@ -15,16 +15,16 @@
     },
     "images": [
       {
-        "src": "resources/img/sections/career/ITLP/1.jpg",
-        "alt": "Instituto Tecnico La Piedad"
-      },
-      {
-        "src": "resources/img/sections/career/ITLP/2.jpg",
-        "alt": "Pasantía Robótica"
-      },
-      {
-        "src": "resources/img/sections/career/ITLP/3.jpg",
+        "src": "resources/img/sections/career/ITLP/itlp_img_1.jpg",
         "alt": "ITLP logo"
+      },
+      {
+        "src": "resources/img/sections/career/ITLP/itlp_img_2.jpg",
+        "alt": "Pasantía Robótica image"
+      },
+      {
+        "src": "resources/img/sections/career/ITLP/itlp_img_3.jpg",
+        "alt": "ITLP building"
       }
     ]
   },
@@ -44,16 +44,16 @@
     },
     "images": [
       {
-        "src": "resources/img/sections/career/BCI/1.jpg",
+        "src": "resources/img/sections/career/BCI/bci_img_1.jpg",
         "alt": "BCI Flyer"
       },
       {
-        "src": "resources/img/sections/career/BCI/2.jpg",
-        "alt": "Cameras"
+        "src": "resources/img/sections/career/BCI/bci_img_2.jpg",
+        "alt": "Cameras image"
       },
       {
-        "src": "resources/img/sections/career/BCI/3.jpg",
-        "alt": "Desktop"
+        "src": "resources/img/sections/career/BCI/bci_img_3.jpg",
+        "alt": "Desktop image"
       }
     ]
   },
@@ -73,16 +73,16 @@
     },
     "images": [
       {
-        "src": "resources/img/sections/career/UTN/1.jpg",
-        "alt": "UTN FRBB Building"
+        "src": "resources/img/sections/career/UTN/utn_img_1.jpg",
+        "alt": "UTN FRBB Logo"
       },
       {
-        "src": "resources/img/sections/career/UTN/2.jpg",
+        "src": "resources/img/sections/career/UTN/utn_img_2.jpg",
         "alt": "UTN FRBB Entrance"
       },
       {
-        "src": "resources/img/sections/career/UTN/3.jpg",
-        "alt": "UTN FRBB Logo"
+        "src": "resources/img/sections/career/UTN/utn_img_3.jpg",
+        "alt": "UTN FRBB Building"
       }
     ]
   },
@@ -102,16 +102,16 @@
     },
     "images": [
       {
-        "src": "resources/img/sections/career/VGS/1.jpg",
+        "src": "resources/img/sections/career/VGS/vgs_img_1.jpg",
         "alt": "VGS Logo"
       },
       {
-        "src": "resources/img/sections/career/VGS/2.jpg",
-        "alt": "VGS"
+        "src": "resources/img/sections/career/VGS/vgs_img_2.jpg",
+        "alt": "VGS Logo"
       },
       {
-        "src": "resources/img/sections/career/VGS/3.jpg",
-        "alt": "VGS"
+        "src": "resources/img/sections/career/VGS/vgs_img_3.jpg",
+        "alt": "VGS Logo"
       }
     ]
   },
@@ -131,7 +131,7 @@
     },
     "images": [
       {
-        "src": "resources/img/sections/career/FASTA/1.jpg",
+        "src": "resources/img/sections/career/FASTA/fasta_img_1.jpg",
         "alt": "FASTA Logo"
       }
     ]
@@ -152,12 +152,12 @@
     },
     "images": [
       {
-        "src": "resources/img/sections/career/IAD_UTN/1.jpg",
-        "alt": "IAD UTN Logo"
+        "src": "resources/img/sections/career/IAD_UTN/iad_utn_img_1.jpg",
+        "alt": "IAD UTN Flyer"
       },
       {
-        "src": "resources/img/sections/career/IAD_UTN/2.jpg",
-        "alt": "IAD UTN Logo"
+        "src": "resources/img/sections/career/IAD_UTN/iad_utn_img_2.jpg",
+        "alt": "IAD UTN Building"
       }
     ]
   }

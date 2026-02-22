@@ -4,6 +4,7 @@
 // EXTERNAL DEPENDENCIES
 // ============================================================
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 // ============================================================
 // INTERNAL COMPONENTS
@@ -22,6 +23,7 @@ import "./NavBar.css";
 
 import { getSectionText } from "@/i18n/pageInfo";
 import { useLang } from "@/providers/LanguageProvider";
+import Link from "next/link";
 
 // ============================================================
 // TYPES
@@ -59,12 +61,12 @@ const NAVBAR_Z_INDEX = 999;
  */
 function NavOption({ label, link }: NavOptionProps) {
   return (
-    <a
+    <Link
       href={link}
       className="fading-5 nav_option text-lg px-6 h-full flex items-center justify-center grow"
     >
       {label}
-    </a>
+    </Link>
   );
 }
 
@@ -78,24 +80,42 @@ function NavOption({ label, link }: NavOptionProps) {
  * - Responsive design (desktop menu / mobile hamburger)
  * - Theme-aware styling
  */
-export default function NavBar() {
+export default function NavBar({ scrollEffect }: { scrollEffect?: boolean }) {
+  const pathname = usePathname();
+
+  // Determinamos si el efecto debe estar activo:
+  // Si se pasa la prop, manda la prop. Si no, solo en la home ("/").
+  const isEffectActive = scrollEffect !== undefined ? scrollEffect : pathname === "/";
+
   // ============================================================
   // STATE
   // ============================================================
-  const [showNavbar, setShowNavbar] = useState(true);
+  // Si el efecto está activo, inicia oculto (false). Si no, siempre visible (true).
+  // Nota: Ajustamos segun la lógica de CSS donde show-nav es top: -100% y hide-nav es top: 0
+  // Para evitar confusión, vamos a usar un nombre de estado más claro internamente o mantener la lógica del CSS.
+  // En tu CSS actual: .show-nav { top: -100% } y .hide-nav { top: 0 }
+  // Por lo tanto, si qeremos que se VEA, necesitamos que showNavbar sea FALSE (clase hide-nav).
+  const [isNavHidden, setIsNavHidden] = useState(isEffectActive);
 
   // ============================================================
   // EFFECTS
   // ============================================================
   // Handle navbar visibility on scroll
   useEffect(() => {
-    const handleScroll = () => setShowNavbar(window.scrollY < SCROLL_THRESHOLD);
+    if (!isEffectActive) {
+      setIsNavHidden(false);
+      return;
+    }
+
+    const handleScroll = () => {
+      setIsNavHidden(window.scrollY < SCROLL_THRESHOLD);
+    };
 
     window.addEventListener("scroll", handleScroll);
     handleScroll(); // Check initial position
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isEffectActive]);
 
   const { locale } = useLang();
   const sectionText = getSectionText("nav_bar", locale);
@@ -105,10 +125,10 @@ export default function NavBar() {
   const { content } = sectionText;
 
   const navOptions: NavOption[] = [
-    { label: content.projects || "Projects", link: "#projects_section" },
-    { label: content.career || "Career", link: "#carrer_section" },
-    { label: content.skills || "Skills", link: "#skills_section" },
-    { label: content.contact || "Contact Me", link: "#contact_me_section" },
+    { label: content.projects || "Projects", link: "/#projects_section" },
+    { label: content.career || "Career", link: "/#carrer_section" },
+    { label: content.skills || "Skills", link: "/#skills_section" },
+    { label: content.contact || "Contact Me", link: "/#contact_me_section" },
   ];
   // ============================================================
   // RENDER
@@ -117,13 +137,13 @@ export default function NavBar() {
     <nav
       id="nav_container"
       style={{ zIndex: NAVBAR_Z_INDEX }}
-      className={`flex items-center px-20 h-16 w-full fixed ${showNavbar ? "show-nav" : "hide-nav"
+      className={`flex items-center px-20 h-16 w-full fixed ${isNavHidden ? "show-nav" : "hide-nav"
         } text-theme-primary bg-white dark:text-themedark-primary dark:bg-themedark-bg shadow-md dark:shadow-white/10 border-t-0`}
     >
       {/* ============================================================ */}
       {/* BRAND NAME */}
       {/* ============================================================ */}
-      <a href="#home_section" className="text-2xl">Camilo Canclini</a>
+      <Link href="/" className="text-2xl">Camilo Canclini</Link>
 
       {/* ============================================================ */}
       {/* NAVIGATION OPTIONS */}

@@ -64,13 +64,14 @@ export default function ConfigurationMenu({ showConfigMenu }: { showConfigMenu: 
   if (!mounted) return null;
 
   return (
-    <div className="fixed top-[8vh] z-[500000] absolute top-0 right-4 flex flex-col items-end p-2">
+    <div className="fixed top-[8vh] z-[500000] top-0 right-4 flex flex-col items-end p-2">
       {showConfigMenu && (
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0, opacity: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 10, mass: 0.8 }}
+          className="flex flex-col items-end"
         >
           <div
             className="bg-white dark:bg-themedark-bg hover:bg-theme-primary dark:hover:bg-themedark-primary

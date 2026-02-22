@@ -18,9 +18,9 @@ type NeonMailPanelProps = {
 // CONSTANTS
 // ============================================================
 const ICON_SOURCES: Record<FormStatus, string> = {
-  idle: "/resources/img/sections/contact_me/email.png",
-  success: "/resources/img/sections/contact_me/email_success.png",
-  error: "/resources/img/sections/contact_me/email_error.png",
+  idle: "/resources/img/sections/contact_me/email_idle_icon.png",
+  success: "/resources/img/sections/contact_me/email_success_icon.png",
+  error: "/resources/img/sections/contact_me/email_error_icon.png",
 };
 
 /**
@@ -122,7 +122,7 @@ const sharedTransition = {
 // ============================================================
 export const NeonMailPanel: React.FC<NeonMailPanelProps> = ({
   status = "idle",
-  iconAlt = "Email",
+  iconAlt = "Email icon",
 }) => {
   const currentIcon = ICON_SOURCES[status];
   const theme = COLOR_THEMES[status];
@@ -134,10 +134,10 @@ export const NeonMailPanel: React.FC<NeonMailPanelProps> = ({
       <div className="pointer-events-none absolute inset-0">
         {/* Top gradient */}
         <div className={`absolute top-10 h-72 w-72 rounded-full ${theme.gradient1} blur-3xl transition-colors duration-500`} />
-        
+
         {/* Bottom gradient */}
         <div className={`absolute bottom-10 h-72 w-72 rounded-full ${theme.gradient2} blur-3xl transition-colors duration-500`} />
-        
+
         {/* Radial gradient overlay */}
         <div className={`absolute inset-0 ${theme.radialGradient} transition-all duration-500`} />
       </div>

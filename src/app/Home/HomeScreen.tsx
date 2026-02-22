@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ============================================================
@@ -30,12 +30,20 @@ import skillsData from "@data/skills.json";
 export default function HomeScreen() {
   const [showConfigMenu, setShowConfigMenu] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 600) setShowConfigMenu(true);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="bg-theme-bg dark:bg-themedark-bg">
       <AnimatePresence>
         <ConfigurationMenu showConfigMenu={showConfigMenu}></ConfigurationMenu>
       </AnimatePresence>
-      <NavBar></NavBar>
+
       <div className="snap-always snap-center relative ">
         <Hero setShowConfigMenu={setShowConfigMenu}></Hero>
       </div>
@@ -52,9 +60,9 @@ export default function HomeScreen() {
         <div>
           <ContactMe></ContactMe>
         </div>
-        <div>
+        {/* <div>
           <Footer></Footer>
-        </div>
+        </div> */}
       </div>
     </div>
   )

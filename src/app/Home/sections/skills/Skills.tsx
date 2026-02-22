@@ -222,7 +222,7 @@ function SkillCategory({ category }: SkillCategoryProps) {
               {/* Icon image */}
               <motion.img
                 src={skill.icon}
-                alt={skill.name}
+                alt={skill.name + " logo"}
                 className="icon-skill w-full h-full mb-4 contain select-none object-contain cursor-pointer"
                 variants={iconHoverVariants}
                 transition={{ duration: 0.2, ease: "easeInOut" }}

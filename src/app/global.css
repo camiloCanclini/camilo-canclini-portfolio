@@ -2,10 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   background-color: #000000;
 }
-*{
+
+* {
   font-family: monospace;
   scroll-behavior: smooth;
 }
@@ -31,32 +32,69 @@ body{
   width: 8px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-button {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #ffffff;
   border: 10px none #ffffff;
   border-radius: 50px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #ffffff;
 }
+
 ::-webkit-scrollbar-thumb:active {
   background: #000000;
 }
+
 ::-webkit-scrollbar-track {
   background: #000000;
   border: 12px none #ffffff;
   border-radius: 50px;
 }
+
 ::-webkit-scrollbar-track:hover {
   background: #0d0d0d;
 }
+
 ::-webkit-scrollbar-track:active {
   background: #333333;
 }
+
 ::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+/* LEGAL PAGES CONTENT STYLES */
+.legal-content h1 {
+  @apply text-3xl font-bold mb-6 text-theme-primary dark:text-white;
+}
+
+.legal-content h2 {
+  @apply text-2xl font-semibold mt-8 mb-4 text-theme-primary dark:text-white;
+}
+
+.legal-content h3 {
+  @apply text-xl font-medium mt-6 mb-3 text-theme-primary dark:text-white;
+}
+
+.legal-content p {
+  @apply mb-4 leading-relaxed text-gray-700 dark:text-gray-300;
+}
+
+.legal-content ul {
+  @apply list-disc pl-6 mb-6 space-y-2 text-gray-700 dark:text-gray-300;
+}
+
+.legal-content li p {
+  @apply mb-0;
+}
+
+.legal-content a {
+  @apply text-blue-600 dark:text-blue-400 hover:underline;
 }

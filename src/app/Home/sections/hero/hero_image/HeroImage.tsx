@@ -2,8 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
-const icon1 = "/assets/icons/camilo.jpg";
-const icon2 = "/assets/icons/camilo2.jpg";
+const icon1 = "/assets/icons/camilo_picture_hero.jpg";
+const icon2 = "/assets/icons/camilo_picture_hero_2.jpg";
 import "./HeroImage.css";
 
 const panelVariants = {
@@ -84,7 +84,7 @@ export default function HeroImage() {
       {/* FOTO BASE (MISMA ANIMACIÓN QUE TENÍAS) */}
       <motion.img
         src={icon2}
-        alt="Base"
+        alt="Camilo Canclini photo"
         className="absolute inset-0 w-full h-full object-cover z-30 p-3 rounded-full"
         initial={{ opacity: 1 }}
         whileHover={{ opacity: 0 }}
@@ -94,7 +94,7 @@ export default function HeroImage() {
       {/* FOTO HOVER (MISMA ANIMACIÓN QUE TENÍAS) */}
       <motion.img
         src={icon1}
-        alt="Hover"
+        alt="Camilo Canclini smiling"
         className="absolute inset-0 w-full h-full object-cover z-30 p-3 rounded-full"
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 1 }}

@@ -152,6 +152,27 @@
           "titleSection3": "Other pages"
         }
       }
+    },
+    {
+      "name": "not_found",
+      "title": {
+        "en": "404",
+        "es": "404"
+      },
+      "subtitle": {
+        "en": "Page Not Found",
+        "es": "Página no encontrada"
+      },
+      "content": {
+        "es": {
+          "description": "Lo siento, la página que buscas no existe o ha sido movida.",
+          "button": "Volver al inicio"
+        },
+        "en": {
+          "description": "Sorry, the page you are looking for does not exist or has been moved.",
+          "button": "Back to home"
+        }
+      }
     }
   ]
 }

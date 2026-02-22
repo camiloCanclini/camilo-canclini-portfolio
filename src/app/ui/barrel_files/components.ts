@@ -9,4 +9,5 @@
 // ============================================================
 export { SectionHeading } from "../components/home_screen/section_heading/SectionHeading";
 export { default as NavBar } from "../components/home_screen/nav_bar/NavBar";
+export { default as Footer } from "../components/home_screen/footer/Footer";
 export { default as ConfigurationMenu } from "../components/configurationMenu";
