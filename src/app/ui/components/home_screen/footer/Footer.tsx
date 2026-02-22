@@ -120,9 +120,9 @@ export function FooterAboutRepo({ className, title }: FooterSectionProps) {
   return (
     <div className={`${className ?? ""}`}>
       <SectionTitle title={title ?? "About this Repository"} />
-      <div className="info-text my-4 box-border flex w-full items-center justify-center lg:px-[3.4em] text-[2em]">
+      <div className="info-text my-4 box-border flex w-full items-center justify-center  text-[2em]">
         <div className="flex flex-col items-center justify-center text-center">
-          <p className="text-[0.9em] leading-relaxed lg:px-10 lg:py-auto">
+          <p className="text-[0.9em] leading-relaxed lg:px-10 lg:py-auto w-[60%] lg:w-full">
             I leave the code and resources of this repo in my github, if you
             need copy some element or see how is made the code, feel free to
             visit the next link💜

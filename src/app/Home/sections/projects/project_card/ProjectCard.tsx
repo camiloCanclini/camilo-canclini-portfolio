@@ -12,7 +12,7 @@ import { easeIn, motion, Variants } from "framer-motion";
 // LANGUAGE & CONTENT
 // ============================================================
 
-import { getLanguageTexts } from "@/i18n/pageInfo";
+import { getLanguageTexts, Locale } from "@/i18n/pageInfo";
 import { useLang } from "@/providers/LanguageProvider";
 
 
@@ -28,10 +28,10 @@ export type Technology = {
 };
 
 export type ProjectCardInterface = {
-  texts: {
+  texts: Record<Locale, {
     title: string;
     description: string;
-  }
+  }>;
   technologies: Technology[];
   liveDemoLink?: string;
   repoLink?: string;

@@ -33,8 +33,8 @@ type StarsBackgroundProps = React.ComponentProps<"div"> & {
 // ============================================================
 // CONSTANTS
 // ============================================================
-const DEFAULT_FACTOR = 0.05;
-const DEFAULT_SPEED = 50;
+const DEFAULT_FACTOR = 0.02;
+const DEFAULT_SPEED = 40;
 const DEFAULT_STAR_COLOR = "#fff";
 const DEFAULT_SPRING_TRANSITION = { stiffness: 50, damping: 20 };
 
@@ -128,7 +128,7 @@ function StarLayer({
   return (
     <motion.div
       data-slot="star-layer"
-      animate={{ y: [0, -2000] }}
+      animate={{ y: [0, -1000] }}
       transition={transition}
       className={cx("star_layer absolute top-0 left-[40vh] w-full h-[2000px]", className)}
       {...props}
@@ -142,10 +142,10 @@ function StarLayer({
           boxShadow: boxShadow,
         }}
       />
-      
+
       {/* Duplicate star field for seamless loop */}
       <div
-        className="absolute bg-transparent w-full rounded-full top-[2000px]"
+        className="absolute bg-transparent w-full rounded-full top-[4000px]"
         style={{
           width: `${size}px`,
           height: `${size}px`,
@@ -226,7 +226,7 @@ function StarsBackground({
           transition={{ repeat: Infinity, duration: speed, ease: "linear" }}
           starColor={starColor}
         />
-        
+
         {/* Layer 2: Medium stars, slower */}
         <StarLayer
           count={STAR_LAYER_2_COUNT}
@@ -238,7 +238,7 @@ function StarsBackground({
           }}
           starColor={starColor}
         />
-        
+
         {/* Layer 3: Large stars, slowest */}
         <StarLayer
           count={STAR_LAYER_3_COUNT}

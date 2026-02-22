@@ -4,7 +4,7 @@
 // EXTERNAL DEPENDENCIES
 // ============================================================
 import { useEffect, useRef } from "react";
-import { motion, useAnimationControls } from "framer-motion";
+import { AnimatePresence, motion, useAnimationControls } from "framer-motion";
 
 // ============================================================
 // INTERNAL COMPONENTS
@@ -226,8 +226,8 @@ function Hero({ setShowConfigMenu }: { setShowConfigMenu: (showConfigMenu: boole
       {/* ============================================================ */}
       <motion.div
         className="relative z-20 flex flex-col-reverse lg:flex-row 
-        h-full w-full lg:w-4/6 justify-end pt-[20vh] lg:pt-0
-        lg:items-center lg:justify-center gap-12 h-[100vh]"
+        h-full w-full lg:w-full justify-end pt-[20vh] lg:pt-0
+        lg:items-center lg:justify-center gap-12 lg:gap-24 h-[100vh]"
         initial="start"
         animate="withImage"
         variants={createContainerVariants()}
@@ -246,7 +246,7 @@ function Hero({ setShowConfigMenu }: { setShowConfigMenu: (showConfigMenu: boole
           {/* Main title */}
           <WriteText
             textToWrite={content!.title || "HELLO WORLD!"}
-            className="text-[3.8em] lg:text-[8em] justify-center lg:justify-start flex font-semibold text-white leading-tight"
+            className="text-[3.8em] lg:text-[6.5em] justify-center lg:justify-start flex font-semibold text-white leading-tight"
             classNameText="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
             typingSpeed={TYPING_SPEEDS.write}
             startDelay={DELAY.HelloWorldTypingStartDelay * 1000}
@@ -266,7 +266,7 @@ function Hero({ setShowConfigMenu }: { setShowConfigMenu: (showConfigMenu: boole
             <WriteText
               textsToWrite={Array.isArray(content?.subtitle) ? content!.subtitle : SUBTITLE_TEXTS}
               prefix=""//{SUBTITLE_PREFIX}
-              className="text-[2em] lg:text-[4em] text-white"
+              className="text-[2em] lg:text-[3em] text-white"
               classNameText="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
               typingSpeed={TYPING_SPEEDS.write}
               deleteSpeed={TYPING_SPEEDS.delete}
@@ -287,7 +287,7 @@ function Hero({ setShowConfigMenu }: { setShowConfigMenu: (showConfigMenu: boole
           variants={imageWrapperVariants}
           initial="hidden"
           animate={imageWrapperCtr}
-          className="container flex justify-center items-center"
+          className="container flex justify-center items-center "
         >
           <motion.div
             layout

@@ -9,13 +9,15 @@ import "./HeroImage.css";
 const panelVariants = {
   rest: {
     opacity: 0,
-    x: 0,            // arrancando pegado al borde del círculo
+    transform: "translateX(0) scaleX(0.4)",
+    x: 30,            // arrancando pegado al borde del círculo
     scaleX: 0.4,
   },
   hover: {
     opacity: 1,
     x: 50,           // se desplaza hacia la derecha
     scaleX: 1,
+    transform: "translateX(0) scaleX(0.4)",
     transition: {
       type: "spring",
       stiffness: 200,
@@ -110,7 +112,9 @@ export default function HeroImage() {
 
       {/* === PANEL PERSONA 5 + REDES === */}
       <motion.div
-        className="absolute left-1/3 -translate-y-1/2 z-20"
+        className="absolute left-1/3 z-20 
+        -translate-y-[0] lg:-translate-y-[20px] -translate-x-[130px] lg:translate-x-[30px]
+         !scale-[0.5] lg:!scale-[1]"
         variants={panelVariants}
       >
         {/* sombra negra del panel */}

@@ -237,11 +237,11 @@ export const ContactMe: React.FC = () => {
 
       <div className="w-full flex flex-col items-center justify-evenly w-full lg:max-w-3/5 max-w-full p-3 lg:mx-auto pb-[40vh]">
         {/* Form container with animated border */}
-        <div className="form-container relative flex lg:flex-row flex-col-reverse overflow-hidden rounded-lg w-full lg:w-auto lg:mx-auto min-w-[50vw] min-h-[60vh] bg-white/50 dark:bg-gray-800/50">
+        <div className="form-container relative flex lg:flex-row flex-col-reverse overflow-hidden rounded-lg w-full lg:w-auto h-[90vh] lg:h-auto lg:mx-auto lg:min-w-[50vw] lg:min-h-[60vh] bg-white/50 dark:bg-gray-800/50">
           <ConicBorderBox classnameSupContainer="dark:bg-black bg-neutral-300" duration={2} />
 
           {/* Left side: Neon mail illustration */}
-          <div className="image-container grow lg:w-1/2 lg:h-auto lg:w-auto h-full h-[45vh] ">
+          <div className="image-container grow lg:w-1/2 lg:h-auto  h-full h-[45vh] ">
             <NeonMailPanel status={status.type} />
           </div>
 

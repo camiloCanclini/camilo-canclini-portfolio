@@ -32,15 +32,16 @@ export type TimelineEntryData = {
   id?: string | number;
   texts: {
     en: {
+      date: string;
       title: string;
       description: string;
     };
     es: {
+      date: string;
       title: string;
       description: string;
     };
   };
-  date: string;
   images?: Array<{ src: string; alt?: string }>;
 };
 
@@ -250,7 +251,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
         </motion.div>
 
         <motion.h3
-          className="desktop_title hidden lg:block text-xl lg:pl-20 lg:text-4xl font-bold"
+          className="desktop_title lg:ml-0 ml-[2.5em] lg:mb-0 mb-4 text-[2em] lg:pl-20 lg:text-4xl font-bold"
           style={{ textShadow: titleShadow, color: titleColor }}
         >
           {getLanguageTexts(item.texts, locale).title}
@@ -259,9 +260,6 @@ function TimelineItem({ item, index }: TimelineItemProps) {
 
       {/* Timeline content card */}
       <div className="relative lg:pl-20 pr-6 pl-16 lg:pt-0 w-full">
-        <h3 className="lg:hidden block lg:text-xl text-[1.6em] mb-2 text-left font-bold text-neutral-500 dark:text-neutral-500">
-          {getLanguageTexts(item.texts, locale).title}
-        </h3>
 
         <motion.div
           initial={{ opacity: 0, y: 14 }}
