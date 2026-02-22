@@ -173,6 +173,27 @@
           "button": "Back to home"
         }
       }
+    },
+    {
+      "name": "in_construction",
+      "title": {
+        "en": "In Construction",
+        "es": "En Construcción"
+      },
+      "subtitle": {
+        "en": "Coming Soon!",
+        "es": "Próximamente!"
+      },
+      "content": {
+        "es": {
+          "description": "Lo siento, esta página está en construcción. Proximamente la podrás ver!",
+          "button": "Volver al inicio"
+        },
+        "en": {
+          "description": "Sorry, this page is under construction. You will be able to see it soon!",
+          "button": "Back to home"
+        }
+      }
     }
   ]
 }

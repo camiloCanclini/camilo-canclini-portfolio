@@ -130,9 +130,9 @@ export default function HeroImage() {
           "
         >
           <motion.a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/camilo-canclini-635110220/"
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer noopener nofollow"
             className="text-[80px] text-[#0077b5] drop-shadow-[3px_3px_0_rgba(0,0,0,0.7)]"
             variants={iconVariants}
             whileHover="hoverIcon"
@@ -141,9 +141,9 @@ export default function HeroImage() {
           </motion.a>
 
           <motion.a
-            href="https://github.com"
+            href="https://github.com/camiloCanclini?tab=repositories"
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer noopener nofollow"
             className="text-[80px] text-black drop-shadow-[3px_3px_0_rgba(0,0,0,0.7)]"
             variants={iconVariants}
             whileHover="hoverIcon"

@@ -287,7 +287,7 @@ function Hero({ setShowConfigMenu }: { setShowConfigMenu: (showConfigMenu: boole
           variants={imageWrapperVariants}
           initial="hidden"
           animate={imageWrapperCtr}
-          className="container flex justify-center items-center "
+          className="container flex justify-center items-center mx-auto lg:mx-0"
         >
           <motion.div
             layout

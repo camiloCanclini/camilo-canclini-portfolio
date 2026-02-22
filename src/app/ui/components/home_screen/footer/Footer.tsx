@@ -161,6 +161,20 @@ export function FooterContactInfo({ className, title }: FooterSectionProps) {
               Home Page
             </Link>
             <Link
+              href="/in-construction"
+              className="text-[1.1em] hover:underline hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
+              rel="noreferrer nofollow"
+            >
+              Project Searcher
+            </Link>
+            <Link
+              href="/in-construction"
+              className="text-[1.1em] hover:underline hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
+              rel="noreferrer nofollow"
+            >
+              Gallery
+            </Link>
+            <Link
               href="/legal/terms_and_conditions"
               className="text-[1.1em] hover:underline hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
               rel="noreferrer nofollow"
