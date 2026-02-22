@@ -176,10 +176,10 @@ export const NeonMailPanel: React.FC<NeonMailPanelProps> = ({
           className={`absolute left-auto right-auto lg:top-[35%] top-[20%] lg:w-56 w-[14em] -translate-y-1/2 select-none ${theme.dropShadow}`}
           draggable={false}
           initial={iconTransition.initial}
-          animate={[
-            iconTransition.animate,
-            iconFloatAnimation,
-          ]}
+          animate={{
+            ...iconTransition.animate,
+            ...iconFloatAnimation,
+          }}
           exit={iconTransition.exit}
           transition={{
             ...sharedTransition,

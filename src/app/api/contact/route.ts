@@ -1,6 +1,5 @@
 // app/api/contact/route.ts
 import { EmailTemplate } from "@/app/backend/email/EmailTemplate";
-import { error } from "console";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
@@ -48,8 +47,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true }, { status: 200 });
 
   } catch (error) {
-
-    return NextResponse.json({ ok: false, error: "Bad request." + error.message }, { status: 400 });
-
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
+    return NextResponse.json({ ok: false, error: "Bad request. " + errorMessage }, { status: 400 });
   }
 }
