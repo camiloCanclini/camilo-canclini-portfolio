@@ -48,6 +48,7 @@ type ProjectCardProps = {
   project: ProjectCardInterface;
   index: number;
   hoverEnabled: boolean;
+  mobileMode: boolean;
 };
 
 // ============================================================
@@ -167,7 +168,8 @@ const iconVariants: Variants = {
 // ============================================================
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   project,
-  hoverEnabled
+  hoverEnabled,
+  mobileMode = false
 }) => {
 
   // ============================================================
@@ -195,7 +197,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       ].join(" ")}
       variants={cardVariants}
       initial="rest"
-      animate="rest"
+      animate={mobileMode ? "hover" : "rest"}
       whileHover={hoverEnabled ? "hover" : undefined}
     >
       {/* Fondo: screenshot del proyecto */}
@@ -240,7 +242,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             {/* Project title with glow */}
             <motion.h3
               className={[
-                "text-[2.4em] font-semibold tracking-wide",
+                "text-[2em] font-semibold tracking-wide",
                 "text-white",
                 "drop-shadow-[0_0_5px_rgba(255,255,255,0.85)]",
               ].join(" ")}

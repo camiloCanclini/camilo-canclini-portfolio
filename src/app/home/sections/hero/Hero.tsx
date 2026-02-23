@@ -246,7 +246,7 @@ function Hero({ setShowConfigMenu }: { setShowConfigMenu: (showConfigMenu: boole
           {/* Main title */}
           <WriteText
             textToWrite={content!.title || "HELLO WORLD!"}
-            className="text-[3.8em] lg:text-[6.5em] justify-center lg:justify-start flex font-semibold text-white leading-tight"
+            className="text-[3.5em] lg:text-[6.5em] justify-center lg:justify-start flex font-semibold text-white leading-tight"
             classNameText="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
             typingSpeed={TYPING_SPEEDS.write}
             startDelay={DELAY.HelloWorldTypingStartDelay * 1000}

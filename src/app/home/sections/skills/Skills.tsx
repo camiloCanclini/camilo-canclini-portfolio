@@ -188,7 +188,7 @@ function SkillCategory({ category }: SkillCategoryProps) {
       initial="hidden"
       whileInView="visible"
       variants={skillCategoryBoxVariants}
-      className="skillsCategoryBox bg-neutral-100 dark:bg-black flex flex-col justify-center rounded-lg border dark:border-themedark-primary border-theme-primary mb-[24vh] w-1/3 lg:w-3/5 p-12 pt-16 shadow-md min-h-[200px] relative"
+      className="skillsCategoryBox bg-neutral-100 dark:bg-black flex flex-col justify-center rounded-lg border dark:border-themedark-primary border-theme-primary mb-[24vh] w-2/3 md:w-1/3 lg:w-3/5 p-12 pt-16 shadow-md min-h-[200px] relative"
     >
       {/* Category title badge */}
       <div className="absolute origin-center -top-7 left-0 right-0 lg:right-auto lg:-left-10 lg:min-w-[400px] min-w-[100px] w-3/4 lg:w-auto ml-auto mr-auto text-center px-4 bg-neutral-100 dark:bg-black border dark:border-themedark-primary border-theme-primary rounded">

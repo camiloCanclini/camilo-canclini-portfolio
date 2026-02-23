@@ -134,7 +134,7 @@ export function Career({
         {/* Animated timeline line */}
         <div
           style={{ height: height + "px" }}
-          className="timeline absolute lg:left-8 left-8 top-0 overflow-hidden w-[2px]
+          className="timeline absolute lg:left-8 left-5 top-0 overflow-hidden w-[2px]
                      dark:bg-neutral-900 bg-neutral-100
                      [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]
                       [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]"
@@ -240,7 +240,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
       {/* Timeline point and title */}
       <div className="flex flex-col z-40 items-center top-40 self-start">
         <motion.div
-          className="timeline_point h-10 absolute left-3 lg:left-3 w-10 rounded-full 
+          className="timeline_point h-6 w-6 lg:w-10 lg:h-10 absolute left-2 lg:left-3  rounded-full 
           border dark:border-themedark-primary flex items-center justify-center"
           style={{ boxShadow: pointShadow, backgroundColor: innerBg }}
         >
@@ -251,7 +251,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
         </motion.div>
 
         <motion.h3
-          className="desktop_title lg:ml-0 ml-[2.5em] lg:mb-0 mb-4 text-[2em] lg:pl-20 lg:text-4xl font-bold"
+          className="desktop_title lg:ml-0 ml-[3.5em] mr-[0.2em] lg:mb-0 mb-4 text-[1.3em] lg:pl-20 lg:text-4xl font-bold"
           style={{ textShadow: titleShadow, color: titleColor }}
         >
           {getLanguageTexts(item.texts, locale).title}
@@ -259,7 +259,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
       </div>
 
       {/* Timeline content card */}
-      <div className="relative lg:pl-20 pr-6 pl-16 lg:pt-0 w-full">
+      <div className="relative lg:pl-20 pr-6 pl-12 lg:pt-0 w-full">
 
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -276,18 +276,18 @@ function TimelineItem({ item, index }: TimelineItemProps) {
           </div>
 
           {/* Title */}
-          <div className="text-lg lg:text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+          <div className="text-md lg:text-xl font-semibold text-neutral-900 dark:text-neutral-100">
             {getLanguageTexts(item.texts, locale).title}
           </div>
 
           {/* Description */}
-          <p className="mt-2 text-sm lg:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed">
+          <p className="mt-2 text-[0.9em] lg:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed">
             {getLanguageTexts(item.texts, locale).description}
           </p>
 
           {/* Images grid */}
           {!!item.images?.length && (
-            <div className="mt-4 grid grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="mt-4 lg:grid lg:grid-cols-2 lg:grid-cols-3 flex flex-col gap-3">
               {item.images.slice(0, MAX_IMAGES).map((img, i) => (
                 <motion.div
                   key={`${img.src}-${i}`}

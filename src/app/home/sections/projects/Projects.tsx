@@ -164,7 +164,7 @@ export default function Projects({ data }: ProjectsProps) {
         <div className="lg:hidden flex flex-col gap-6">
           {projects.map((project, index) => (
             <div key={"PROJECT_CARD_INDEX_" + index} className="h-[460px]">
-              <ProjectCard project={project} hoverEnabled={hoverEnabled} index={index} />
+              <ProjectCard project={project} hoverEnabled={hoverEnabled} index={index} mobileMode={false} />
             </div>
           ))}
         </div>

@@ -150,9 +150,9 @@ export function FooterContactInfo({ className, title }: FooterSectionProps) {
   return (
     <div className={`${className ?? ""}`}>
       <SectionTitle title={title ?? "Other pages"} />
-      <div className="info-text my-4 box-border flex w-full items-center justify-center px-[3.4em] text-[2em]">
+      <div className="info-text my-4 box-border flex w-full items-center justify-center px-[1.4em] lg:px-[3.4em] text-[2em]">
         <div className="flex flex-col gap-3">
-          <div className="flex flex-col items-center justify-center gap-2">
+          <div className="flex flex-col items-center justify-center gap-2 text-center lg:text-left">
             <Link
               href="/"
               className="text-[1.1em] hover:underline hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
