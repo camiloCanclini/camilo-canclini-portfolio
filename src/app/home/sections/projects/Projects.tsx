@@ -144,7 +144,7 @@ export default function Projects({ data }: ProjectsProps) {
             <motion.div style={{ y: yColumnLeft }} className="flex flex-col gap-8 pb-32">
               {columns[0].map((project, index) => (
                 <div key={"PROJECT_CARD_INDEX_" + index} className="h-[460px] lg:h-[700px]">
-                  <ProjectCard project={project} hoverEnabled={hoverEnabled} index={index} />
+                  <ProjectCard project={project} hoverEnabled={hoverEnabled} index={index} mobileMode={false} />
                 </div>
               ))}
             </motion.div>
@@ -153,7 +153,7 @@ export default function Projects({ data }: ProjectsProps) {
             <motion.div style={{ y: yColumnRight }} className="flex flex-col gap-8 pb-32">
               {columns[1].map((project, index) => (
                 <div key={"PROJECT_CARD_INDEX_" + index} className="h-[260px] lg:h-[700px]">
-                  <ProjectCard project={project} hoverEnabled={hoverEnabled} index={index} />
+                  <ProjectCard project={project} hoverEnabled={hoverEnabled} index={index} mobileMode={false} />
                 </div>
               ))}
             </motion.div>
