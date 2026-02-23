@@ -12,8 +12,8 @@ import { easeIn, motion, Variants } from "framer-motion";
 // LANGUAGE & CONTENT
 // ============================================================
 
-import { getLanguageTexts, Locale } from "@/i18n/pageInfo";
-import { useLang } from "@/providers/LanguageProvider";
+import { getLanguageTexts, Locale } from "@src/i18n/pageInfo";
+import { useLang } from "@src/providers/LanguageProvider";
 
 
 // ============================================================

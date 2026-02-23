@@ -1,5 +1,5 @@
 // app/api/contact/route.ts
-import { EmailTemplate } from "@/app/backend/email/EmailTemplate";
+import { EmailTemplate } from "@app/backend/email/EmailTemplate";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 

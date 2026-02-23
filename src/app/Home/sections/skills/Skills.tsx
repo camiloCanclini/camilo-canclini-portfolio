@@ -8,7 +8,7 @@ import { motion, Variants } from "framer-motion";
 // ============================================================
 // IMPORTS - Internal components
 // ============================================================
-import { SectionHeading } from "@/app/ui/barrel_files/components";
+import { SectionHeading } from "@app/ui/barrel_files/components";
 import { StarsBackground } from "./StarsBackground";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -17,8 +17,8 @@ import { useEffect, useState } from "react";
 // LANGUAGE & CONTENT
 // ============================================================
 
-import { getSectionText } from "@/i18n/pageInfo";
-import { useLang } from "@/providers/LanguageProvider";
+import { getSectionText } from "@src/i18n/pageInfo";
+import { useLang } from "@src/providers/LanguageProvider";
 
 // ============================================================
 // TYPES

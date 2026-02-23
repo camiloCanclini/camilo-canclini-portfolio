@@ -22,9 +22,13 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".", // Base directory for resolving modules
     "paths": {
-      "@/*": [
+      "@src/*": [
         "./src/*"
+      ],
+      "@app/*": [
+        "./src/app/*"
       ],
       "@ui/*": [
         "./src/app/ui/*"

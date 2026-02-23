@@ -21,8 +21,8 @@ import { SectionHeading } from "@ui/barrel_files/components";
 // LANGUAGE & CONTENT
 // ============================================================
 
-import { getSectionText, getLanguageTexts } from "@/i18n/pageInfo";
-import { useLang } from "@/providers/LanguageProvider";
+import { getSectionText, getLanguageTexts } from "@src/i18n/pageInfo";
+import { useLang } from "@src/providers/LanguageProvider";
 
 
 // ============================================================

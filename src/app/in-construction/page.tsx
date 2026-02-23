@@ -1,8 +1,8 @@
 "use client"
 
 import Link from 'next/link'
-import { useLang } from "@/providers/LanguageProvider";
-import { getSectionText } from "@/i18n/pageInfo";
+import { useLang } from "@src/providers/LanguageProvider";
+import { getSectionText } from "@src/i18n/pageInfo";
 import Image from 'next/image';
 import constructionImage from "@public/resources/img/others/programming.gif";
 

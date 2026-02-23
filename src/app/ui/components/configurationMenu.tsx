@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import { Settings as SettingIcon, Sun, Moon, ChevronDown } from "lucide-react";
-import { useLang } from "@/providers/LanguageProvider";
+import { useLang } from "@src/providers/LanguageProvider";
 import Image from "next/image";
 
 type Language = {

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // ============================================================
 // IMPORTS - UI Components
 // ============================================================
-import { NavBar, ConfigurationMenu } from '@/app/ui/barrel_files/components'
+import { NavBar, ConfigurationMenu } from '@app/ui/barrel_files/components'
 
 // ============================================================
 // IMPORTS - Home Sections

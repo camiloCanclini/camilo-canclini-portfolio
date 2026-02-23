@@ -27,8 +27,8 @@ import {
 // LANGUAGE & CONTENT
 // ============================================================
 
-import { getSectionText } from "@/i18n/pageInfo";
-import { useLang } from "@/providers/LanguageProvider";
+import { getSectionText } from "@src/i18n/pageInfo";
+import { useLang } from "@src/providers/LanguageProvider";
 
 // ============================================================
 // CONSTANTS - Timing Configuration

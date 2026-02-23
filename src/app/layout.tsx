@@ -5,14 +5,14 @@ import './global.css'
 // IMPORTS - Providers
 // ============================================================
 import { ThemeContextProvider } from "../providers/ThemeContext";
-import ReCaptchaProvider from '@/providers/GoogleReCaptchaProvider';
-import { LanguageProvider } from '@/providers/LanguageProvider';
+import ReCaptchaProvider from '@src/providers/GoogleReCaptchaProvider';
+import { LanguageProvider } from '@src/providers/LanguageProvider';
 
 
 // ============================================================
 // IMPORTS - UI Components
 // ============================================================
-import { NavBar, Footer } from '@/app/ui/barrel_files/components'
+import { NavBar, Footer } from '@app/ui/barrel_files/components'
 
 
 // ============================================================
