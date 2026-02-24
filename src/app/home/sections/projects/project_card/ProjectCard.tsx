@@ -242,7 +242,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             {/* Project title with glow */}
             <motion.h3
               className={[
-                "text-[2em] font-semibold tracking-wide",
+                "text-[1.4em] lg:text-[2em] font-semibold tracking-wide",
                 "text-white",
                 "drop-shadow-[0_0_5px_rgba(255,255,255,0.85)]",
               ].join(" ")}
@@ -271,8 +271,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     alt={mainTech.title}
                     className={[
                       mainTech.color,
-                      "text-white text-[1.2em] drop-shadow-[0_0_3px_rgba(255,255,255,0.5)]",
-                      "w-12 h-12 object-contain grayscale brightness-0 invert",
+                      "text-white text-[1em] drop-shadow-[0_0_3px_rgba(255,255,255,0.5)]",
+                      "w-8 lg:w-12 h-8 lg:h-12 object-contain grayscale brightness-0 invert",
                     ].join(" ")}
                     aria-hidden="true"
                   />
