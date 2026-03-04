@@ -23,6 +23,8 @@ import { SectionHeading } from "@ui/barrel_files/components";
 
 import { getSectionText, getLanguageTexts } from "@src/i18n/pageInfo";
 import { useLang } from "@src/providers/LanguageProvider";
+import Link from "next/link";
+import { Globe, LucideFile, LucideFileText, LucideGlobe } from "lucide-react";
 
 
 // ============================================================
@@ -43,6 +45,7 @@ export type TimelineEntryData = {
     };
   };
   images?: Array<{ src: string; alt?: string }>;
+  links?: Array<{ text: { en: { title: string }; es: { title: string } }; link: string; icon: string }>;
 };
 
 type CareerProps = {
@@ -156,7 +159,31 @@ export function Career({
   );
 }
 
+// ============================================================
+// SUB-COMPONENT - Button Link
+// ============================================================
+function ButtonLink({ link, text, icon, className }: { link: string; text: string; icon: string, className?: string }) {
 
+  // THERE IS THE PRESETED ICONS TO BUILD THE BUTTONS
+  const ICONS = {
+    externalPage: LucideGlobe,
+    document: LucideFileText,
+  } as const;
+
+  type IconName = keyof typeof ICONS;
+
+  // Use a type guard or cast to ensure the icon exists in ICONS
+  const Icon = (icon in ICONS ? ICONS[icon as IconName] : ICONS.document);
+
+  return (
+    <a href={link} target="_blank" rel="noopener noreferrer" className={`flex-1 w-full p-2 border dark:border-neutral-800 border-neutral-200 
+      rounded flex items-center justify-center gap-2 text-[0.7em] md:text-[1em]
+      hover:bg-neutral-200 dark:hover:bg-neutral-600 hover:scale-105 transition-all duration-300 ${className}`}>
+      {Icon && <Icon />}
+      {text}
+    </a>
+  );
+}
 
 // ============================================================
 // SUB-COMPONENT - Timeline Item
@@ -266,7 +293,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-20% 0px -20% 0px" }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="rounded-2xl lg:w-4/5 lg:mx-auto border border-neutral-200/70 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/30 backdrop-blur px-4 py-4 lg:px-6 lg:py-5"
+          className="rounded-2xl lg:full border border-neutral-200/70 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/30 backdrop-blur px-4 py-4 lg:px-6 lg:py-5"
         >
           {/* Date badge */}
           <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -287,7 +314,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
 
           {/* Images grid */}
           {!!item.images?.length && (
-            <div className="mt-4 lg:grid lg:grid-cols-2 lg:grid-cols-3 flex flex-col gap-3">
+            <div className="mt-4 lg:grid lg:grid-cols-3 flex flex-col gap-3">
               {item.images.slice(0, MAX_IMAGES).map((img, i) => (
                 <motion.div
                   key={`${img.src}-${i}`}
@@ -305,6 +332,13 @@ function TimelineItem({ item, index }: TimelineItemProps) {
               ))}
             </div>
           )}
+          <div className="lg:grid lg:grid-cols-2 justify-items-center flex flex-col py-2 w-full gap-2 items-stretch">
+            {item.links?.map((link, i) => (
+              <ButtonLink key={i} className={`${item.links?.length === 1 ? "col-span-2" : ""}`} link={link.link} text={getLanguageTexts(link.text, locale).title} icon={link.icon} />
+            ))}
+
+          </div>
+
         </motion.div>
       </div>
     </div>

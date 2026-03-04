@@ -26,6 +26,56 @@
         "src": "resources/img/sections/career/ITLP/itlp_img_3.jpg",
         "alt": "ITLP building"
       }
+    ],
+    "links": [
+      {
+        "text": {
+          "en": {
+            "title": "Web Page"
+          },
+          "es": {
+            "title": "Página Web"
+          }
+        },
+        "link": "http://obralapiedad.com.ar/",
+        "icon": "externalPage"
+      },
+      {
+        "text": {
+          "en": {
+            "title": "High school diploma"
+          },
+          "es": {
+            "title": "Título Secundario"
+          }
+        },
+        "link": "resources/docs/itlp/certificado_itlp_canclini.pdf",
+        "icon": "document"
+      },
+      {
+        "text": {
+          "en": {
+            "title": "Academic transcript"
+          },
+          "es": {
+            "title": "Analítico"
+          }
+        },
+        "link": "resources/docs/itlp/analitico_itlp_canclini.pdf",
+        "icon": "document"
+      },
+      {
+        "text": {
+          "en": {
+            "title": "Internship report"
+          },
+          "es": {
+            "title": "Informe de pasantía"
+          }
+        },
+        "link": "resources/docs/itlp/manual_pasantias_canclini.pdf",
+        "icon": "document"
+      }
     ]
   },
   {
@@ -54,6 +104,20 @@
       {
         "src": "resources/img/sections/career/BCI/bci_img_3.jpg",
         "alt": "Desktop image"
+      }
+    ],
+    "links": [
+      {
+        "text": {
+          "en": {
+            "title": "Web Page"
+          },
+          "es": {
+            "title": "Página Web"
+          }
+        },
+        "link": "https://bci.com.ar/",
+        "icon": "externalPage"
       }
     ]
   },
@@ -84,6 +148,56 @@
         "src": "resources/img/sections/career/UTN/utn_img_3.jpg",
         "alt": "UTN FRBB Building"
       }
+    ],
+    "links": [
+      {
+        "text": {
+          "en": {
+            "title": "Web Page"
+          },
+          "es": {
+            "title": "Página Web"
+          }
+        },
+        "link": "https://www.frbb.utn.edu.ar/frbb/",
+        "icon": "externalPage"
+      },
+      {
+        "text": {
+          "en": {
+            "title": "University diploma"
+          },
+          "es": {
+            "title": "Título Universitario"
+          }
+        },
+        "link": "resources/docs/utn/certificado_utn_canclini.pdf",
+        "icon": "document"
+      },
+      {
+        "text": {
+          "en": {
+            "title": "Academic transcript"
+          },
+          "es": {
+            "title": "Analítico"
+          }
+        },
+        "link": "resources/docs/utn/analitico_utn_canclini.pdf",
+        "icon": "document"
+      },
+      {
+        "text": {
+          "en": {
+            "title": "Study plan"
+          },
+          "es": {
+            "title": "Plan de estudio"
+          }
+        },
+        "link": "resources/docs/utn/plan_2022_utn_canclini.pdf",
+        "icon": "document"
+      }
     ]
   },
   {
@@ -113,6 +227,20 @@
         "src": "resources/img/sections/career/VGS/vgs_img_3.jpg",
         "alt": "VGS Logo"
       }
+    ],
+    "links": [
+      {
+        "text": {
+          "en": {
+            "title": "Web Page"
+          },
+          "es": {
+            "title": "Página Web"
+          }
+        },
+        "link": "https://vgs.com.ar/",
+        "icon": "externalPage"
+      }
     ]
   },
   {
@@ -133,6 +261,32 @@
       {
         "src": "resources/img/sections/career/FASTA/fasta_img_1.jpg",
         "alt": "FASTA Logo"
+      }
+    ],
+    "links": [
+      {
+        "text": {
+          "en": {
+            "title": "Web Page"
+          },
+          "es": {
+            "title": "Página Web"
+          }
+        },
+        "link": "https://www.ufasta.edu.ar/",
+        "icon": "externalPage"
+      },
+      {
+        "text": {
+          "en": {
+            "title": "Academic transcript"
+          },
+          "es": {
+            "title": "Analítico"
+          }
+        },
+        "link": "resources/docs/fasta/analitico_fasta_canclini.pdf",
+        "icon": "document"
       }
     ]
   },
@@ -158,6 +312,32 @@
       {
         "src": "resources/img/sections/career/IAD_UTN/iad_utn_img_2.jpg",
         "alt": "IAD UTN Building"
+      }
+    ],
+    "links": [
+      {
+        "text": {
+          "en": {
+            "title": "Web Page"
+          },
+          "es": {
+            "title": "Página Web"
+          }
+        },
+        "link": "https://www.frbb.utn.edu.ar/frbb/",
+        "icon": "externalPage"
+      },
+      {
+        "text": {
+          "en": {
+            "title": "Course Program"
+          },
+          "es": {
+            "title": "Programa del Curso"
+          }
+        },
+        "link": "resources/docs/utn_iad/programa_utn_iad_2025_canclini.pdf",
+        "icon": "document"
       }
     ]
   }
