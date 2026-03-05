@@ -23,6 +23,8 @@ import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 
 // ============================================================
 import { SectionHeading } from "@ui/barrel_files/components";
 import { ProjectCard, ProjectCardInterface } from "./project_card/ProjectCard";
+import { SectionFloatingButton } from "@src/app/ui/components/home_screen/SectionFloatingButton";
+import { LucideSearch } from "lucide-react";
 
 // ============================================================
 // TYPES
@@ -106,6 +108,7 @@ export default function Projects({ data }: ProjectsProps) {
       ].join(" ")}
       style={{ boxShadow: "inset 0px 0px 50px 2px #0008" }}
     >
+
       {/* Background grid pattern */}
       <div className="grid-background absolute inset-0 invert dark:invert-0" />
 
@@ -133,6 +136,7 @@ export default function Projects({ data }: ProjectsProps) {
             opacity: opacityHero,
           }}
         >
+
           <motion.div
             initial={{ opacity: 1, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}

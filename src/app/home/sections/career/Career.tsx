@@ -24,7 +24,8 @@ import { SectionHeading } from "@ui/barrel_files/components";
 import { getSectionText, getLanguageTexts } from "@src/i18n/pageInfo";
 import { useLang } from "@src/providers/LanguageProvider";
 import Link from "next/link";
-import { Globe, LucideFile, LucideFileText, LucideGlobe } from "lucide-react";
+import { Globe, LucideFile, LucideFileText, LucideFileUser, LucideGlobe } from "lucide-react";
+import { SectionFloatingButton } from "@src/app/ui/components/home_screen/SectionFloatingButton";
 
 
 // ============================================================
@@ -122,6 +123,7 @@ export function Career({
       ref={containerRef}
       className="lg:w-4/5 lg:mx-auto mx-0 font-sans lg:px-[20px] px-0 overflow-y-hidden pb-[20vh] lg:pt-[20vh]"
     >
+
       {/* Section heading */}
       <SectionHeading heading={content!.title || "Projects"} subheading={content!.subtitle.toString() || "Here are some of the things I've been building..."} />
 
@@ -133,6 +135,8 @@ export function Career({
         {entries.map((item, index) => (
           <TimelineItem key={item._key} item={item} index={index} />
         ))}
+
+
 
         {/* Animated timeline line */}
         <div

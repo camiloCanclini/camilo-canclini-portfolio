@@ -146,7 +146,7 @@
       },
       {
         "src": "resources/img/sections/career/UTN/utn_img_3.jpg",
-        "alt": "UTN FRBB Building"
+        "alt": "UTN FRBB Camilo's Graduation"
       }
     ],
     "links": [
@@ -311,6 +311,10 @@
       },
       {
         "src": "resources/img/sections/career/IAD_UTN/iad_utn_img_2.jpg",
+        "alt": "IAD UTN Building"
+      },
+      {
+        "src": "resources/img/sections/career/IAD_UTN/iad_utn_img_3.jpg",
         "alt": "IAD UTN Building"
       }
     ],
