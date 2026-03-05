@@ -56,14 +56,15 @@ export default function HomeScreen() {
         <div className="shadow-inner snap-always snap-center" ref={projectsRef}>
           {/* Floating button */}
           <SectionFloatingButton sectionRef={projectsRef} animatedText="Project Searcher"
-            marginAnimation="0px 0px 0px 0px" link="/in-construction">
+            link="/in-construction">
             <LucideSearch className="w-6 h-6" />
           </SectionFloatingButton>
           <ProjectsParallax data={projectsData}></ProjectsParallax>
         </div>
         <div className="shadow-inner snap-always snap-center relative" ref={careerRef}>
           {/* Floating button */}
-          <SectionFloatingButton sectionRef={careerRef} animatedText="CV" link="/resources/docs/personal/cv_camilo_canclini.pdf">
+          <SectionFloatingButton sectionRef={careerRef} animatedText="CV"
+            link="/resources/docs/personal/cv_camilo_canclini.pdf">
             <LucideFileUser className="w-6 h-6" />
           </SectionFloatingButton>
           <Career data={careerData}></Career>

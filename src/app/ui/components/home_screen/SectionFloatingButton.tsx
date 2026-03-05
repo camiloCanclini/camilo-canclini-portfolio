@@ -1,25 +1,22 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { RefObject, useState } from "react";
-import { MarginType } from "framer-motion/types/types";
 
 export function SectionFloatingButton(
     {
         sectionRef,
         children,
         animatedText,
-        marginAnimation,
         link
     }:
         {
             sectionRef: RefObject<HTMLDivElement>,
             children: React.ReactNode
             animatedText?: string
-            marginAnimation?: MarginType
             link?: string
         }) {
     const isInView = useInView(sectionRef, {
         amount: 0.1,
-        margin: marginAnimation || "0px 0px 0px 0px",
+        margin: "0px 0px 0px 0px",
         once: false
     });
     const [isHovered, setIsHovered] = useState(false);
