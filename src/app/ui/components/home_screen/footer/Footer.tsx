@@ -33,6 +33,7 @@ type FooterIconLinkProps = {
 type FooterSectionProps = {
   className?: string;
   title?: string;
+  content?: any
 };
 
 type FooterProps = {
@@ -116,20 +117,18 @@ export function FooterSocialMedias({ className, title }: FooterSectionProps) {
 // ============================================================
 // SUB-COMPONENT - About Repository Section
 // ============================================================
-export function FooterAboutRepo({ className, title }: FooterSectionProps) {
+export function FooterAboutRepo({ className, title, content }: FooterSectionProps) {
   return (
     <div className={`${className ?? ""}`}>
       <SectionTitle title={title ?? "About this Repository"} />
       <div className="info-text my-4 box-border flex w-full items-center justify-center  text-[2em]">
         <div className="flex flex-col items-center justify-center text-center">
           <p className="text-[0.9em] leading-relaxed lg:px-10 lg:py-auto w-[60%] lg:w-full">
-            I leave the code and resources of this repo in my github, if you
-            need copy some element or see how is made the code, feel free to
-            visit the next link💜
+            {content?.textSection2}
           </p>
 
           <FooterIconLink
-            href="https://github.com/camiloCanclini/camilo_canclini_portfolio"
+            href={content?.linkRepoSection2}
             target="_blank"
             ariaLabel="Actual repository of this portfolio"
             rel="noreferrer noopener nofollow"
@@ -145,7 +144,7 @@ export function FooterAboutRepo({ className, title }: FooterSectionProps) {
 // ============================================================
 // SUB-COMPONENT - Contact Info Section
 // ============================================================
-export function FooterContactInfo({ className, title }: FooterSectionProps) {
+export function FooterContactInfo({ className, title, content }: FooterSectionProps) {
 
   return (
     <div className={`${className ?? ""}`}>
@@ -153,41 +152,16 @@ export function FooterContactInfo({ className, title }: FooterSectionProps) {
       <div className="info-text my-4 box-border flex w-full items-center justify-center px-[1.4em] lg:px-[3.4em] text-[2em]">
         <div className="flex flex-col gap-3">
           <div className="flex flex-col items-center justify-center gap-2 text-center lg:text-left">
-            <Link
-              href="/"
-              className="text-[1.1em] hover:underline hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
-              rel="noreferrer nofollow"
-            >
-              Home Page
-            </Link>
-            <Link
-              href="/in-construction"
-              className="text-[1.1em] hover:underline hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
-              rel="noreferrer nofollow"
-            >
-              Project Searcher
-            </Link>
-            <Link
-              href="/in-construction"
-              className="text-[1.1em] hover:underline hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
-              rel="noreferrer nofollow"
-            >
-              Gallery
-            </Link>
-            <Link
-              href="/legal/terms_and_conditions"
-              className="text-[1.1em] hover:underline hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
-              rel="noreferrer nofollow"
-            >
-              Terms and Conditions
-            </Link>
-            <Link
-              href="/legal/privacy_policy"
-              className="text-[1.1em] hover:underline hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
-              rel="noreferrer nofollow"
-            >
-              Privacy Policy
-            </Link>
+            {content?.pagesSection3.map((page: any) => (
+              <Link
+                key={page.name}
+                href={page.url}
+                className="text-[1.1em] hover:underline hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
+                rel="noreferrer nofollow"
+              >
+                {page.name}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
@@ -215,9 +189,9 @@ export default function Footer({ className }: FooterProps) {
         className={`bg-white dark:bg-black text-white flex lg:flex-row flex-col w-full px-0 py-[10vh] py-[10vh] text-[8px] ${className ?? ""
           }`}
       >
-        <FooterSocialMedias title={content!.content.titleSection1 || "Social Medias"} className="lg:w-1/3 w-full p-6 px-10 text-theme-primary dark:text-themedark-primary" />
-        <FooterAboutRepo title={content!.content.titleSection2 || "About this Repository"} className="lg:w-1/3 w-full p-6 px-10 text-theme-primary dark:text-themedark-primary" />
-        <FooterContactInfo title={content!.content.titleSection3 || "Other pages"} className="lg:w-1/3 w-full p-6 px-10 text-theme-primary dark:text-themedark-primary" />
+        <FooterSocialMedias title={content!.content.titleSection1 || "Social Medias"} content={content!.content} className="lg:w-1/3 w-full p-6 px-10 text-theme-primary dark:text-themedark-primary" />
+        <FooterAboutRepo title={content!.content.titleSection2 || "About this Repository"} content={content!.content} className="lg:w-1/3 w-full p-6 px-10 text-theme-primary dark:text-themedark-primary" />
+        <FooterContactInfo title={content!.content.titleSection3 || "Other pages"} content={content!.content} className="lg:w-1/3 w-full p-6 px-10 text-theme-primary dark:text-themedark-primary" />
       </footer>
     </>
   );

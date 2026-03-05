@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className='bg-theme-bg dark:bg-themedark-bg'>
         <LanguageProvider defaultLocale="en">
           <ThemeContextProvider>
             <ReCaptchaProvider>

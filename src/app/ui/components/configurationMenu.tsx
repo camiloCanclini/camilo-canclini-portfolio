@@ -6,16 +6,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Settings as SettingIcon, Sun, Moon, ChevronDown } from "lucide-react";
 import { useLang } from "@src/providers/LanguageProvider";
 import Image from "next/image";
+import espFlag from "@public/resources/img/icons/others/esp_flag.jpg";
+import engFlag from "@public/resources/img/icons/others/eng_flag.jpg";
+import { StaticImageData } from "next/image";
 
 type Language = {
   code: "es" | "en";
   name: string;
-  flag: string;
+  flag: StaticImageData;
 };
 
 const LANGUAGES: Language[] = [
-  { code: "es", name: "Español", flag: "/resources/img/icons/others/esp_flag.jpg" },
-  { code: "en", name: "English", flag: "/resources/img/icons/others/eng_flag.jpg" },
+  { code: "es", name: "Español", flag: espFlag },
+  { code: "en", name: "English", flag: engFlag },
 ];
 
 const FLAG_IMAGE_SIZE = { width: 24, height: 16 };
@@ -40,6 +43,15 @@ export default function ConfigurationMenu({ showConfigMenu }: { showConfigMenu: 
   const [isOpen, setIsOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
 
+  // Precaching flag images
+  useEffect(() => {
+    LANGUAGES.forEach((lang) => {
+      const img = new window.Image();
+      img.src = lang.flag.src;
+    });
+  }, []);
+
+
   // ✅ idioma global
   const { locale, setLocale } = useLang();
 
@@ -47,6 +59,7 @@ export default function ConfigurationMenu({ showConfigMenu }: { showConfigMenu: 
 
   // ✅ el seleccionado sale del provider
   const selectedLang = LANGUAGES.find((lang) => lang.code === locale);
+
 
   useEffect(() => setMounted(true), []);
 
@@ -159,8 +172,8 @@ export default function ConfigurationMenu({ showConfigMenu }: { showConfigMenu: 
                                   : ""
                                 }`}
                             >
-                              <Image
-                                src={lang.flag}
+                              <img
+                                src={lang.flag.src}
                                 alt={lang.name}
                                 width={FLAG_IMAGE_SIZE.width}
                                 height={FLAG_IMAGE_SIZE.height}

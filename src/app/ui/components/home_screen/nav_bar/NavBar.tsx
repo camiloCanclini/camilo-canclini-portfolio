@@ -60,7 +60,9 @@ function NavOption({ label, link }: { label: string; link: string }) {
   return (
     <Link
       href={link}
-      className="fading-5 nav_option text-lg px-6 h-full flex items-center justify-center grow"
+      className="fading-5 nav_option text-lg px-6 h-full 
+      flex items-center justify-center grow
+      hover:scale-105 transition-transform"
     >
       {label}
     </Link>

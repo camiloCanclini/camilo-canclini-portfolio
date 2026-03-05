@@ -15,8 +15,9 @@ export default function NotFound() {
     const { subtitle, content } = sectionText;
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-[70vh] text-center px-4 mb-[20vh] h-[100vh]">
-            <div className="relative w-[340px] h-[340px] bg-gray-100 dark:bg-gray-900
+        <div className="flex flex-col items-center justify-center min-h-[70vh]
+         text-center px-4 mb-[20vh] h-[100vh] bg-theme-bg dark:bg-themedark-bg">
+            <div className="relative w-[340px] h-[340px] bg-white dark:bg-themedark-bg
              rounded-full p-[6em] flex items-center justify-center
              shadow-lg shadow-gray-500/10">
                 <img src={constructionImage.src} alt="In Construction" className=" w-full h-full object-contain" />

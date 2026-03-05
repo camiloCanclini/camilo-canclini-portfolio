@@ -40,8 +40,10 @@ export function SectionFloatingButton(
                     onHoverStart={() => setIsHovered(true)}
                     onHoverEnd={() => setIsHovered(false)}
                     className="FLOATING_BUTTON flex items-center gap-2
-                 border border-white bg-theme-primary text-theme-opposite p-2 rounded
-                 hover:bg-theme-primary hover:text-theme-opposite hover:scale-105 cursor-pointer"
+                 border border-theme-primary bg-theme-complementary text-theme-primary 
+                 dark:border-theme-complementary dark:bg-theme-primary dark:text-theme-complementary
+                 p-2 rounded
+                hover:text-theme-primary hover:scale-105 cursor-pointer"
                     href={link ? link : "#"}
                 >
                     {/* Tooltip */}

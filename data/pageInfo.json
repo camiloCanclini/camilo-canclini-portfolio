@@ -144,12 +144,60 @@
         "es": {
           "titleSection1": "Redes Sociales",
           "titleSection2": "Sobre este Repositorio",
-          "titleSection3": "Otras páginas"
+          "textSection2": "Si llegaste a esta parte te invito a revisar el código fuente de este repositorio. Si necesitas ideas para construir tu propia página, puedes usar este como referencia. ¡Siéntete libre de mirarlo! ❤️",
+          "linkRepoSection2": "https://github.com/camiloCanclini/camilo-canclini-portfolio",
+          "titleSection3": "Otras páginas",
+          "pagesSection3": [
+            {
+              "name": "Home",
+              "url": "/"
+            },
+            {
+              "name": "Galería",
+              "url": "/in-construction"
+            },
+            {
+              "name": "Buscador de proyectos",
+              "url": "/in-construction"
+            },
+            {
+              "name": "Términos y Condiciones",
+              "url": "/legal/terms_and_conditions"
+            },
+            {
+              "name": "Política de Privacidad",
+              "url": "/legal/privacy_policy"
+            }
+          ]
         },
         "en": {
           "titleSection1": "Social Medias",
           "titleSection2": "About this Repository",
-          "titleSection3": "Other pages"
+          "textSection2": "If you reach this part I invite you to check the source code of this repository. If you need ideas to build your own page, you can use this as a reference. Feel free to look at it!❤️",
+          "linkRepoSection2": "https://github.com/camiloCanclini/camilo-canclini-portfolio",
+          "titleSection3": "Other pages",
+          "pagesSection3": [
+            {
+              "name": "Home",
+              "url": "/"
+            },
+            {
+              "name": "Gallery",
+              "url": "/in-construction"
+            },
+            {
+              "name": "Project Searcher",
+              "url": "/in-construction"
+            },
+            {
+              "name": "Terms and Conditions",
+              "url": "/legal/terms_and_conditions"
+            },
+            {
+              "name": "Privacy Policy",
+              "url": "/legal/privacy_policy"
+            }
+          ]
         }
       }
     },
